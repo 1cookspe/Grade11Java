@@ -20,11 +20,15 @@ public class BingoRockPaperScissorsSmile {
         // TODO code application logic here
     
 //Exercise 1: The Bingo Game
+        System.out.println("Bingo Game");
         System.out.format("%-5s| %-5s| %-5s| %-5s| %-5s", " B", " I", " N", " G", " O");
         System.out.format("\n%-5s| %-5s| %-5s| %-5s| %-5s", " 8"," 67", " 42", " 3", " 99");
         System.out.format("\n%-5s| %-5s| %-5s| %-5s| %-5s", " 75", " 51", " FREE", " 12", " 87");
         System.out.format("\n%-5s| %-5s| %-5s| %-5s| %-5s", " 90", " 77", " 59", " 31", " 66");
         System.out.format("\n%-5s| %-5s| %-5s| %-5s| %-5s", " 56", " 34", " 73", " 22", " 1");
+        
+        //Exercise 2: Bingo Instructions
+        
     }
     
 }
