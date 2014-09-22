@@ -16,6 +16,7 @@ public class NewMain {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+    System.out.format("%-10 %8 %8", "Team", "Wins", "Losses/n");
     }
     
 }

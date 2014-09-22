@@ -18,14 +18,37 @@ public class HelloWorld {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //Comment
         
-        /*
-        Commment, skip over
-        */
+        //Special characters
+        System.out.println("\"Hello\"");
+        System.out.println("\tTab");
+        System.out.println("\\Slash");
+        System.out.println("\"Quote\"");
+        System.out.println("Hello, world!");
         
-       System.out.println("Hello, World!");
-       System.out.println("Second build");
+        //MLB Standings
+        System.out.print("Team");
+        System.out.print("\t Wins");
+        System.out.print("\t Losses");
+        System.out.print("\t Ties");
+        System.out.print("\nOrioles");
+        System.out.print("\t 93");
+        System.out.print("\t 62");
+        System.out.print("\t 15");
+        System.out.print("\nYankees");
+        System.out.print("\t 80");
+        System.out.print("\t 75");
+        System.out.print("\t 6");
+        System.out.print("\nBlue Jays");
+        System.out.print("\t 78");
+        System.out.print("\t 77");
+        System.out.print("\t 10");
+        
+        //Formatting
+        System.out.format("%-20s | %5s | %6s | %5s", "\n\nTeam Name", "Wins", "Losses", "PCT");
+        System.out.format("%-20s | %5s | %6s | %5s", "\nBaltimore", "90", "60", ".600");
+        System.out.format("%-20s | %5s | %6s | %5s", "\nNew York", "80", "75", ".516");
+        System.out.format("%-20s | %5s | %6s | %5s", "\nToronto", "78", "77", ".503");
+        System.out.format("%-20s | %5s | %6s | %5s", "\nTampa", "75", "81", ".481\n");
     }
-    
 }
