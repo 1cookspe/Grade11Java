@@ -1,7 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Name: Spencer Cook
+ * Date: September 24, 2014
+ * Version: v0
+ * Description:
+        This program creates a quadratic equation with different values of x
  */
 package edu.hdsb.gwss.spencercook.ics3u.u3;
 
@@ -16,7 +17,9 @@ public class Quadratic {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int x = 4;
+        //int x = 4;
+        //int x = 75;
+        int x = -3483;
         double y;
         
         y = 3*x*x - 8*x + 4;
@@ -25,4 +28,7 @@ public class Quadratic {
         System.out.print("\n");
     }
     
+    /*
+    It printed the value of y, which varied as I changed the value of x
+    */
 }
