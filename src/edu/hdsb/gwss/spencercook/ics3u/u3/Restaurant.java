@@ -22,9 +22,13 @@ public class Restaurant {
         double dessertCost = 12.39;
         final double TAX = 1.13;
         double totalCost;
+        double roundedCost;
 
         //Calculate total bill
         totalCost = (steakCost + drinkCost + dessertCost) * TAX;
+        roundedCost = totalCost * 100;
+        Math.round(roundedCost * 100);
+        Math.round((100*roundedCost)/(double)100);
 
         //Print table
         System.out.format("%-15s | %-6s", "Product", "Cost");
@@ -32,7 +36,8 @@ public class Restaurant {
         System.out.format("\n%-15s | %-6s", "Iced Tea", "$5.37");
         System.out.format("\n%-15s | %-6s", "Chocolate Cake", "$12.39");
         System.out.format("\n%-15s | %-6s", "Tax", "13%");
-        System.out.format("\n%-15s | %-6s", "Total", "" + totalCost);
+        System.out.format("\n%-15s | %-6s", "Total", "$" + roundedCost);
+        System.out.print("\n");
     }
 
 }
