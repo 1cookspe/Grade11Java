@@ -27,7 +27,12 @@ public class Restaurant {
         totalCost = (steakCost + drinkCost + dessertCost) * TAX;
 
         //Print table
-        System.out.format("%-8s | %-6s", "Product", "Cost");
+        System.out.format("%-15s | %-6s", "Product", "Cost");
+        System.out.format("\n%-15s | %-6s", "Steak", "$21.46");
+        System.out.format("\n%-15s | %-6s", "Iced Tea", "$5.37");
+        System.out.format("\n%-15s | %-6s", "Chocolate Cake", "$12.39");
+        System.out.format("\n%-15s | %-6s", "Tax", "13%");
+        System.out.format("\n%-15s | %-6s", "Total", "" + totalCost);
     }
 
 }
