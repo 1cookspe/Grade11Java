@@ -17,7 +17,7 @@ public class Change {
      */
     public static void main(String[] args) {
         //Create variables
-        int numberOfCents = 95;
+        int numberOfCents = 93;
         int numberOfQuarters;
         int numberOfDimes;
         int numberOfNickles;
@@ -47,6 +47,14 @@ public class Change {
         System.out.format("\n%-8s | %8s", "Dimes", "" + numberOfDimes);
         
         //Find and print number of nickels
+        numberOfNickles = remainingCents / 5;
+        remainingCents = remainingCents - (numberOfNickles * 5);
+        System.out.format("\n%-8s | %8s", "Nickles", "" + numberOfNickles);
+        
+        //Find and print the number of pennies
+        numberOfPennies = remainingCents / 1;
+        System.out.format("\n%-8s | %8s", "Pennies", "" + numberOfPennies);
+        System.out.print("\n");
     }
     
     
