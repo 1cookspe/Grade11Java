@@ -5,6 +5,7 @@
  This program sorts the digits of a three-digit number into ones, ten, and hundreds
  */
 package edu.hdsb.gwss.spencercook.ics3u.u3;
+import java.util.Scanner;
 
 /**
  *
@@ -17,10 +18,14 @@ public class Digits {
      */
     public static void main(String[] args) {
         //Create variables
-        int number = 245;
+        int number;
         int ones;
         int tens;
         int hundreds;
+        
+        Scanner numberInput = new Scanner(System.in);
+        System.out.print("Please enter a three digit number");
+        number = numberInput.nextInt();
         
         //Create output
         System.out.println("You chose the three digit number " + number);
@@ -40,6 +45,7 @@ public class Digits {
         hundreds = (number % 1000 - (tens * 10) - ones)/ 100;
         System.out.print("\n");
         System.out.format("%-8s | %-9s", "Hundreds", "" + hundreds);
+        System.out.print("\n");
         
     }
     

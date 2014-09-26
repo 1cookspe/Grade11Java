@@ -5,6 +5,7 @@
         This program calculates the perimeter and area of a rectangle
  */
 package edu.hdsb.gwss.spencercook.ics3u.u3;
+import java.util.Scanner;
 
 /**
  *
@@ -16,13 +17,20 @@ public class AreaPerimeter {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        double width = 23.5;
-        double length = 50.4;
+        double width;
+        double length;
         double area;
         double roundedArea;
         double perimeter;
         double roundedPerimeter;
+        
+        Scanner widthInput = new Scanner(System.in);
+        System.out.print("Please enter the width value for your rectangle.");
+        width = widthInput.nextDouble();
+        
+        Scanner lengthInput = new Scanner(System.in);
+        System.out.print("Please enter the length value for your rectangle");
+        length = lengthInput.nextDouble();
         
         //Calculate area
         area = width * length;

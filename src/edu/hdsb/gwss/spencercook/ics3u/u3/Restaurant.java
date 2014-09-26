@@ -17,13 +17,15 @@ public class Restaurant {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        double steakCost = 21.46;
-        double drinkCost = 5.87;
-        double dessertCost = 12.39;
+        double steakCost = 63.2;
+        double drinkCost = 63.4;
+        double dessertCost = 37.4;
         final double TAX = 1.13;
         double totalCost;
         double roundedCost;
 
+        
+        
         //Calculate total bill
         totalCost = (steakCost + drinkCost + dessertCost) * TAX;
         roundedCost = totalCost * 100;
