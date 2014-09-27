@@ -24,10 +24,12 @@ public class AreaPerimeter {
         double perimeter;
         double roundedPerimeter;
         
+        //User-input for width
         Scanner widthInput = new Scanner(System.in);
         System.out.print("Please enter the width value for your rectangle.");
         width = widthInput.nextDouble();
         
+        //User-input for length
         Scanner lengthInput = new Scanner(System.in);
         System.out.print("Please enter the length value for your rectangle");
         length = lengthInput.nextDouble();

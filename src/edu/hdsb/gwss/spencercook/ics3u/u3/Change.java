@@ -6,6 +6,8 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.u3;
 
+import java.util.Scanner;
+
 /**
  *
  * @author spencercook
@@ -17,18 +19,26 @@ public class Change {
      */
     public static void main(String[] args) {
         //Create variables
-        int numberOfCents = 93;
+        int numberOfCents;
         int numberOfQuarters;
         int numberOfDimes;
         int numberOfNickles;
         int numberOfPennies;
         int remainingCents;
+        
+        //Create user-input for the numberOfCents
+        Scanner centsInput = new Scanner(System.in);
+        System.out.print("Please input a value less than $1 in cents");
+        numberOfCents = centsInput.nextInt();
        
         //Checks to see if the change is under $1.00
         if (numberOfCents < 100) {
             System.out.println("Change in Cents = " + numberOfCents);
         } else {
             System.out.println("That value is too high. Please input change that is less than $1.00.");
+            Scanner centsInputRedo = new Scanner(System.in);
+        System.out.print("Please input a value less than $1 in cents");
+        numberOfCents = centsInputRedo.nextInt();
         }
         
         //Create table and output

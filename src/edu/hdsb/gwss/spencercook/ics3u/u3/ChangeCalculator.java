@@ -11,7 +11,6 @@ package edu.hdsb.gwss.spencercook.ics3u.u3;
  * @author spencercook
  */
 public class ChangeCalculator {
-
     /**
      * @param args the command line arguments
      */
