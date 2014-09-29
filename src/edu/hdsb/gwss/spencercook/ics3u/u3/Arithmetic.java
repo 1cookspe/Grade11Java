@@ -6,6 +6,8 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.u3;
 
+import java.util.Scanner;
+
 /**
  *
  * @author 1cookspe
@@ -16,29 +18,38 @@ public class Arithmetic {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        int a = 42;
-        int b = -786;
+        // Variables
+        double a;
+        double b;
         
-        //Calculate sum
+        //Objects
+        Scanner mathInput = new Scanner(System.in);
+        
+        //Get user-input
+        System.out.print("Input the value of your first number: ");
+        a = mathInput.nextDouble();
+        System.out.print("Input value of second number: ");
+        b = mathInput.nextDouble();
+        
+        //Calculate sum and display it
         double sum = a + b;
         System.out.print("The sum of " + a);
         System.out.print(" and " + b);
         System.out.print(" is " + sum);
         
-        //Calculate difference
+        //Calculate difference and display it
         double difference = a - b;
         System.out.print("\nThe difference of " + a);
         System.out.print(" and " + b);
         System.out.print(" is " + difference);
         
-        //Calculate product
+        //Calculate product and display it
         double product = a * b;
         System.out.print("\nThe product of " + a);
         System.out.print(" and " + b);
         System.out.print(" is " + product);
         
-        //Calculate Modulus
+        //Calculate Modulus and display it
         double modulus = a % b;
         System.out.print("\nThe modulus of " + a);
         System.out.print(" and " + b);

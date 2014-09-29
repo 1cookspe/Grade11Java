@@ -7,6 +7,7 @@
 package edu.hdsb.gwss.spencercook.ics3u.u3;
 
 import java.util.Scanner;
+import java.text.NumberFormat;
 
 /**
  *
@@ -18,20 +19,26 @@ public class Restaurant {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Initialize and declare variables
-        double steakCost = 63.2;
-        double drinkCost = 63.4;
-        double dessertCost = 37.4;
+        //Constants        
         final double TAX = 1.13;
+
+        // Initialize and declare variables
+        double steakCost;
+        double drinkCost;
+        double dessertCost;
         double totalCost;
         double roundedCost;
         int numberOfMeals;
-
-        //Create user-input for meal costs
+        
+        //Objects
         Scanner mealInput = new Scanner(System.in);
+        NumberFormat money = NumberFormat.getCurrencyInstance();
+        
+        //Create user-input for meal costs
+        System.out.println("Welcome to Burger King\n");
         System.out.print("How many items have you purchased?");
         numberOfMeals = mealInput.nextInt();
-        
+
         if (numberOfMeals == 1) {
             System.out.print("\nPlease input the price of your item:");
             steakCost = mealInput.nextDouble();
@@ -51,19 +58,18 @@ public class Restaurant {
             System.out.print("\nPlease input the price of your dessert");
             dessertCost = mealInput.nextDouble();
         }
-       
+
         //Calculate total bill
         totalCost = (steakCost + drinkCost + dessertCost) * TAX;
-        totalCost = Math.round(totalCost);
 
         //Print table
-        System.out.format("%-15s | %-6s", "Product", "Cost");
-        System.out.format("\n%-15s | %-6s", "Main Course", "" + steakCost);
-        System.out.format("\n%-15s | %-6s", "Drink", "" + drinkCost);
-        System.out.format("\n%-15s | %-6s", "Dessert", "" + dessertCost);
+        System.out.format("\n%-15s | %-6s", "Product", "Cost");
+        System.out.format("\n%-15s | %-6s", "Main Course", "" + money.format(steakCost));
+        System.out.format("\n%-15s | %-6s", "Drink", "" + money.format(drinkCost));
+        System.out.format("\n%-15s | %-6s", "Dessert", "" + money.format(dessertCost));
         System.out.format("\n%-15s | %-6s", "Tax", "13%");
-        System.out.format("\n%-15s | %-6s", "Total", "$" + totalCost); 
-        System.out.print("\n");
+        System.out.format("\n%-15s | %-6s", "Total", ""  + money.format(totalCost));
+        System.out.println("\nThank you for choosing Burger King\n");
     }
 
 }

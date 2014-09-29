@@ -15,7 +15,7 @@ public class ChangeCalculator {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int cents = 221, pennies, nickles, dimes, quarters, remaining; 
+        int cents = 121, pennies, nickles, dimes, quarters, remaining; 
         quarters = cents / 25; 
         remaining = cents - (quarters * 25); 
         dimes = remaining / 10; 

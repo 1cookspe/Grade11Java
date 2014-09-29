@@ -26,8 +26,10 @@ public class Change {
         int numberOfPennies;
         int remainingCents;
         
-        //Create user-input for the numberOfCents
+        //Objects
         Scanner centsInput = new Scanner(System.in);
+        
+        //Create user-input for the numberOfCents
         System.out.print("Please input a value less than $1 in cents");
         numberOfCents = centsInput.nextInt();
        

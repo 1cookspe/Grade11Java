@@ -23,8 +23,10 @@ public class Digits {
         int tens;
         int hundreds;
         
-        //User-input
+        //Objects
         Scanner numberInput = new Scanner(System.in);
+
+        //User-input
         System.out.print("Please enter a three digit number");
         number = numberInput.nextInt();
         
