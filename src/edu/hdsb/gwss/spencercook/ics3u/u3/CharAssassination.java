@@ -15,7 +15,7 @@ public class CharAssassination {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Variables
         char ch = 'A' ;
         //Z works because it is a character like A
         //AA presents an error, because it can only store a single character
