@@ -44,12 +44,15 @@ public class HallCost {
         numberOfGuests = hallInput.nextInt();
         
         //Get cost of each guest
-        System.out.print("How much will it cost for the meals for each person? ");
+        System.out.print("How much will it cost for the meals for each person? $");
         costPerGuest = hallInput.nextDouble();
         
+        //Calculate total cost
         totalCost = (numberOfGuests * costPerGuest * HST) + HALL_RENTAL;
 
-        System.out.println("For " + numberOfGuests + " people it will cost " +  cost.format(totalCost));
+        //Print to user
+        System.out.println("For " + numberOfGuests + " people it will cost " +  cost.format(totalCost) + ", with tax.");
+        System.out.println("Thank you for visiting the Banquet Hall, " + name + "!");
     }
     
 }
