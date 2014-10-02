@@ -28,13 +28,21 @@ public class Discount {
         NumberFormat dollarFormat = NumberFormat.getCurrencyInstance();
         
         //Get totalPurchases
-        System.out.print("What is the value of the products you bought today? ");
+        System.out.println("Welcome to Home Depot!");
+        System.out.print("What is the value of the products you bought today? $");
         totalPurchases = checkDiscount.nextDouble();
         
         //Check if purchases are over $10.00
         if (totalPurchases > 10) {
-          
+          discountedPrice = totalPurchases / 10;
+          discountedPrice = totalPurchases - discountedPrice;
+          System.out.println("Congratulations! You saved 10% off your total bill!");
+          System.out.format("%-10s %10s", "Total Price:", "" + dollarFormat.format(totalPurchases));
+          System.out.format("\n%-10s %10s", "You Pay:", "" + dollarFormat.format(discountedPrice));
+        } else {
+            System.out.println("Your total for today is " + dollarFormat.format(totalPurchases));
         }
+        System.out.println("\nThank you for shopping with us.");
     }
     
 }
