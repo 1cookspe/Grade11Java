@@ -45,5 +45,6 @@ public class Y2KDetector {
         } else {
         ageOfPerson = dateOfBirth - currentYear;
         }
+        System.out.print("You are " + ageOfPerson + " years old.");
     }
 }
