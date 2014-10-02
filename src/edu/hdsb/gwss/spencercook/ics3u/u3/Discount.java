@@ -34,7 +34,7 @@ public class Discount {
         
         //Check if purchases are over $10.00
         if (totalPurchases > 10) {
-          discountedPrice = totalPurchases / 10;
+          discountedPrice = totalPurchases * 2;
           discountedPrice = totalPurchases - discountedPrice;
           System.out.println("Congratulations! You saved 10% off your total bill!");
           System.out.format("%-10s %10s", "Total Price:", "" + dollarFormat.format(totalPurchases));

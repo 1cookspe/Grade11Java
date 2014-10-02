@@ -63,6 +63,8 @@ public class OrderChecker {
         System.out.format("\n%-9s|%10s|%7s", " Total ", "" + totalPartsPurchased,  "" + moneySpent + "¢");
         
         //Checks to see if purchase is valid
+        
+    if (numberOfNuts >= 0 && numberOfBolts >= 0 && numberOfWashers >= 0) {    
         if (numberOfNuts >= numberOfBolts && (numberOfBolts * 2) <= numberOfWashers) {
             System.out.println("\nOrder is valid");
         } else {
@@ -70,4 +72,5 @@ public class OrderChecker {
         }
         System.out.println("Thank you for shopping with us!");
     }
+}
 }
