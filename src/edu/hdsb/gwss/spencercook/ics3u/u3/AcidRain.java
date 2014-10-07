@@ -40,7 +40,7 @@ public class AcidRain {
         // - If pHLevel is more than 7.5, the water is too alkaline for fish to survive
         // - If pHLevel is between 6.5 and 7.5 (including 6.5, 7.5), the water is safe for fish
         // - If pHLevel is greater than 14 or less than 0, then the user inputted an invalid pH value
-        if (pHLevel > 0 && pHLevel < 14) {
+        if (pHLevel >= 0 && pHLevel <= 14) {
             if (pHLevel < ACIDIC_BENCHMARK) {
                 System.out.println("The water is too acidic for the fish to survive. Please try to clean up their environment or move them to another habitat until the pH level ranges from 6.5 to 7.5.");
             } else if (pHLevel > ALKALINE_BENCHMARK) {

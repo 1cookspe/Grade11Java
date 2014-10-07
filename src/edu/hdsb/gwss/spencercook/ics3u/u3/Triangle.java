@@ -18,16 +18,10 @@ public class Triangle {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Constants
-
         // Variables
         double firstSideLength;
         double secondSideLength;
         double thirdSideLength;
-        boolean isATriangle;
-        double longestSide;
-        double secondLongestSide;
-        double shortestSide;
 
         // Objects
         Scanner sideInput = new Scanner(System.in);
@@ -48,38 +42,29 @@ public class Triangle {
         //LOGICAL CALCULATIONS
         // - Find the longest sides by comparing their values in an if statement
         // - Get the sum of the two smaller sides and check if they are greater than the length of the third side
-        if (thirdSideLength > 0) {
-            if (thirdSideLength >= secondSideLength && thirdSideLength >= firstSideLength) {
-                longestSide = thirdSideLength;
-            } else if (thirdSideLength >= secondSideLength || thirdSideLength >= firstSideLength) {
-                secondLongestSide = thirdSideLength;
-            } else {   
-                shortestSide = thirdSideLength;
-            }   
-        } else {
-            System.out.println("Please input a value for your first side that is greater than zero.");
+        if (firstSideLength > thirdSideLength) { 
+            double temporary = firstSideLength;
+            firstSideLength = thirdSideLength;
+            thirdSideLength = temporary;
+        }    
+        if (secondSideLength > thirdSideLength) {
+            double temporarySecond = secondSideLength;
+            secondSideLength = thirdSideLength;
+            thirdSideLength = temporarySecond;
+        } 
+        if (firstSideLength > secondSideLength) {
+            double temporaryFirst = firstSideLength;
+            firstSideLength = secondSideLength;
+            secondSideLength = temporaryFirst;
         }
-        if (secondSideLength > 0) {
-            if (secondSideLength >= thirdSideLength && secondSideLength >= firstSideLength) {
-                longestSide = secondSideLength;
-            } else if (secondSideLength >= thirdSideLength || secondSideLength >= firstSideLength) {
-                secondLongestSide = secondSideLength;
-            } else {   
-                shortestSide = secondSideLength;
-            }   
+
+        //PERFORM CALCULATIONS
+        // - Check if a triangle by adding the lowest sides to see if it is greater than longest side
+        if (firstSideLength + secondSideLength > thirdSideLength) {
+            System.out.println("This figure is a triangle!");
         } else {
-            System.out.println("Please input a value for your second side that is greater than zero.");
+            System.out.println("This figure is not a triangle.");
         }
-        if (firstSideLength > 0) {
-            if (firstSideLength >= thirdSideLength && firstSideLength >= secondSideLength) {
-                longestSide = firstSideLength;
-            } else if (firstSideLength >= thirdSideLength || firstSideLength >= secondSideLength) {
-                secondLongestSide = firstSideLength;
-            } else {   
-                shortestSide = firstSideLength;
-            }   
-        } else {
-            System.out.println("Please input a value for your third side that is greater than zero.");
-        }
+        System.out.println("Thank you for using the \"Is it a Triangle?\" generator!");
     }
 }
