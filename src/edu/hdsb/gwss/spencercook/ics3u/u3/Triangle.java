@@ -25,9 +25,9 @@ public class Triangle {
         double secondSideLength;
         double thirdSideLength;
         boolean isATriangle;
-        boolean firstSideIsLongest;
-        boolean secondSideIsLongest;
-        boolean thirdSideIsLongest;
+        double longestSide;
+        double secondLongestSide;
+        double shortestSide;
 
         // Objects
         Scanner sideInput = new Scanner(System.in);
@@ -48,13 +48,38 @@ public class Triangle {
         //LOGICAL CALCULATIONS
         // - Find the longest sides by comparing their values in an if statement
         // - Get the sum of the two smaller sides and check if they are greater than the length of the third side
-        if (thirdSideLength > secondSideLength && thirdSideLength > firstSideLength) {
-            thirdSideIsLongest = true;
-        } else if (secondSideLength > thirdSideLength && secondSideLength > firstSideLength) {
-            secondSideIsLongest = true;
+        if (thirdSideLength > 0) {
+            if (thirdSideLength >= secondSideLength && thirdSideLength >= firstSideLength) {
+                longestSide = thirdSideLength;
+            } else if (thirdSideLength >= secondSideLength || thirdSideLength >= firstSideLength) {
+                secondLongestSide = thirdSideLength;
+            } else {   
+                shortestSide = thirdSideLength;
+            }   
         } else {
-            firstSideIsLongest = true;
+            System.out.println("Please input a value for your first side that is greater than zero.");
+        }
+        if (secondSideLength > 0) {
+            if (secondSideLength >= thirdSideLength && secondSideLength >= firstSideLength) {
+                longestSide = secondSideLength;
+            } else if (secondSideLength >= thirdSideLength || secondSideLength >= firstSideLength) {
+                secondLongestSide = secondSideLength;
+            } else {   
+                shortestSide = secondSideLength;
+            }   
+        } else {
+            System.out.println("Please input a value for your second side that is greater than zero.");
+        }
+        if (firstSideLength > 0) {
+            if (firstSideLength >= thirdSideLength && firstSideLength >= secondSideLength) {
+                longestSide = firstSideLength;
+            } else if (firstSideLength >= thirdSideLength || firstSideLength >= secondSideLength) {
+                secondLongestSide = firstSideLength;
+            } else {   
+                shortestSide = firstSideLength;
+            }   
+        } else {
+            System.out.println("Please input a value for your third side that is greater than zero.");
         }
     }
-
 }
