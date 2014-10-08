@@ -57,6 +57,9 @@ public class Triangle {
             firstSideLength = secondSideLength;
             secondSideLength = temporaryFirst;
         }
+        System.out.println(firstSideLength);
+        System.out.println(secondSideLength);
+        System.out.println(thirdSideLength);
 
         //PERFORM CALCULATIONS
         // - Check if a triangle by adding the lowest sides to see if it is greater than longest side
