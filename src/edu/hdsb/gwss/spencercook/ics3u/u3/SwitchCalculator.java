@@ -33,7 +33,7 @@ public class SwitchCalculator {
         Scanner switchInput = new Scanner(System.in);
         
         //USER INPUT; GET, SET
-        System.out.println("Welcome to the6"
+        System.out.println("Welcome to the"
                 + " Switch Calculator!");
         System.out.print("Enter value of the first number: ");
         x = switchInput.nextDouble();
