@@ -27,6 +27,7 @@ public class RightTriangle {
         Scanner rightTriangleInput = new Scanner(System.in);
 
         //USER INPUT; GET, SET
+        //Introduce program
         System.out.println("Welcome to the \"Is it a Right Triangle\" Calculator!");
         System.out.println("A right triangle is only true if the squared value of the hypotenuse is equal to the sum of the squared values of the other two sides.");
         //Get length of firstSide

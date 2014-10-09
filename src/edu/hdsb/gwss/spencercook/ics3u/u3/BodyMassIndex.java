@@ -24,7 +24,6 @@ public class BodyMassIndex {
         final double IDEAL = 25;
         final double OVERWEIGHT = 30;
         final double OBESE = 30;
-        final double MORBIDLY_OBESE = 40;
 
         // Variables
         double weight;
