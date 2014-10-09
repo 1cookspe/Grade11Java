@@ -2,7 +2,7 @@
  * Date: October 8, 2014
  * Version: v0
  * Description:
- This program reads a mass of a letter and gives the cost of mailing a first or second cost letter having that mass. 
+ This program creates a loop that prints out the range of two numbers 
  */
 package edu.hdsb.gwss.spencercook.ics3u.u3;
 
