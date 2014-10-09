@@ -18,20 +18,17 @@ public class RightTriangle {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Constants
-
         // Variables
         double firstSideLength;
         double secondSideLength;
         double thirdSideLength;
-        double squaredValue;
 
         // Objects
         Scanner rightTriangleInput = new Scanner(System.in);
 
         //USER INPUT; GET, SET
         System.out.println("Welcome to the \"Is it a Right Triangle\" Calculator!");
-        System.out.println("");
+        System.out.println("A right triangle is only true if the squared value of the hypotenuse is equal to the sum of the squared values of the other two sides.");
         //Get length of firstSide
         System.out.print("Please input the length of the first side: ");
         firstSideLength = rightTriangleInput.nextDouble();
@@ -64,7 +61,7 @@ public class RightTriangle {
         //PERFORM CALCULATIONS
         // - Check if it is a right triangle by adding the squares of the lowest sides to see if it equals the square of the longest side
         if (firstSideLength * firstSideLength + secondSideLength * secondSideLength == thirdSideLength * thirdSideLength) {
-            System.out.println("The sides " + firstSideLength + ", " + secondSideLength + " and " + thirdSideLength + " make a right angle triangle.");
+            System.out.println("The sides " + firstSideLength + ", " + secondSideLength + " and " + thirdSideLength + " make a right angle triangle!");
         } else {
             System.out.println("The sides " + firstSideLength + ", " + secondSideLength + " and " + thirdSideLength + " do not make a right angle triangle.");
         }    

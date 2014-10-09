@@ -27,6 +27,7 @@ public class Triangle {
         Scanner sideInput = new Scanner(System.in);
 
         //USER-INPUT; GET, SET
+        //Introduce program
         System.out.println("Welcome to the \"Is it a Triangle\" Generator!");
         System.out.println("A triangle is only valid if the sum of two sides are greater than that of the remaining side.");
         //Get firstSideLength
@@ -57,16 +58,13 @@ public class Triangle {
             firstSideLength = secondSideLength;
             secondSideLength = temporaryFirst;
         }
-        System.out.println(firstSideLength);
-        System.out.println(secondSideLength);
-        System.out.println(thirdSideLength);
 
         //PERFORM CALCULATIONS
-        // - Check if a triangle by adding the lowest sides to see if it is greater than longest side
+        // - Check if it is a triangle by adding the lowest sides to see if it is greater than longest side
         if (firstSideLength + secondSideLength > thirdSideLength) {
-            System.out.println("This figure is a triangle!");
+            System.out.println("The sides " + firstSideLength + ", " + secondSideLength + " and " + thirdSideLength + " make up a triangle!");
         } else {
-            System.out.println("This figure is not a triangle.");
+            System.out.println("The sides " + firstSideLength + ", " + secondSideLength + " and " + thirdSideLength + " do not make up a triangle.");
         }
         System.out.println("Thank you for using the \"Is it a Triangle?\" generator!");
     }

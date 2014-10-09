@@ -28,7 +28,8 @@ public class AcidRain {
         // Objects
         Scanner pHInput = new Scanner(System.in);
 
-        //User-input; Get, set
+        //USER INPUT; GET, SET
+        //Introduce program
         System.out.println("Welcome to the Acid Rain Calculator!");
         System.out.println("Acid rain is a serious problem. This program allows you to test whether or not the environment is truly safe for marine animals");
         //Get pH Level

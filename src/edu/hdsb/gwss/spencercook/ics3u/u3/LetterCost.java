@@ -42,7 +42,9 @@ public class LetterCost {
         NumberFormat dollar = NumberFormat.getCurrencyInstance();
 
         //USER INPUT; GET, SET
+        //Introduce program
         System.out.println("Welcome to the Letter Cost Generator!");
+        System.out.println("This program tells you the cost of shipping a letter based on the type of shipping you select (First Class or Second Class) and the weight of the letter.");
         // Get type of letter user wants to send (first class or second class)
         System.out.format("%-10s %4s", "Press 1 for:", "First Class Shipping");
         System.out.format("\n%-10s %4s", "Press 2 for:", "Second Class Shipping\n");

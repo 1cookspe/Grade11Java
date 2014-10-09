@@ -36,7 +36,9 @@ public class BodyMassIndex {
         Scanner bmiInput = new Scanner(System.in);
 
         //USER INPUT; GET, SET
+        //Introduce program
         System.out.println("Welcome to the Body Mass (BMI) Calculator!");
+        System.out.println("BMI is the measure of the weight of a person in relation to their height. There are six categories you may fall under: starvation, underweight, ideal, overweight, obese, or morbidly obese.");
         //Get type of measuring system user wants to use
         System.out.println("Choose type of measuring system");
         System.out.format("%-10s %6s", "Type \"1\" for:", "Imperial\n");
