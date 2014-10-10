@@ -91,7 +91,7 @@ public class LetterCost {
                         System.out.println("The cost for sending a letter at " + weight + " using Second Class shipping is " + dollar.format(cost));
                     } else {
                         additionalTimes = (int) (((int) weight - HUNDRED_GRAMS) / FIFTY_GRAMS);
-                        cost = EIGHTY_CENTS + (additionalTimes * ADDITIONAL_SECOND);
+                        cost = SIXTY_CENTS + (additionalTimes * ADDITIONAL_SECOND);
                         System.out.println("The cost for sending a letter at " + weight + " using Second Class shipping is " + dollar.format(cost));
 
                     }
