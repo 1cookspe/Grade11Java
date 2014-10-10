@@ -43,28 +43,33 @@ public class Triangle {
         //LOGICAL CALCULATIONS
         // - Find the longest sides by comparing their values in an if statement
         // - Get the sum of the two smaller sides and check if they are greater than the length of the third side
-        if (firstSideLength > thirdSideLength) { 
-            double temporary = firstSideLength;
-            firstSideLength = thirdSideLength;
-            thirdSideLength = temporary;
-        }    
-        if (secondSideLength > thirdSideLength) {
-            double temporarySecond = secondSideLength;
-            secondSideLength = thirdSideLength;
-            thirdSideLength = temporarySecond;
-        } 
-        if (firstSideLength > secondSideLength) {
-            double temporaryFirst = firstSideLength;
-            firstSideLength = secondSideLength;
-            secondSideLength = temporaryFirst;
-        }
+        // - Check to see if value is valid
+        if (firstSideLength > 0 && secondSideLength > 0 && thirdSideLength > 0) {
+            if (firstSideLength > thirdSideLength) {
+                double temporary = firstSideLength;
+                firstSideLength = thirdSideLength;
+                thirdSideLength = temporary;
+            }
+            if (secondSideLength > thirdSideLength) {
+                double temporarySecond = secondSideLength;
+                secondSideLength = thirdSideLength;
+                thirdSideLength = temporarySecond;
+            }
+            if (firstSideLength > secondSideLength) {
+                double temporaryFirst = firstSideLength;
+                firstSideLength = secondSideLength;
+                secondSideLength = temporaryFirst;
+            }
 
         //PERFORM CALCULATIONS
-        // - Check if it is a triangle by adding the lowest sides to see if it is greater than longest side
-        if (firstSideLength + secondSideLength > thirdSideLength) {
-            System.out.println("The sides " + firstSideLength + ", " + secondSideLength + " and " + thirdSideLength + " make up a triangle!");
+            // - Check if it is a triangle by adding the lowest sides to see if it is greater than longest side
+            if (firstSideLength + secondSideLength > thirdSideLength) {
+                System.out.println("The sides " + firstSideLength + ", " + secondSideLength + " and " + thirdSideLength + " make up a triangle!");
+            } else {
+                System.out.println("The sides " + firstSideLength + ", " + secondSideLength + " and " + thirdSideLength + " do not make up a triangle.");
+            }
         } else {
-            System.out.println("The sides " + firstSideLength + ", " + secondSideLength + " and " + thirdSideLength + " do not make up a triangle.");
+            System.out.println("Invalid information. Please make sure you have input values over 0.");
         }
         System.out.println("Thank you for using the \"Is it a Triangle?\" generator!");
     }

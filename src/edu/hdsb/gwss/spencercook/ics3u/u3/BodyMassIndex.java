@@ -30,6 +30,7 @@ public class BodyMassIndex {
         double height;
         double bodyMassIndex = -1;
         int typeOfSystem;
+        boolean doNotCalculateBMI = false;
 
         // Objects
         Scanner bmiInput = new Scanner(System.in);
@@ -56,8 +57,9 @@ public class BodyMassIndex {
                 System.out.print("Please enter your height in inches: ");
                 height = bmiInput.nextDouble();
 
-                if (height < 0 || weight < 0) {
-                    System.out.print("Please input a height or weight above zero.");
+                if (height <= 0 || weight <= 0) {
+                    System.out.println("Please input a height or weight above zero.");
+                    doNotCalculateBMI = true;
                 } else {
                     //CALCULATIONS
                     // - Find BMI by using the formula
@@ -72,8 +74,9 @@ public class BodyMassIndex {
                 System.out.print("Please enter your height in meters: ");
                 height = bmiInput.nextDouble();
 
-                if (height < 0 || weight < 0) {
-                    System.out.print("Please input a height or weight above zero.");
+                if (height <= 0 || weight <= 0) {
+                    System.out.println("Please input a height or weight above zero.");
+                    doNotCalculateBMI = true;
                 } else {
                     //CALCULATIONS
                     // - Find BMI by using the formula
@@ -82,14 +85,14 @@ public class BodyMassIndex {
                 break;
             default:
                 System.out.println("You did not input valid information.");
-                bodyMassIndex = 0;
+                doNotCalculateBMI = true;
                 break;
         }
 
         //IF STATEMENT
         // - Check to see which category the user falls into
-        if (bodyMassIndex <= 0) {
-            System.out.println("Invalid information. Please make sure you did not input any negative values.");
+        if (doNotCalculateBMI) {
+            System.out.println("Your BMI cannot be calculated with invalid information.");
         } else if (bodyMassIndex < STARVATION) {
             System.out.println("Your BMI of " + Math.round(bodyMassIndex) + " puts you in the Starvation category. This is extremely unhealthy, so be sure to eat more foods and see a doctor if neccesary to ensure a healthy BMI.");
         } else if (bodyMassIndex < UNDERWEIGHT) {

@@ -43,29 +43,32 @@ public class RightTriangle {
         //LOGICAL CALCULATIONS
         // - Find the longest sides by comparing their values in an if statement
         // - Get the sum of the two smaller sides and check if they are greater than the length of the third side
-        if (firstSideLength > thirdSideLength) {
-            double temporary = firstSideLength;
-            firstSideLength = thirdSideLength;
-            thirdSideLength = temporary;
-        }
-        if (secondSideLength > thirdSideLength) {
-            double temporarySecond = secondSideLength;
-            secondSideLength = thirdSideLength;
-            thirdSideLength = temporarySecond;
-        }
-        if (firstSideLength > secondSideLength) {
-            double temporaryFirst = firstSideLength;
-            firstSideLength = secondSideLength;
-            secondSideLength = temporaryFirst;
-        }
+        if (firstSideLength > 0 && secondSideLength > 0 && thirdSideLength > 0) {
+            if (firstSideLength > thirdSideLength) {
+                double temporary = firstSideLength;
+                firstSideLength = thirdSideLength;
+                thirdSideLength = temporary;
+            }
+            if (secondSideLength > thirdSideLength) {
+                double temporarySecond = secondSideLength;
+                secondSideLength = thirdSideLength;
+                thirdSideLength = temporarySecond;
+            }
+            if (firstSideLength > secondSideLength) {
+                double temporaryFirst = firstSideLength;
+                firstSideLength = secondSideLength;
+                secondSideLength = temporaryFirst;
+            }
 
         //PERFORM CALCULATIONS
-        // - Check if it is a right triangle by adding the squares of the lowest sides to see if it equals the square of the longest side
-        if (firstSideLength * firstSideLength + secondSideLength * secondSideLength == thirdSideLength * thirdSideLength) {
-            System.out.println("The sides " + firstSideLength + ", " + secondSideLength + " and " + thirdSideLength + " make a right angle triangle!");
+            // - Check if it is a right triangle by adding the squares of the lowest sides to see if it equals the square of the longest side
+            if (firstSideLength * firstSideLength + secondSideLength * secondSideLength == thirdSideLength * thirdSideLength) {
+                System.out.println("The sides " + firstSideLength + ", " + secondSideLength + " and " + thirdSideLength + " make a right angle triangle!");
+            } else {
+                System.out.println("The sides " + firstSideLength + ", " + secondSideLength + " and " + thirdSideLength + " do not make a right angle triangle.");
+            }
         } else {
-            System.out.println("The sides " + firstSideLength + ", " + secondSideLength + " and " + thirdSideLength + " do not make a right angle triangle.");
-        }    
-
+            System.out.println("Invalid information. Please make sure you did not input any negative values or zeroes.");
+        }
     }
 }
