@@ -44,7 +44,9 @@ public class WordEcho {
             counter++;
             System.out.println(word);
             } while (counter < length);    
-        }    
+        } else {
+            System.out.println("Please input a valid word.");
+        }   
     }
     
 }
