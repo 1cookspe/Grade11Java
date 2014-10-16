@@ -1,5 +1,5 @@
 /* Name: Spencer Cook
- * Date: October 9, 2014
+ * Date: October 15, 2014
  * Version: v0
  * Description:
  This program creates a loop that prints out the range of two numbers using a for loop
@@ -17,8 +17,9 @@ public class StartEndFor {
     /**
      * @param args the command line arguments
      */
+    @SuppressWarnings("empty-statement")
     public static void main(String[] args) {
-         // Variables
+        // Variables
         int start = 1;
         int end = 1;
 
@@ -35,28 +36,21 @@ public class StartEndFor {
         //Get end
         System.out.print("Please input the number you would like to end with: ");
         end = input.nextInt();
-        
+
         //LOOP + IF STATEMENT
         // - Print the values in between the start and end
         // - Check to see if end is less than start
         if (start < end) {
-        System.out.println(start);
-            while (start < end) {
-            start++;
-            System.out.println(start);
-        }
-    }
+            for (; start <= end; start++) {
+                System.out.println(start);
+            }
+        } else {
+            for (; start >= end; start--) {
+                System.out.println(start);
+            }
 
-    
-        else {
-            System.out.println(start);
-            while (end < start) {
-            start--;
-            System.out.println(start);
         }
 
     }
 
-    }
-    
 }
