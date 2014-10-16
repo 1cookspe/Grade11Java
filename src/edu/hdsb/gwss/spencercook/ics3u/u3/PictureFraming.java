@@ -6,6 +6,8 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.u3;
 
+import java.util.Scanner;
+
 /**
  *
  * @author 1cookspe
@@ -19,7 +21,15 @@ public class PictureFraming {
         // Variables
         double M;
         double N;
+        double P;
+        double Q;
         
+        //Objects
+        Scanner frameInput = new Scanner(System.in);
+        
+        //Calculations
+        // - Print out dimensions of frame
+//        for (;)
     }
     
 }
