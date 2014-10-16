@@ -19,17 +19,27 @@ public class PictureFraming {
      */
     public static void main(String[] args) {
         // Variables
-        double M;
-        double N;
-        double P;
-        double Q;
-        
+        double M = 5;
+        double N = 10;
+        double P = 1;
+        double Q = 1;
+
         //Objects
         Scanner frameInput = new Scanner(System.in);
-        
+
         //Calculations
         // - Print out dimensions of frame
-//        for (;)
+        for (double widthOfMat = 1; widthOfMat <= P + N; widthOfMat++) {
+            //System.out.format("\n%4s", "+");
+        }
+        for (double lengthOfPicture = 1; lengthOfPicture <= M; lengthOfPicture++) {
+            System.out.format("%5s", ".");
+        }
+        for (double widthOfPicture = 2; widthOfPicture <= N; widthOfPicture++) {
+            for (int counter = 0; counter <= M; counter++) {
+                System.out.format("\n%5s", ".");
+            }
+        }
     }
-    
+
 }
