@@ -19,9 +19,9 @@ public class LabAnimals {
      */
     public static void main(String[] args) {
         // Variables
-        int population = 10;
-        int foodSupply = 1000;
-        int foodAdded = 4000;
+        int population = 0;
+        int foodSupply = 0;
+        int foodAdded = 0;
         int foodAtEnd;
         int endPopulation;
         int hours = 1;
@@ -31,14 +31,23 @@ public class LabAnimals {
 
         //USER-INPUT; GET, SET
         // - Get initial population
-        System.out.print("What is the intital population of the lab animals? ");
-        population = input.nextInt();
+        // - If user inputs invalid number, use loop to ask them for the value again
+        while (population <= 0) {
+            System.out.print("What is the intital population of the lab animals? ");
+            population = input.nextInt();
+        }
         // - Get initial food supply
-        System.out.print("What is the intital food supply for the lab animals? ");
-        foodSupply = input.nextInt();
+        // - If user inputs invalid number, use loop to ask them for the value again
+        while (foodSupply <= 0) {
+            System.out.print("What is the intital food supply for the lab animals? ");
+            foodSupply = input.nextInt();
+        }
         // - Get food added hourly
-        System.out.print("How much food will you add each hour? ");
-        foodAdded = input.nextInt();
+        // - If user inputs invalid number, use loop to ask them for the value again
+        while (foodAdded <= 0) {
+            System.out.print("How much food will you add each hour? ");
+            foodAdded = input.nextInt();
+        }
 
         //CALCULATIONS
         // - Check to see if user inputted valid info

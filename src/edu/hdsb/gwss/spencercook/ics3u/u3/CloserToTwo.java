@@ -19,40 +19,22 @@ public class CloserToTwo {
         // Constants
 
         //Variables
-        double a = 0;
+        double sum = 0;
         double b = 1 / 1;
-        double c = 0;
+        long den = 1;
 
         //Introduce program
         System.out.println("Welcome to the CloserToTwo Calculator!");
         System.out.println("The program prints the calculations of adding the square roots of fractions to the preceding sum without getting a sum of 2 or greater.");
 
         //CALCULATIONS
-        while (b > 0.5) {
-            c = a + b;
-            System.out.println(a + " + " + b + " = " + c);
-            b = b / 2;
-            a = c;
-            c = a + b;
-            System.out.println(a + " + " + b + " = " + c);
+        while (sum < 2) {
+            System.out.print( sum + " + 1/" + den /*+ " = " + Math.round(sum)*/ );
+            sum = sum + 1.0/den;
+            den = den * 2;
+            System.out.println( " = " + sum );
 
         }
-
-        System.out.println(" A = " + a);
-        System.out.println(" B = " + b);
-        System.out.println(" C = " + c);
-        while (c <= 2) {
-            //System.out.println(c + ", ");
-            a = c;
-            b = b * b;
-            c = a + b;
-            System.out.println(Math.round(c) + ", ");
-//
-////        System.out.println(" A = " + a);
-////        System.out.println(" B = " + b);
-////        System.out.println(" C = " + c);
-        }
-        //System.out.print("...");
 
     }
 
