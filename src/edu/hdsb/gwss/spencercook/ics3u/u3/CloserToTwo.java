@@ -20,7 +20,6 @@ public class CloserToTwo {
 
         //Variables
         double sum = 0;
-        double b = 1 / 1;
         long den = 1;
 
         //Introduce program
