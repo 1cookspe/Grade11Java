@@ -16,8 +16,6 @@ public class CloserToTwo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Constants
-
         //Variables
         double sum = 0;
         long den = 1;
@@ -27,6 +25,8 @@ public class CloserToTwo {
         System.out.println("The program prints the calculations of adding the square roots of fractions to the preceding sum without getting a sum of 2 or greater.");
 
         //CALCULATIONS
+        // - While loop is run until sum has exceeded two
+        // - Add new values each run
         while (sum < 2) {
             System.out.print( sum + " + 1/" + den);
             sum = sum + 1.0/den;

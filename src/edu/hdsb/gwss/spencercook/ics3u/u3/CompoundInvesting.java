@@ -19,8 +19,6 @@ public class CompoundInvesting {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Constants
-
         //Variables
         int numberOfYears = 0;
         double initialYearlyInvestment = 0;
