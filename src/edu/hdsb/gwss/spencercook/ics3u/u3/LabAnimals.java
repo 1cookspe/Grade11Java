@@ -52,7 +52,6 @@ public class LabAnimals {
         //CALCULATIONS
         // - Check to see if user inputted valid info
         // - Use for loop until population is greater than food supply
-        if (population > 0 && foodSupply > 0 && foodAdded > 0) {
             if (foodSupply > population) {
                 //PRINT TO USER
                 System.out.format("\n%-5s%20s%20s%20s%20s", "Hour", "Animals At Start", "Food At Start", "Food At End", "Animals At End");
@@ -66,11 +65,8 @@ public class LabAnimals {
                 }
                 System.out.println("\nThe population will outgrow the food supply after " + hours + " hours.");
             } else {
-                System.out.println("\nThe population does not have enough food to survive.");
+                System.out.println("\nThe food supply is less than the population, therefore it cannot survive.");
             }
-        } else {
-            System.out.println("\nYou did not input valid information. Please make sure that the values you inputted were not negative or zero.");
-        }
     }
 
 }

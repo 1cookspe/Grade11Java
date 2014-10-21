@@ -28,7 +28,7 @@ public class CloserToTwo {
 
         //CALCULATIONS
         while (sum < 2) {
-            System.out.print( sum + " + 1/" + den /*+ " = " + Math.round(sum)*/ );
+            System.out.print( sum + " + 1/" + den);
             sum = sum + 1.0/den;
             den = den * 2;
             System.out.println( " = " + sum );

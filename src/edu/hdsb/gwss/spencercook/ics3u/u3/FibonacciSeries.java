@@ -20,9 +20,9 @@ public class FibonacciSeries {
         final int TWENTY_DIGITS = 20;
 
         //Variables
-        int a = 1;
-        int b = 1;
-        int c;
+        int firstNumber = 1;
+        int secondNumber = 1;
+        int sum;
 
         //Introduce program
         System.out.println("Welcome to the Fibanocci Series!");
@@ -31,16 +31,16 @@ public class FibonacciSeries {
         // CALCULATIONS
         // - First, print out a and b in their original forms
         // - Next, calculate the next eighteen numbers by adding a and b to make c and setting a to b and b to c after
-        System.out.print(a + ", ");
-        System.out.print(b + ", ");
+        System.out.print(firstNumber + ", ");
+        System.out.print(secondNumber + ", ");
 
         for (int digits = 2; digits < TWENTY_DIGITS; digits++) {
-            c = a + b;
-            System.out.print(c + ", ");
-            a = b;
-            b = c;
+            sum = firstNumber + secondNumber;
+            System.out.print(sum + ", ");
+            firstNumber = secondNumber;
+            secondNumber = sum;
         }
-        System.out.print("...");
+        System.out.print("...\n");
 
     }
 
