@@ -11,6 +11,11 @@ package edu.hdsb.gwss.spencercook.ics3u.u3;
  */
 public class SlotMachine extends javax.swing.JFrame {
 
+    // Variables
+    int coins;
+    int randomNumber1;
+    int selectedNumber;
+    private Object images;
     /**
      * Creates new form SlotMachine
      */
@@ -27,21 +32,183 @@ public class SlotMachine extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bigMoneyJackpot = new javax.swing.JLabel();
+        spin = new javax.swing.JButton();
+        coinsLabel = new javax.swing.JLabel();
+        yourOpponents = new javax.swing.JLabel();
+        opponent1 = new javax.swing.JLabel();
+        opponent3 = new javax.swing.JLabel();
+        opponent2 = new javax.swing.JLabel();
+        picture1 = new javax.swing.JLabel();
+        picture2 = new javax.swing.JLabel();
+        picture3 = new javax.swing.JLabel();
+        picture4 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        bigMoneyJackpot.setFont(new java.awt.Font("Oriya MN", 0, 24)); // NOI18N
+        bigMoneyJackpot.setForeground(new java.awt.Color(255, 0, 0));
+        bigMoneyJackpot.setText("BIG MONEY JACKPOT!");
+
+        spin.setText("Spin the Wheel!");
+        spin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                spinActionPerformed(evt);
+            }
+        });
+
+        coinsLabel.setText("Your Coins:");
+
+        yourOpponents.setText("Your Opponents:");
+
+        opponent1.setText("Bob:");
+
+        opponent3.setText("Joe:");
+
+        opponent2.setText("Steve:");
+
+        picture1.setText("jLabel1");
+
+        picture2.setText("jLabel1");
+
+        picture3.setText("jLabel1");
+
+        picture4.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(bigMoneyJackpot)
+                        .addGap(133, 133, 133))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(picture1)
+                            .addComponent(coinsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addComponent(spin, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addComponent(picture2)
+                                .addGap(91, 91, 91)
+                                .addComponent(picture3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                                .addComponent(picture4)
+                                .addGap(62, 62, 62))))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(yourOpponents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(opponent3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(opponent1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(opponent2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bigMoneyJackpot)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(picture1)
+                    .addComponent(picture2)
+                    .addComponent(picture3)
+                    .addComponent(picture4))
+                .addGap(151, 151, 151)
+                .addComponent(yourOpponents)
+                .addGap(18, 18, 18)
+                .addComponent(opponent1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(spin, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(coinsLabel)
+                    .addComponent(opponent2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(opponent3)
+                .addGap(15, 15, 15))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    @SuppressWarnings("empty-statement")
+    private void spinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spinActionPerformed
+        coinsLabel.setText("Your coins: " + coins);
+        
+        //Generate and show random number
+ for (int timesRun = 0; timesRun < 4; timesRun++){
+        randomNumber1 = (int) ((Math.random() * 4) + 1);
+        switch (randomNumber1) {
+            case 1:
+                if (timesRun == 1) {
+                    //pic1 = 1
+                } else if (timesRun == 2) {
+                    //pic2 = 1
+                } else if (timesRun == 3) {  
+                    //pic3 = 1
+                } else {    
+                    //pic4 = 1
+                }        
+                break;
+            case 2:
+                if (timesRun == 1) {
+                    //picture1 = 2;
+                } else if (timesRun == 2) {
+                    //pic2 = 2
+                } else if (timesRun == 3) {   
+                    //pic3 = 2
+                } else {   
+                    //pic4 = 2
+                }    
+                break;
+            case 3:
+                if (timesRun == 1) {
+                    //picture1 = 4
+                } else if (timesRun == 2) {
+                    //pic2 = 4
+                } else if (timesRun == 3) {   
+                    //pic3 = 4
+                } else {   
+                    //pic4 = 4
+                } 
+                break;
+            case 4:
+                if (timesRun == 1) {
+                    //picture1 = 4
+                } else if (timesRun == 2) {
+                    //pic2 = 4
+                } else if (timesRun == 3) {   
+                    //pic3 = 4
+                } else {   
+                    //pic4 = 4
+                } 
+                break;
+            default:
+                if (timesRun == 1) {
+                    picture1.setIcon(null);
+                } else if (timesRun == 2) {
+                    picture2.setIcon(null);
+                } else if (timesRun == 3) {   
+                    picture3.setIcon(null);
+                } else {   
+                    picture4.setIcon(null);
+                } 
+        }
+        //if(picture1 == 1 && picture2 == 1 && picture3 == 1 && picture4 == 1) {
+ }       
+
+        
+    }//GEN-LAST:event_spinActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +246,16 @@ public class SlotMachine extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bigMoneyJackpot;
+    private javax.swing.JLabel coinsLabel;
+    private javax.swing.JLabel opponent1;
+    private javax.swing.JLabel opponent2;
+    private javax.swing.JLabel opponent3;
+    private javax.swing.JLabel picture1;
+    private javax.swing.JLabel picture2;
+    private javax.swing.JLabel picture3;
+    private javax.swing.JLabel picture4;
+    private javax.swing.JButton spin;
+    private javax.swing.JLabel yourOpponents;
     // End of variables declaration//GEN-END:variables
 }
