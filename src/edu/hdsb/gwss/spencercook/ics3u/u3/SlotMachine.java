@@ -193,7 +193,7 @@ public class SlotMachine extends javax.swing.JFrame {
                 } else if (timesRun == 3) {   
                     //pic3 = 4
                 } else {   
-                    //pic4 = 4
+                    picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); 
                 } 
                 break;
             default:

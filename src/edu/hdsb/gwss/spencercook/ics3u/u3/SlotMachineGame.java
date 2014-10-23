@@ -14,6 +14,9 @@ public class SlotMachineGame extends javax.swing.JFrame {
     /**
      * Creates new form SlotMachineGame
      */
+    
+    //Variables
+    int randomNumber;
     public SlotMachineGame() {
         initComponents();
     }
@@ -30,16 +33,16 @@ public class SlotMachineGame extends javax.swing.JFrame {
         spinTheWheel = new javax.swing.JButton();
         bigJackpotSlotMachine = new javax.swing.JLabel();
         yourCoins = new javax.swing.JLabel();
-        moneyBet = new javax.swing.JTextField();
         betBillions = new javax.swing.JLabel();
         picture1 = new javax.swing.JLabel();
         picture2 = new javax.swing.JLabel();
         picture3 = new javax.swing.JLabel();
         picture4 = new javax.swing.JLabel();
+        stockName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        spinTheWheel.setFont(new java.awt.Font("Marlett", 0, 13)); // NOI18N
+        spinTheWheel.setFont(new java.awt.Font("Minion Pro Med", 0, 13)); // NOI18N
         spinTheWheel.setForeground(new java.awt.Color(0, 0, 153));
         spinTheWheel.setText("SPIN THE WHEEL!");
         spinTheWheel.addActionListener(new java.awt.event.ActionListener() {
@@ -55,13 +58,6 @@ public class SlotMachineGame extends javax.swing.JFrame {
         yourCoins.setFont(new java.awt.Font("Kefa", 0, 14)); // NOI18N
         yourCoins.setForeground(new java.awt.Color(255, 0, 0));
         yourCoins.setText("Your Money:");
-
-        moneyBet.setFont(new java.awt.Font("Postino Std", 0, 13)); // NOI18N
-        moneyBet.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moneyBetActionPerformed(evt);
-            }
-        });
 
         betBillions.setText("Enter Stock Name:");
 
@@ -97,8 +93,8 @@ public class SlotMachineGame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(betBillions)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(moneyBet, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(stockName, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
                                 .addComponent(spinTheWheel))
                             .addComponent(yourCoins, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -109,18 +105,19 @@ public class SlotMachineGame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(bigJackpotSlotMachine, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(picture2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(picture3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(picture4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(picture1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(picture4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(picture1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(picture2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(picture3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(yourCoins)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spinTheWheel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(betBillions)
-                    .addComponent(moneyBet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(stockName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -128,12 +125,73 @@ public class SlotMachineGame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void spinTheWheelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spinTheWheelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_spinTheWheelActionPerformed
+        //Generate and show random number
+ for (int timesRun = 0; timesRun < 4; ){
+        timesRun++;
+        randomNumber = (int) ((Math.random() * 4) + 1);
+        switch (randomNumber) {
+            case 1:
+                if (timesRun == 1) {
+                    //pic1 = 1
+                } else if (timesRun == 2) {
+                    //pic2 = 1
+                } else if (timesRun == 3) {  
+                    //pic3 = 1
+                } else {    
+                    //picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); // NOI18N
 
-    private void moneyBetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moneyBetActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moneyBetActionPerformed
+                }        
+                break;
+            case 2:
+                if (timesRun == 1) {
+                    //picture1 = 2;
+                } else if (timesRun == 2) {
+                    //pic2 = 2
+                } else if (timesRun == 3) {   
+                    //pic3 = 2
+                } else {   
+                    ///picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); // NOI18N
+
+                }    
+                break;
+            case 3:
+                if (timesRun == 1) {
+                    //picture1 = 4
+                } else if (timesRun == 2) {
+                    //pic2 = 4
+                } else if (timesRun == 3) {   
+                    //pic3 = 4
+                } else {   
+                    ///picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); // NOI18N
+                } 
+                break;
+            case 4:
+                if (timesRun == 1) {
+                    //picture1 = 4
+                } else if (timesRun == 2) {
+                    //pic2 = 4
+                } else if (timesRun == 3) {   
+                    //pic3 = 4
+                } else {   
+                    picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); 
+
+                } 
+                break;
+            default:
+                if (timesRun == 1) {
+                    picture1.setIcon(null);
+                } else if (timesRun == 2) {
+                    picture2.setIcon(null);
+                } else if (timesRun == 3) {   
+                    picture3.setIcon(null);
+                } else {   
+                    picture4.setIcon(null);
+                } 
+        }
+        
+
+ }
+    }//GEN-LAST:event_spinTheWheelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,12 +231,12 @@ public class SlotMachineGame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel betBillions;
     private javax.swing.JLabel bigJackpotSlotMachine;
-    private javax.swing.JTextField moneyBet;
     private javax.swing.JLabel picture1;
     private javax.swing.JLabel picture2;
     private javax.swing.JLabel picture3;
     private javax.swing.JLabel picture4;
     private javax.swing.JButton spinTheWheel;
+    private javax.swing.JTextField stockName;
     private javax.swing.JLabel yourCoins;
     // End of variables declaration//GEN-END:variables
 }
