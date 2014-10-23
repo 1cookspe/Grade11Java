@@ -15,19 +15,15 @@ public class Practice {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        boolean flag = true;
-int i = 10;
-while ( flag ) {
-    System.out.print( i + " " );
-    if ( i % 2 == 0 ) {
-        i = i - 2;
-    } else if ( i % 3 == 0 ) {
-        i = i + 1;
-    }
-    if ( i < 0 ) {
-        flag = false;
-    }
+int count, sum;
+
+sum = 0;
+for ( count = 0;  count <= 5; count++ )
+{
+  sum = sum + count ;
+  System.out.print( count + " " );
 }
+System.out.println( "\nsum is: " + sum );
 
     }
 }
