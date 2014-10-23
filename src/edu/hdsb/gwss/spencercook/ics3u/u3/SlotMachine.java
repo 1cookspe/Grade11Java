@@ -13,7 +13,7 @@ public class SlotMachine extends javax.swing.JFrame {
 
     // Variables
     int coins;
-    int randomNumber1;
+    int randomNumber;
     int selectedNumber;
     private Object images;
     /**
@@ -149,51 +149,54 @@ public class SlotMachine extends javax.swing.JFrame {
         coinsLabel.setText("Your coins: " + coins);
         
         //Generate and show random number
- for (int timesRun = 0; timesRun < 4; timesRun++){
-        randomNumber1 = (int) ((Math.random() * 4) + 1);
-        switch (randomNumber1) {
+ for (int timesRun = 1; timesRun < 5; timesRun++){
+        //randomNumber = (int) ((Math.random() * 4) + 1);
+        switch (randomNumber) {
             case 1:
                 if (timesRun == 1) {
-                    //pic1 = 1
+                    picture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/GOOGLE-VECTORLOGO-BIZ-128x128.png"))); // NOI18N
                 } else if (timesRun == 2) {
-                    //pic2 = 1
+                    picture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/GOOGLE-VECTORLOGO-BIZ-128x128.png"))); // NOI18N
                 } else if (timesRun == 3) {  
-                    //pic3 = 1
+                    picture3.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/GOOGLE-VECTORLOGO-BIZ-128x128.png"))); // NOI18N
                 } else {    
-                    //pic4 = 1
+                    picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/GOOGLE-VECTORLOGO-BIZ-128x128.png"))); // NOI18N
+
                 }        
                 break;
             case 2:
                 if (timesRun == 1) {
-                    //picture1 = 2;
+                    picture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/apple_logo_png1.png"))); // NOI18N
                 } else if (timesRun == 2) {
-                    //pic2 = 2
+                    picture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/apple_logo_png1.png"))); // NOI18N
                 } else if (timesRun == 3) {   
-                    //pic3 = 2
+                    picture3.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/apple_logo_png1.png"))); // NOI18N
                 } else {   
-                    //pic4 = 2
+                    picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/apple_logo_png1.png"))); // NOI18N
+
                 }    
                 break;
             case 3:
                 if (timesRun == 1) {
-                    //picture1 = 4
+                    picture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/microsoft-logo.png"))); // NOI18N
                 } else if (timesRun == 2) {
-                    //pic2 = 4
+                    picture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/microsoft-logo.png"))); // NOI18N
                 } else if (timesRun == 3) {   
-                    //pic3 = 4
+                    picture3.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/microsoft-logo.png"))); // NOI18N
                 } else {   
-                    //pic4 = 4
+                    picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/microsoft-logo.png"))); // NOI18N
                 } 
                 break;
             case 4:
                 if (timesRun == 1) {
-                    //picture1 = 4
+                    picture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); 
                 } else if (timesRun == 2) {
-                    //pic2 = 4
+                    picture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); 
                 } else if (timesRun == 3) {   
-                    //pic3 = 4
+                    picture3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); 
                 } else {   
                     picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); 
+
                 } 
                 break;
             default:
@@ -210,6 +213,13 @@ public class SlotMachine extends javax.swing.JFrame {
         
 
  }
+    //PRINT RESULTS
+        //yourCoins.setText("Your Coins" + coins);
+        
+        //CHECK IF ALL 4, 3, 2, OR 1 PICTURES ARE THE SAME
+        if (picture1.getIcon() == picture2.getIcon()) {
+            
+        }    
     }//GEN-LAST:event_spinActionPerformed
 
     /**

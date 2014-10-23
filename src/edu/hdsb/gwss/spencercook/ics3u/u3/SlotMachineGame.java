@@ -30,26 +30,17 @@ public class SlotMachineGame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        spinTheWheel = new javax.swing.JButton();
         bigJackpotSlotMachine = new javax.swing.JLabel();
         yourCoins = new javax.swing.JLabel();
-        betBillions = new javax.swing.JLabel();
+        buyStock = new javax.swing.JLabel();
         picture1 = new javax.swing.JLabel();
         picture2 = new javax.swing.JLabel();
         picture3 = new javax.swing.JLabel();
         picture4 = new javax.swing.JLabel();
         stockName = new javax.swing.JTextField();
+        spinWheel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        spinTheWheel.setFont(new java.awt.Font("Minion Pro Med", 0, 13)); // NOI18N
-        spinTheWheel.setForeground(new java.awt.Color(0, 0, 153));
-        spinTheWheel.setText("SPIN THE WHEEL!");
-        spinTheWheel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                spinTheWheelActionPerformed(evt);
-            }
-        });
 
         bigJackpotSlotMachine.setFont(new java.awt.Font("Cooper Black", 0, 24)); // NOI18N
         bigJackpotSlotMachine.setForeground(new java.awt.Color(255, 0, 0));
@@ -59,15 +50,24 @@ public class SlotMachineGame extends javax.swing.JFrame {
         yourCoins.setForeground(new java.awt.Color(255, 0, 0));
         yourCoins.setText("Your Money:");
 
-        betBillions.setText("Enter Stock Name:");
+        buyStock.setText("Enter Stock Name:");
 
-        picture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/apple_logo_png1.png"))); // NOI18N
+        picture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/GOOGLE-VECTORLOGO-BIZ-128x128.png"))); // NOI18N
 
-        picture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/GOOGLE-VECTORLOGO-BIZ-128x128.png"))); // NOI18N
+        picture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/apple_logo_png1.png"))); // NOI18N
 
         picture3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/microsoft-logo.png"))); // NOI18N
 
         picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); // NOI18N
+
+        spinWheel.setFont(new java.awt.Font("Marker Felt", 0, 18)); // NOI18N
+        spinWheel.setForeground(new java.awt.Color(255, 51, 51));
+        spinWheel.setText("Spin!");
+        spinWheel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                spinWheelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,11 +91,11 @@ public class SlotMachineGame extends javax.swing.JFrame {
                         .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(betBillions)
+                                .addComponent(buyStock)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(stockName, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(spinTheWheel))
+                                .addGap(27, 27, 27)
+                                .addComponent(spinWheel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(yourCoins, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -111,67 +111,66 @@ public class SlotMachineGame extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(picture2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(picture3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(yourCoins)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(spinTheWheel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(betBillions)
-                    .addComponent(stockName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buyStock)
+                    .addComponent(stockName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spinWheel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void spinTheWheelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spinTheWheelActionPerformed
+    private void spinWheelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spinWheelActionPerformed
         //Generate and show random number
- for (int timesRun = 0; timesRun < 4; ){
-        timesRun++;
-        randomNumber = (int) ((Math.random() * 4) + 1);
+    for (int timesRun = 1; timesRun < 5; timesRun++){
+        //randomNumber = (int) ((Math.random() * 4) + 1);
         switch (randomNumber) {
             case 1:
                 if (timesRun == 1) {
-                    //pic1 = 1
+                    picture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/GOOGLE-VECTORLOGO-BIZ-128x128.png"))); // NOI18N
                 } else if (timesRun == 2) {
-                    //pic2 = 1
+                    picture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/GOOGLE-VECTORLOGO-BIZ-128x128.png"))); // NOI18N
                 } else if (timesRun == 3) {  
-                    //pic3 = 1
+                    picture3.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/GOOGLE-VECTORLOGO-BIZ-128x128.png"))); // NOI18N
                 } else {    
-                    //picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); // NOI18N
+                    picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/GOOGLE-VECTORLOGO-BIZ-128x128.png"))); // NOI18N
 
                 }        
                 break;
             case 2:
                 if (timesRun == 1) {
-                    //picture1 = 2;
+                    picture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/apple_logo_png1.png"))); // NOI18N
                 } else if (timesRun == 2) {
-                    //pic2 = 2
+                    picture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/apple_logo_png1.png"))); // NOI18N
                 } else if (timesRun == 3) {   
-                    //pic3 = 2
+                    picture3.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/apple_logo_png1.png"))); // NOI18N
                 } else {   
-                    ///picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); // NOI18N
+                    picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/apple_logo_png1.png"))); // NOI18N
 
                 }    
                 break;
             case 3:
                 if (timesRun == 1) {
-                    //picture1 = 4
+                    picture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/microsoft-logo.png"))); // NOI18N
                 } else if (timesRun == 2) {
-                    //pic2 = 4
+                    picture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/microsoft-logo.png"))); // NOI18N
                 } else if (timesRun == 3) {   
-                    //pic3 = 4
+                    picture3.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/microsoft-logo.png"))); // NOI18N
                 } else {   
-                    ///picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); // NOI18N
+                    picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/microsoft-logo.png"))); // NOI18N
                 } 
                 break;
             case 4:
                 if (timesRun == 1) {
-                    //picture1 = 4
+                    picture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); 
                 } else if (timesRun == 2) {
-                    //pic2 = 4
+                    picture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); 
                 } else if (timesRun == 3) {   
-                    //pic3 = 4
+                    picture3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); 
                 } else {   
                     picture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/ibm-logo.png"))); 
 
@@ -189,9 +188,8 @@ public class SlotMachineGame extends javax.swing.JFrame {
                 } 
         }
         
-
- }
-    }//GEN-LAST:event_spinTheWheelActionPerformed
+    }
+    }//GEN-LAST:event_spinWheelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,13 +227,13 @@ public class SlotMachineGame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel betBillions;
     private javax.swing.JLabel bigJackpotSlotMachine;
+    private javax.swing.JLabel buyStock;
     private javax.swing.JLabel picture1;
     private javax.swing.JLabel picture2;
     private javax.swing.JLabel picture3;
     private javax.swing.JLabel picture4;
-    private javax.swing.JButton spinTheWheel;
+    private javax.swing.JButton spinWheel;
     private javax.swing.JTextField stockName;
     private javax.swing.JLabel yourCoins;
     // End of variables declaration//GEN-END:variables
