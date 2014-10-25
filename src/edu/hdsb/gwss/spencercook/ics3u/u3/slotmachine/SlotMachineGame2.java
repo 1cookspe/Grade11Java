@@ -5,6 +5,7 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.u3.slotmachine;
 
+import javax.swing.JOptionPane;
 import java.text.NumberFormat;
 
 /**
@@ -18,15 +19,15 @@ public class SlotMachineGame2 extends javax.swing.JFrame {
      */
     //Variables
     int randomNumber;
-    //private Object JOptionPage;
-    int googleNumber = 0;
-    int appleNumber = 0;
-    int microsoftNumber = 0;
-    int ibmNumber = 0;
-    int money = 50;
-    String bet;
-    int addedMoney;
-    String stockString;
+    double googleNumber = 0;
+    double appleNumber = 0;
+    double microsoftNumber = 0;
+    double ibmNumber = 0;
+    double money = 50;
+    String bet = "";
+    double addedMoney;
+    String stockString = "";
+    double newMoney;
 
     //Objects
     NumberFormat dollars = NumberFormat.getCurrencyInstance();
@@ -44,6 +45,7 @@ public class SlotMachineGame2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popUp = new javax.swing.JDialog();
         titleLabel = new javax.swing.JLabel();
         yourCoins = new javax.swing.JLabel();
         enterStockLabel = new javax.swing.JLabel();
@@ -53,12 +55,23 @@ public class SlotMachineGame2 extends javax.swing.JFrame {
         picture4 = new javax.swing.JLabel();
         enterStock = new javax.swing.JTextField();
         spinWheel = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        googleStock = new javax.swing.JLabel();
+        appleStock = new javax.swing.JLabel();
+        microsoftStock = new javax.swing.JLabel();
+        ibmStock = new javax.swing.JLabel();
         betMoney = new javax.swing.JLabel();
         wager = new javax.swing.JTextField();
+
+        javax.swing.GroupLayout popUpLayout = new javax.swing.GroupLayout(popUp.getContentPane());
+        popUp.getContentPane().setLayout(popUpLayout);
+        popUpLayout.setHorizontalGroup(
+            popUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        popUpLayout.setVerticalGroup(
+            popUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,6 +83,8 @@ public class SlotMachineGame2 extends javax.swing.JFrame {
         yourCoins.setForeground(new java.awt.Color(255, 0, 0));
         yourCoins.setText("Your Money:$50,000,000");
 
+        enterStockLabel.setFont(new java.awt.Font("Luminari", 1, 14)); // NOI18N
+        enterStockLabel.setForeground(new java.awt.Color(102, 102, 255));
         enterStockLabel.setText("Enter Stock Name:");
 
         picture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/g.png"))); // NOI18N
@@ -89,61 +104,69 @@ public class SlotMachineGame2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("GOOG = Google");
+        googleStock.setText("GOOG = Google");
 
-        jLabel2.setText("APPL = Apple");
+        appleStock.setText("AAPL = Apple");
 
-        jLabel3.setText("MSFT = Microsoft");
+        microsoftStock.setText("MSFT = Microsoft");
 
-        jLabel4.setText("IBM = IBM");
+        ibmStock.setText("IBM = IBM");
 
+        betMoney.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
         betMoney.setText("Bet Money (In Millions):");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(enterStockLabel)
+                .addGap(18, 18, 18)
+                .addComponent(enterStock, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
             .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(betMoney)
+                                .addGap(7, 7, 7)
+                                .addComponent(wager, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(spinWheel, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(microsoftStock, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ibmStock, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(picture1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(57, 57, 57)
-                                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(picture2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(picture3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(picture4, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(330, 330, 330)
+                                                .addComponent(googleStock)))
+                                        .addGap(0, 19, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(picture1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(picture2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(picture3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(picture4, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(appleStock))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(yourCoins)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(betMoney)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(wager, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(spinWheel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(152, 152, 152)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(enterStockLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(enterStock, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,51 +176,67 @@ public class SlotMachineGame2 extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(picture4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(picture1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(picture1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(picture2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(picture3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(enterStockLabel)
-                    .addComponent(enterStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(yourCoins))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(spinWheel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(betMoney)
-                        .addComponent(wager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(enterStockLabel)
+                            .addComponent(enterStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(googleStock)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
+                        .addComponent(appleStock)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)))
-                .addGap(12, 12, 12))
+                        .addComponent(microsoftStock)
+                        .addGap(1, 1, 1)
+                        .addComponent(ibmStock)
+                        .addGap(27, 27, 27))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(yourCoins)
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(betMoney)
+                            .addComponent(wager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spinWheel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(13, 13, 13))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void spinWheelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spinWheelActionPerformed
-        //Generate and show random number
-        //alertView.showMessageDialog(null, "Thank you for using Java", "Yay, java");
-
-        if (bet != null && stockString != null) {
-            money -= 1;
+        //Create numbers of pictures
+        googleNumber = 0;
+        microsoftNumber = 0;
+        appleNumber = 0;
+        ibmNumber = 0;
+        
+        //Set texts
+        titleLabel.setText("Stock Market Slot Machine!");
+        spinWheel.setText("Spin!");
+        
+        //Check to see if valid info is in the text fields
+        if (wager.getText() != null && enterStock.getText() != null) {
+            
+            //Set strings as values of text fields
             bet = wager.getText();
             stockString = enterStock.getText();
             addedMoney = Integer.parseInt(bet);
+            System.out.println("" + addedMoney);
             for (int timesRun = 1; timesRun < 5; timesRun++) {
 
-            //System.out.println("RUNNING" + picture2);
+                //System.out.println("RUNNING" + picture2);
                 //System.out.println("RUNNING" + picture3);
                 //System.out.println("RUNNING" + picture4);
                 //System.out.println( "RUNNING" + new javax.swing.ImageIcon(getClass().getResource("edu/hdsb/gwss/spencercook/ics3u/u3/imageDirectory/g.png") ) );
+                
+                //GENERATE 4 RANDOM NUMBERS
+                // - Use switch and if statements to set the icons of pictures 1 through 4 based on random number
                 randomNumber = (int) ((Math.random() * 4) + 1);
                 switch (randomNumber) {
                     case 1:
@@ -262,24 +301,15 @@ public class SlotMachineGame2 extends javax.swing.JFrame {
                             ibmNumber += 1;
 
                         }
-                        break;
-//                default:
-//                    if (timesRun == 1) {
-//                        picture1.setIcon(null);
-//                    } else if (timesRun == 2) {
-//                        picture2.setIcon(null);
-//                    } else if (timesRun == 3) {
-//                        picture3.setIcon(null);
-//                    } else {
-//                        picture4.setIcon(null);
-//                    }
+                        
                 }
 
             }
             this.update(this.getGraphics());
 
-//GIVE USER MONEY IF THEY ARE CORRECT
-            if (stockString == "GOOG" || stockString == "Google" || stockString == "google") {
+    //GIVE USER MONEY IF THEY ARE CORRECT
+            // - Check which company user chose
+            if (stockString.equals("GOOG")) {
                 if (googleNumber == 4) {
                     money += addedMoney;
                 } else if (googleNumber == 3) {
@@ -288,10 +318,12 @@ public class SlotMachineGame2 extends javax.swing.JFrame {
                     money += (addedMoney / 2);
                 } else if (googleNumber == 1) {
                     money += (addedMoney * 0.25);
-                } else {
+                } else if (googleNumber == 0) {
                     money -= addedMoney;
                 }
-            } else if (stockString == "AAPL" || stockString == "Apple" || stockString == "apple") {
+            }
+
+            if (stockString.equals("AAPL")) {
                 if (appleNumber == 4) {
                     money += addedMoney;
                 } else if (appleNumber == 3) {
@@ -300,22 +332,22 @@ public class SlotMachineGame2 extends javax.swing.JFrame {
                     money += (addedMoney / 2);
                 } else if (appleNumber == 1) {
                     money += (addedMoney * 0.25);
-                } else {
+                } else if (appleNumber == 0) {
                     money -= addedMoney;
                 }
-            } else if (stockString == "MSFT" || stockString == "Microsoft" || stockString == "microsoft") {
+            } else if (stockString.equals("MSFT")) {
                 if (microsoftNumber == 4) {
                     money += addedMoney;
                 } else if (microsoftNumber == 3) {
-                    money += (addedMoney * 0.75);
+                    newMoney = money + (addedMoney * 0.75);
                 } else if (microsoftNumber == 2) {
                     money += (addedMoney / 2);
                 } else if (microsoftNumber == 1) {
                     money += (addedMoney * 0.25);
-                } else {
+                } else if (microsoftNumber == 0) {
                     money -= addedMoney;
                 }
-            } else if (stockString == "IBM" || stockString == "ibm") {
+            } else if (stockString.equals("IBM")) {
                 if (ibmNumber == 4) {
                     money += addedMoney;
                 } else if (ibmNumber == 3) {
@@ -324,21 +356,23 @@ public class SlotMachineGame2 extends javax.swing.JFrame {
                     money += (addedMoney / 2);
                 } else if (ibmNumber == 1) {
                     money += (addedMoney * 0.25);
-                } else {
+                } else if (ibmNumber == 0) {
                     money -= addedMoney;
                 }
-            } else {
-                //betMoney.setText( "Invalid" );
-            }
-            yourCoins.setText("Your Money: " + dollars.format(money * 1000000));
-        } else {
-            
-                yourCoins.setText("Please input values");
-           
-        }
+            } 
 
+            money -= 1;
+            yourCoins.setText("Your Money: " + dollars.format(money * 1000000));
+            
+            if (money <= 0) {
+                JOptionPane.showMessageDialog(this, "Game Over! You have run out of money! You can play again by clicking the \"Play Again\" button below!");
+                titleLabel.setText("Game Over! Would you like to play again?");
+                spinWheel.setText("Play Again!");
+                money = 50;
+            }
 
     }//GEN-LAST:event_spinWheelActionPerformed
+    }
 
     /**
      * @param args the command line arguments
@@ -355,17 +389,18 @@ public class SlotMachineGame2 extends javax.swing.JFrame {
         //</editor-fold>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel appleStock;
     private javax.swing.JLabel betMoney;
     private javax.swing.JTextField enterStock;
     private javax.swing.JLabel enterStockLabel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel googleStock;
+    private javax.swing.JLabel ibmStock;
+    private javax.swing.JLabel microsoftStock;
     private javax.swing.JLabel picture1;
     private javax.swing.JLabel picture2;
     private javax.swing.JLabel picture3;
     private javax.swing.JLabel picture4;
+    private javax.swing.JDialog popUp;
     private javax.swing.JButton spinWheel;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JTextField wager;
