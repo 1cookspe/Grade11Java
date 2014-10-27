@@ -3,7 +3,7 @@
  * Version: v0
  * Description:
  This program creates a slot machine 
- */
+ */ 
 package edu.hdsb.gwss.spencercook.ics3u.u3.slotmachine;
 
 import javax.swing.JOptionPane;
