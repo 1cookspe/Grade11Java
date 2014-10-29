@@ -35,6 +35,7 @@ public class CountingVowels {
         System.out.print("Please enter a sentence or word: ");
         word = input.nextLine();
         word = word.toLowerCase();
+        word = word.trim();
         
         //CALCULATE NUMBER OF VOWELS
         // - Use loop to go through letters in word

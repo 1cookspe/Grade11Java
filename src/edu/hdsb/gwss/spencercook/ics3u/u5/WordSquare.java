@@ -36,6 +36,7 @@ public class WordSquare {
         System.out.print("Please enter your word: ");
         word = input.nextLine();
         word = word.toUpperCase();
+        word = word.trim();
 
         //CALCULATIONS
         // - Use loop to go through all letters and move them one space

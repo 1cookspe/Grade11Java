@@ -41,6 +41,7 @@ public class Compass {
         System.out.print("Please input the directions using the above instructions:");
         compass = input.nextLine();
         compass = compass.toUpperCase();
+        compass = compass.trim();
         
         //CALCULATIONS
         // - Get north or south
