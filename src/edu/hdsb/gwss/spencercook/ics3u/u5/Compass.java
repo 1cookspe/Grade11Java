@@ -22,8 +22,12 @@ public class Compass {
         String compass = new String("S45W");
         char northOrSouth;
         String degrees;
-        //int numberOfDegrees;
+        int numberOfDegrees;
         char eastOrWest;
+        String startDirection = "";
+        String faceDirection = "";
+        String degreesTurned = "";
+        boolean invalidData = false;
         
         // Objects
         Scanner input = new Scanner(System.in);
@@ -42,27 +46,45 @@ public class Compass {
         northOrSouth = compass.charAt(0);
         switch (northOrSouth) {
             case 'N':
-                System.out.print("Start facing North. ");
+                startDirection = "Start facing North. ";
                 break;
             case 'S':
-                System.out.print("Start facing South. ");
+                startDirection = "Start facing South. ";
                 break;
-            default:      
+            default:
+                invalidData = true;
         }  
         
-        degrees = compass.substring(1, 3);
-        //numberOfDegrees = Integer.parseInt(degrees);
-        System.out.print("Turn " + degrees + " toward the");
+        if (compass.length() == 3) {
+        degrees = compass.substring(1, 2);
+        } else {
+            degrees = compass.substring(1, 3);
+        }
+        
+        numberOfDegrees = Integer.parseInt(degrees);
+        if (numberOfDegrees < 90) {
+            degreesTurned = "Turn " + degrees + " toward the";
+        } else {    
+            invalidData = true;
+        }    
+        
         
         eastOrWest = compass.charAt(3);
         switch (eastOrWest) {
             case 'E':
-                System.out.print(" towards the East.");
+                faceDirection = " towards the East.";
                 break;
             case 'W':
-                System.out.print(" towards the West.");
+                faceDirection = " towards the West.";
                 break;
             default:
+                invalidData = true;
+        } 
+        
+        if (invalidData) {
+            System.out.println("Please input the directions like the above example. Do not input any angles above 90 degrees.");
+        } else {   
+            System.out.println(startDirection + degreesTurned + faceDirection);
         }    
     }
     
