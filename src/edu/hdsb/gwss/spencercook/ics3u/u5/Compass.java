@@ -43,6 +43,7 @@ public class Compass {
         compass = compass.toUpperCase();
         
         //CALCULATIONS
+        // - Get north or south
         northOrSouth = compass.charAt(0);
         switch (northOrSouth) {
             case 'N':
@@ -55,6 +56,7 @@ public class Compass {
                 invalidData = true;
         }  
         
+        // - Get degrees
         if (compass.length() == 3) {
         degrees = compass.substring(1, 2);
         } else {
@@ -68,7 +70,7 @@ public class Compass {
             invalidData = true;
         }    
         
-        
+        // - Get east or west
         eastOrWest = compass.charAt(3);
         switch (eastOrWest) {
             case 'E':
@@ -81,6 +83,7 @@ public class Compass {
                 invalidData = true;
         } 
         
+        // - Check if input is valid
         if (invalidData) {
             System.out.println("Please input the directions like the above example. Do not input any angles above 90 degrees.");
         } else {   
