@@ -1,7 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Name: Spencer Cook
+ * Date: October 30, 2014
+ * Version: v0
+ * Description:
+ This program checks if a SIN inputted by the user is valid
  */
 package edu.hdsb.gwss.spencercook.ics3u.u5;
 
@@ -18,7 +19,7 @@ public class SINCheck {
      */
     public static void main(String[] args) {
         // Variables
-        String socialInsuranceNumber = new String("130692544");
+        String socialInsuranceNumber = new String();
         String individualNumber;
         int individualInt;
         int evenSIN = 0;
@@ -34,6 +35,12 @@ public class SINCheck {
         //Introduce program
         System.out.println("Welcome to the Social Insurance Number (SIN) checker!");
         System.out.println("A social insurance number is the number that the government or other programs use to identify a citizen. It is composed of nine digits. After asking you for a SIN, this program checks if it is a valid SIN.");
+        
+        //USER INPUT; GET, SET
+        // - Ask for social insurance number
+        System.out.print("Please input the Social Insurance Number:");
+        socialInsuranceNumber = input.nextLine();
+        socialInsuranceNumber = socialInsuranceNumber.trim();
 
         //CALCULATIONS
         // - Check if SIN is 9 digits
@@ -73,9 +80,9 @@ public class SINCheck {
             finalNumber = (int) (nextTen - sum);
             finalString = "" + finalNumber;
             if (finalString.equals(socialInsuranceNumber.substring(8))) {
-                System.out.println("This is a valid SIN!");
+                System.out.println(socialInsuranceNumber + " is a valid SIN!");
             } else {
-                System.out.println("This is not a valid SIN!");
+                System.out.println(socialInsuranceNumber + " is not a valid SIN!");
             }
 
         } else {

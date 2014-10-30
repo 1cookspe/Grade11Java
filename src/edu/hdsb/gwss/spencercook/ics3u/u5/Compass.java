@@ -19,7 +19,7 @@ public class Compass {
      */
     public static void main(String[] args) {
         // Variables
-        String compass = new String("S45W");
+        String compass = new String();
         char northOrSouth;
         String degrees;
         int numberOfDegrees;

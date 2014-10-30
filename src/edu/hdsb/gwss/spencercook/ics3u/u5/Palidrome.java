@@ -19,10 +19,9 @@ public class Palidrome {
      */
     public static void main(String[] args) {
         // Variables
-        String word = new String("hey");
-        String leftWord = "";
-        String rightWord = "";
+        String word = new String();
         String finalWord = "";
+        String endWord = "";
         
         //Objects
         Scanner input = new Scanner(System.in);
@@ -39,24 +38,20 @@ public class Palidrome {
         word = word.trim();
         
         //CALCULATIONS
-        // - Take length of word and one less of length and then decrease each value to get the substring of each character, then add them together
-        int wordLength = word.length();
-        int firstLetter = wordLength - 1;
-        while (firstLetter >= 0) {
-            leftWord = word.substring(firstLetter, wordLength);
-            finalWord = finalWord + leftWord;
-            firstLetter--;
-            wordLength--;
-        }
-        System.out.println(finalWord);
+        // - Get last letter then add them together in a string      
+        for (int letter = word.length(); letter > 0; letter--) {
+            finalWord = word.substring(letter - 1, letter);
+            System.out.println(finalWord);
+            endWord += finalWord;
+        }    
         
         //Check if finalWord is the same as the initial word
-        if (finalWord.equals(word)) {
-            System.out.println(word + "is a palindrome!");
+        if (endWord.equals(word)) {
+            System.out.println(word + " is a palindrome!");
         } else {
-            System.out.println(word + "is not a palindrome!");
+            System.out.println(word + " is not a palindrome!");
         }    
-        System.out.println("Thank you for using the Palindrom Calculator!");
+        System.out.println("Thank you for using the Palindrome Calculator!");
     }
        
     
