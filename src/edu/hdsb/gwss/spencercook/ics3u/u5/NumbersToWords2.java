@@ -1,5 +1,5 @@
 /* Name: Spencer Cook
- * Date: October 30, 2014
+ * Date: November 1, 2014
  * Version: v0
  * Description:
  This program converts a number to its word form
@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author spencercook
  */
-public class NumberToWords {
+public class NumbersToWords2 {
 //Global Variables
 
     static int number = 67;
@@ -44,17 +44,22 @@ public class NumberToWords {
             ones();
         } else if (numberString.length() == 2) {
             System.out.print(number + " = ");
-            tens();
+            tens(number);
+        } else if (numberString.length() == 3) { 
+            System.out.print(number + " = ");
+            hundreds();
         } else {
-            System.out.println("Please input a number between 1 and 99 (inclusively).");
+            System.out.println("Please input a number between 1 and 999 (inclusively).");
         }    
         System.out.println("\nThank you for using the Number To Words Converter!");
 
     }
 
-    public static void tens() {
+    public static void tens(int remainingValue) {
         //Get tens value by dividing int by 10
-        int tensValue = number / 10;
+//        System.out.println("I find a way");
+        int tensValue = remainingValue / 10;
+//        System.out.println(tensValue);
         switch (tensValue) {
             case 1:
                 teens();
@@ -159,5 +164,40 @@ public class NumberToWords {
         
     }
     
-
+    public static void hundreds() {
+        int hundredsValue = number / 100;
+        switch (hundredsValue) {
+            case 1:
+                System.out.print("One Hundred ");
+                break;
+            case 2:
+                System.out.print("Two Hundred ");
+                break;
+            case 3:
+                System.out.print("Three Hundred ");
+                break;
+            case 4:
+                System.out.print("Four Hundred ");
+                break;
+            case 5:
+                System.out.print("Five Hundred ");
+                break;
+            case 6:
+                System.out.print("Six Hundred ");
+                break;
+            case 7:
+                System.out.print("Seven Hundred ");
+                break;
+            case 8:
+                System.out.print("Eight Hundred ");
+                break;
+            case 9:
+                System.out.print("Nine Hundred ");
+                break;
+        }
+        int remainingValue = number - hundredsValue * 100;
+//        System.out.println("remaingValue = " + remainingValue);
+//        System.out.println("testing testing 123");
+        tens(remainingValue);
+    }    
 }
