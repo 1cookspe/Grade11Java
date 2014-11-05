@@ -6,6 +6,9 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.u5;
 
+import java.text.NumberFormat;
+import java.util.Scanner;
+
 /**
  *
  * @author 1cookspe
@@ -17,23 +20,45 @@ public class GrossWages {
      */
     public static void main(String[] args) {
         //Variables
-        double hours = 50;
-        double payRate = 10;
-        double overtimeRate = hours * 1.5;
+        int hours;
+        double payRate;
         
+        //Objects
+        NumberFormat money = NumberFormat.getCurrencyInstance();
+        Scanner input = new Scanner(System.in);
         
+        //Introduce program
+        System.out.println("Welcome to the Gross Wages Calculator!\nThis program calculates your total pay (including overtime pay) after you input your total hours worked and hourly wage.");
+        
+        //USER INPUT; GET, SET
+        // - Get hours worked
+        System.out.print("Please input the number of hours worked:");
+        hours = input.nextInt();
+        // - Get payRate
+        System.out.print("Please input your hourly wage:");
+        payRate = input.nextInt();
+        
+        //Print results
+        System.out.println("You earned " + money.format(hourlyWage(hours, payRate)) + " at an hourly rate of " + money.format(payRate) + " after working " + hours + " hours.");
     }
     
-    public static int hourlyWage(int hours, int payRate) {
+    public static double hourlyWage(int hours, double payRate) {
+        //Variables
+        double pay;
+        int overtimeHours = hours - 40;
+        double overtimeRate = payRate * 1.5;
+        
+        //- Check if user gets overtime pay
+        // - If not, print out pay by multiplying the hours by the hourly wage
         if (hours > 40) {
-            overtimePay(hours);
+            pay = (payRate * 40) + (overtimeRate * overtimeHours);
+        } else {
+            pay = payRate * hours;
         }
-        return 3;
+        
+        //Return pay to print out results in main method
+        return pay;
     }
     
-    public static int overtimePay(int hours) {
-        return 5;
-        int overtimeHours;
-    }
     
 }
