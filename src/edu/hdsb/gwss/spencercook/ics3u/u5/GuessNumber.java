@@ -138,25 +138,29 @@ public class GuessNumber extends javax.swing.JFrame {
 
         //Call functions
         generateRandomNumber(min, max);
-        compareUserGuess();
+        getUserGuess();
+        compareGuesses(min, max);
         
-        int guessInt = Integer.parseInt(compareUserGuess());
+    }//GEN-LAST:event_guessActionPerformed
+
+    public int generateRandomNumber(int min, int max) {
+        return (int) (Math.random() * (max - min) - 1) + (min + 1);
+    }
+
+    public String getUserGuess() {
+        return numberGuess.getText();
+    }
+    
+    public void compareGuesses(int min, int max) {
+        int guessInt = Integer.parseInt(getUserGuess());
         if (generateRandomNumber(min, max) == guessInt) {
             guessResults.setText("Congratulations! You guessed the right number!");
         } else if (generateRandomNumber(min, max) < guessInt) {
             guessResults.setText("Your guess is TOO HIGH!");
-        } else {
+        } else if (generateRandomNumber(min, max) > guessInt) {
             guessResults.setText("Your guess is TOO LOW!");
         }
         welcomeLabel.setText("" + generateRandomNumber(min, max));
-    }//GEN-LAST:event_guessActionPerformed
-
-    public int generateRandomNumber(int min, int max) {
-        return (int) (Math.random() * (max - min) + 1) + min;
-    }
-
-    public String compareUserGuess() {
-        return numberGuess.getText();
     }
 
     /**

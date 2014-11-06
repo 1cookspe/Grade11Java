@@ -39,10 +39,10 @@ public class GrossWages {
         payRate = input.nextInt();
         
         //Print results
-        System.out.println("You earned " + money.format(hourlyWage(hours, payRate)) + " at an hourly rate of " + money.format(payRate) + " after working " + hours + " hours.");
+        System.out.println("You earned " + money.format(calculateHourlyWage(hours, payRate)) + " at an hourly rate of " + money.format(payRate) + " after working " + hours + " hours.");
     }
     
-    public static double hourlyWage(int hours, double payRate) {
+    public static double calculateHourlyWage(int hours, double payRate) {
         //Variables
         double pay;
         int overtimeHours = hours - 40;
