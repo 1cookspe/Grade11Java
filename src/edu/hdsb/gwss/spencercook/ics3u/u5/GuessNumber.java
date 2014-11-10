@@ -5,11 +5,16 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.u5;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 1cookspe
  */
 public class GuessNumber extends javax.swing.JFrame {
+
+    int secretNumber;
+    int increment;
 
     /**
      * Creates new form GuessNumber
@@ -41,8 +46,9 @@ public class GuessNumber extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        welcomeLabel.setForeground(new java.awt.Color(255, 51, 51));
-        welcomeLabel.setText("Welcome to the Guess the Number Converter!");
+        welcomeLabel.setFont(new java.awt.Font("Stone Sans ITC TT-Semi", 0, 14)); // NOI18N
+        welcomeLabel.setForeground(new java.awt.Color(0, 51, 255));
+        welcomeLabel.setText("Guess the Number Converter!");
 
         instructionsLabel.setText("You will guess a number after inputting its maximum and minimum values:");
 
@@ -68,11 +74,12 @@ public class GuessNumber extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(guessResults, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(welcomeLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,19 +102,18 @@ public class GuessNumber extends javax.swing.JFrame {
                                             .addComponent(guess)
                                             .addComponent(whatNumber))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(numberGuess, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(numberGuess, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(welcomeLabel)))
                 .addContainerGap(39, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(guessResults, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(welcomeLabel)
                 .addGap(18, 18, 18)
+                .addComponent(welcomeLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(instructionsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -132,15 +138,24 @@ public class GuessNumber extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessActionPerformed
-        //Variables
-        int min = Integer.parseInt(lowestNumber.getText());
-        int max = Integer.parseInt(highestNumber.getText());
+        //Check if you can change the value of range
+        if (lowestNumber.isEditable()) {
+            int min = Integer.parseInt(lowestNumber.getText());
+            int max = Integer.parseInt(highestNumber.getText());
+            lowestNumber.setEditable(false);
+            highestNumber.setEditable(false);
+            secretNumber = generateRandomNumber(min, max);
+            guess.setText("Guess!");
+            welcomeLabel.setText("Guess The Number!");
+        }
 
-        //Call functions
-        generateRandomNumber(min, max);
-        getUserGuess();
-        compareGuesses(min, max);
+        int userGuess = Integer.parseInt(getUserGuess());
+        compareGuesses(userGuess);
         
+        //Set text of numberOfGuesses
+        increment++;
+        numberOfGuesses.setText("Number of Guesses: " + increment);
+
     }//GEN-LAST:event_guessActionPerformed
 
     public int generateRandomNumber(int min, int max) {
@@ -150,17 +165,24 @@ public class GuessNumber extends javax.swing.JFrame {
     public String getUserGuess() {
         return numberGuess.getText();
     }
-    
-    public void compareGuesses(int min, int max) {
-        int guessInt = Integer.parseInt(getUserGuess());
-        if (generateRandomNumber(min, max) == guessInt) {
+
+    public void compareGuesses(int userGuess) {
+        if (secretNumber == userGuess) {
             guessResults.setText("Congratulations! You guessed the right number!");
-        } else if (generateRandomNumber(min, max) < guessInt) {
+            playAgain();
+        } else if (secretNumber < userGuess) {
             guessResults.setText("Your guess is TOO HIGH!");
-        } else if (generateRandomNumber(min, max) > guessInt) {
+        } else {
             guessResults.setText("Your guess is TOO LOW!");
         }
-        welcomeLabel.setText("" + generateRandomNumber(min, max));
+    }
+    
+    public void playAgain() {
+        JOptionPane.showMessageDialog(this, "You won! Play Again by inputting a new minimum and maximum value and keep on guessing!");
+        lowestNumber.setEditable(true);
+        highestNumber.setEditable(true);
+        welcomeLabel.setText("Input new values to play again!");
+        increment = 0;
     }
 
     /**
