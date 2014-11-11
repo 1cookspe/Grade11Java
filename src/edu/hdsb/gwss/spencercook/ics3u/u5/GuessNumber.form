@@ -61,7 +61,7 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                       <Component id="welcomeLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -108,7 +108,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="33" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Guess the Number Converter!"/>
+        <Property name="text" type="java.lang.String" value="Guess the Number!"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="instructionsLabel">

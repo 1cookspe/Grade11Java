@@ -114,15 +114,52 @@ public class ReduceFraction extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void calculateFractionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateFractionActionPerformed
-        // TODO add your handling code here:
-        double denominator = Double.parseDouble(numerator.getText());
+        //Variables
+        int topNumber = Integer.parseInt(numerator.getText());
+        int bottomNumber = Integer.parseInt(demoninator.getText());
+         
+         //Calculate reduced fraction
+         int reducedNumerator = topNumber / calculateGreatestCommonDivisor(topNumber, bottomNumber);
+         int reducedDenominator = bottomNumber / calculateGreatestCommonDivisor(topNumber, bottomNumber);
+         
+         if (reducedNumerator == topNumber && bottomNumber == reducedDenominator) {
+             results.setText("This fraction cannot be reduced. Try another one?");
+         } else {
+             results.setText("" + topNumber + " / " + bottomNumber + " can be simplied into " + reducedNumerator + " / " + reducedDenominator + ".");
+         }
+         
+//        }
     }//GEN-LAST:event_calculateFractionActionPerformed
     
-    public boolean checkIfFractionIsReducable(double numerator, double demoninator) {
-        if (numerator % 2 == 0 && demoninator % 2 == 0) {
-            return true;
+//    public boolean checkIfFractionIsReducable(double numerator, double demoninator) {
+//        if (numerator % 2 == 0 && demoninator % 2 == 0) {
+//            return true;
+//        } else {
+//            if (numerator % 5 == 0 && denominator )
+//        }
+//        return false;
+//    }
+    
+    public int calculateGreatestCommonDivisor(int numerator, int denominator) {
+        //Variables
+        int smallestNumber;
+        int greatestCommonFactor = 1;
+        
+        if (numerator < denominator) {
+            smallestNumber = numerator;
+        } else if (numerator > denominator) {
+            smallestNumber = denominator;
+        } else {
+            smallestNumber = numerator;
         }
-        return false;
+        
+        for (int i = 2; i <= smallestNumber; i++) {
+            if (numerator % i == 0 && denominator % i == 0) {
+                greatestCommonFactor = i;
+            }
+        }
+        
+        return greatestCommonFactor;
     }
     
     /**

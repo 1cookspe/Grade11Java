@@ -1,7 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Name: Spencer Cook
+ * Date: November 10, 2014
+ * Version: v0
+ * Description:
+ This program creates a random number game where the user tries to guess a randomly generated number
  */
 package edu.hdsb.gwss.spencercook.ics3u.u5;
 
@@ -48,7 +49,7 @@ public class GuessNumber extends javax.swing.JFrame {
 
         welcomeLabel.setFont(new java.awt.Font("Stone Sans ITC TT-Semi", 0, 14)); // NOI18N
         welcomeLabel.setForeground(new java.awt.Color(0, 51, 255));
-        welcomeLabel.setText("Guess the Number Converter!");
+        welcomeLabel.setText("Guess the Number!");
 
         instructionsLabel.setText("You will guess a number after inputting its maximum and minimum values:");
 
@@ -104,7 +105,7 @@ public class GuessNumber extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(numberGuess, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
+                        .addGap(116, 116, 116)
                         .addComponent(welcomeLabel)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
