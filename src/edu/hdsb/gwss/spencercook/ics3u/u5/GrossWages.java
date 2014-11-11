@@ -20,7 +20,7 @@ public class GrossWages {
      */
     public static void main(String[] args) {
         //Variables
-        int hours;
+        int hours;          
         double payRate;
         
         //Objects

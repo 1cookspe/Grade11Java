@@ -27,7 +27,7 @@ public class NumbersToWords2 {
         //Objects
         Scanner input = new Scanner(System.in);
 
-        //Introduce program
+        //Introduce program         
         System.out.println("Welcome to the Numbers To Words Converter!");
         System.out.println("This program will convert a numerical value of its number to its word form.");
 
