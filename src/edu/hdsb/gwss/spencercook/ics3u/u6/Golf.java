@@ -108,6 +108,7 @@ public class Golf extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addToScorecardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToScorecardActionPerformed
+        if (!score.getText().equals("")) {
         //Add value to array
         scores[currentHole-1] = Integer.parseInt( score.getText() );
         scoreCard.setText( scoreCard.getText() + "Hole #" + currentHole + ":          " + scores[currentHole-1] + "\n");
@@ -127,7 +128,9 @@ public class Golf extends javax.swing.JFrame {
             inputScoreText.setText("All scores have been entered!");
             addToScorecard.setEnabled(false);
         }
-        
+        } else {
+            JOptionPane.showMessageDialog(this, "Please input a valid score!");
+        }
     }//GEN-LAST:event_addToScorecardActionPerformed
 
     /**

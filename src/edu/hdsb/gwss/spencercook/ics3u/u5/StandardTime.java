@@ -42,6 +42,8 @@ public class StandardTime {
             } else {
                 if (time.substring(0, 1).equals("0") || time.substring(0,1).equals("1") || time.substring(0, 1).equals("2")) {
                     convertToStandardTime(time);
+                } else {
+                    System.out.println("Please input a valid time like follows: 9:38AM (Traditional Time) or 09:38 (Standard Time).");
                 }
             }
             System.out.println("Thank you for using the Time Converter!");
@@ -51,7 +53,7 @@ public class StandardTime {
         //Variables
         String hourString;
         String minuteString;
-        int hour = 0;
+        int hour;
         char morningOrAfternoon;
         String standardTime = "";
 

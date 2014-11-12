@@ -188,7 +188,7 @@ public class GuessNumber extends javax.swing.JFrame {
         lowestNumber.setEditable(true);
         highestNumber.setEditable(true);
         welcomeLabel.setText("Input new values to play again!");
-        increment = 0;
+        increment = -1;
     }
 
     /**

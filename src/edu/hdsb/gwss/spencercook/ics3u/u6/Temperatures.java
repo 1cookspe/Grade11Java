@@ -13,12 +13,13 @@ import javax.swing.JOptionPane;
  * @author 1cookspe
  */
 public class Temperatures extends javax.swing.JFrame {
+
     //Global variables
+
     int[] temperatures = new int[7];
     String[] dayNames = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     int dayTemperature = 1;
-    
-    
+
     /**
      * Creates new form Temperatures
      */
@@ -112,21 +113,26 @@ public class Temperatures extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitTemperatureActionPerformed
-        temperatures[dayTemperature - 1] = Integer.parseInt(temperatureText.getText());
-        displayOfTemperature.setText(displayOfTemperature.getText() + "" + dayNames[dayTemperature - 1] + ": " + temperatures[dayTemperature - 1] + "\n");
-        displayOfTemperature.setEditable(false);
-        
-        daysInputted.setText("Days Inputted: " + dayTemperature);
-        dayTemperature++;
+        if (!temperatureText.getText().equals("")) {
+            temperatures[dayTemperature - 1] = Integer.parseInt(temperatureText.getText());
+            displayOfTemperature.setText(displayOfTemperature.getText() + "" + dayNames[dayTemperature - 1] + ": " + temperatures[dayTemperature - 1] + "\n");
+            displayOfTemperature.setEditable(false);
 
-        temperatureText.setText("");
-        inputTemperature.setText("Input the Temperature for " + dayNames[dayTemperature - 1] + " (in C).");
-        
-        if (dayTemperature == 8) {
-            JOptionPane.showMessageDialog(this, "You have inputted temperatures for the week.");
-            temperatureText.setEditable(false);
-            temperatureText.setEnabled(false);
-            inputTemperature.setText("All days have been input!");
+            daysInputted.setText("Days Inputted: " + dayTemperature);
+
+            temperatureText.setText("");
+            inputTemperature.setText("Input the Temperature for " + dayNames[dayTemperature - 1] + " (in C).");
+
+            dayTemperature++;
+            if (dayTemperature == 8) {
+                JOptionPane.showMessageDialog(this, "You have inputted temperatures for the week.");
+                temperatureText.setEditable(false);
+                temperatureText.setEnabled(false);
+                inputTemperature.setText("All days have been input!");
+                submitTemperature.setEnabled(false);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please input a valid temperature!");
         }
     }//GEN-LAST:event_submitTemperatureActionPerformed
 

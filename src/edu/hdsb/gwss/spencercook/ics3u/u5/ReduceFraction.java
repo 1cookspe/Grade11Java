@@ -123,6 +123,7 @@ public class ReduceFraction extends javax.swing.JFrame {
          int reducedNumerator = topNumber / calculateGreatestCommonDivisor(topNumber, bottomNumber);
          int reducedDenominator = bottomNumber / calculateGreatestCommonDivisor(topNumber, bottomNumber);
          
+         //See if the fractions are equal, or different
          if (reducedNumerator == topNumber && bottomNumber == reducedDenominator) {
              results.setText("This fraction cannot be reduced. Try another one?");
          } else {
@@ -146,6 +147,7 @@ public class ReduceFraction extends javax.swing.JFrame {
         int smallestNumber;
         int greatestCommonFactor = 1;
         
+        //Get smallest number: numerator or denominator
         if (numerator < denominator) {
             smallestNumber = numerator;
         } else if (numerator > denominator) {
@@ -154,6 +156,7 @@ public class ReduceFraction extends javax.swing.JFrame {
             smallestNumber = numerator;
         }
         
+        //Create loop to find GCF through all numbers up until the smallest number
         for (int i = 2; i <= smallestNumber; i++) {
             if (numerator % i == 0 && denominator % i == 0) {
                 greatestCommonFactor = i;
