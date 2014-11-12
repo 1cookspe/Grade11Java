@@ -1,7 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Name: Spencer Cook
+ * Date: November 11, 2014
+ * Version: v0
+ * Description:
+ This program calculates the reduced form of a fraction
  */
 package edu.hdsb.gwss.spencercook.ics3u.u5;
 

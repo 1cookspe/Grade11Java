@@ -150,6 +150,7 @@ public class GuessNumber extends javax.swing.JFrame {
             welcomeLabel.setText("Guess The Number!");
         }
 
+        //Get user's guess
         int userGuess = Integer.parseInt(getUserGuess());
         compareGuesses(userGuess);
         
@@ -160,14 +161,17 @@ public class GuessNumber extends javax.swing.JFrame {
     }//GEN-LAST:event_guessActionPerformed
 
     public int generateRandomNumber(int min, int max) {
+        //Generate random number from computer
         return (int) (Math.random() * (max - min) - 1) + (min + 1);
     }
 
     public String getUserGuess() {
+        //Get guess of user
         return numberGuess.getText();
     }
 
     public void compareGuesses(int userGuess) {
+        //Compare user's guess to the generated number to see if they are correct
         if (secretNumber == userGuess) {
             guessResults.setText("Congratulations! You guessed the right number!");
             playAgain();
@@ -179,6 +183,7 @@ public class GuessNumber extends javax.swing.JFrame {
     }
     
     public void playAgain() {
+        //Allows the user to start a new game
         JOptionPane.showMessageDialog(this, "You won! Play Again by inputting a new minimum and maximum value and keep on guessing!");
         lowestNumber.setEditable(true);
         highestNumber.setEditable(true);

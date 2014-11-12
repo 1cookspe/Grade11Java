@@ -1,9 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Name: Spencer Cook
+ * Date: November 11, 2014
+ * Version: v0
+ * Description:
+ This program stores the temperatures in an array and displays them to the user
  */
 package edu.hdsb.gwss.spencercook.ics3u.u6;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,7 +15,8 @@ package edu.hdsb.gwss.spencercook.ics3u.u6;
 public class Temperatures extends javax.swing.JFrame {
     //Global variables
     int[] temperatures = new int[7];
-    String[] dayNames = {"Sunday", "Monday"};
+    String[] dayNames = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    int dayTemperature = 1;
     
     
     /**
@@ -46,6 +50,11 @@ public class Temperatures extends javax.swing.JFrame {
         inputTemperature.setText("Input the Temperature for Sunday (in C):");
 
         submitTemperature.setText("Submit Temperature");
+        submitTemperature.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitTemperatureActionPerformed(evt);
+            }
+        });
 
         displayOfTemperature.setColumns(20);
         displayOfTemperature.setRows(5);
@@ -101,6 +110,25 @@ public class Temperatures extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void submitTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitTemperatureActionPerformed
+        temperatures[dayTemperature - 1] = Integer.parseInt(temperatureText.getText());
+        displayOfTemperature.setText(displayOfTemperature.getText() + "" + dayNames[dayTemperature - 1] + ": " + temperatures[dayTemperature - 1] + "\n");
+        displayOfTemperature.setEditable(false);
+        
+        daysInputted.setText("Days Inputted: " + dayTemperature);
+        dayTemperature++;
+
+        temperatureText.setText("");
+        inputTemperature.setText("Input the Temperature for " + dayNames[dayTemperature - 1] + " (in C).");
+        
+        if (dayTemperature == 8) {
+            JOptionPane.showMessageDialog(this, "You have inputted temperatures for the week.");
+            temperatureText.setEditable(false);
+            temperatureText.setEnabled(false);
+            inputTemperature.setText("All days have been input!");
+        }
+    }//GEN-LAST:event_submitTemperatureActionPerformed
 
     /**
      * @param args the command line arguments

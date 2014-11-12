@@ -1,7 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Name: Spencer Cook
+ * Date: November 11, 2014
+ * Version: v0
+ * Description:
+ This program stores the golf scores of a user
  */
 package edu.hdsb.gwss.spencercook.ics3u.u6;
 
@@ -107,23 +108,23 @@ public class Golf extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addToScorecardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToScorecardActionPerformed
-        
+        //Add value to array
         scores[currentHole-1] = Integer.parseInt( score.getText() );
         scoreCard.setText( scoreCard.getText() + "Hole #" + currentHole + ":          " + scores[currentHole-1] + "\n");
+         scoreCard.setEditable(false);
         
+        //Print out how many holes have be input 
+        holesInputted.setText("Holes Entered: " + currentHole);
         currentHole++;
         
         score.setText("");
         inputScoreText.setText( "Input Score on Hole #" + currentHole + ":");
-        int holes = currentHole - 1;
-        holesInputted.setText("Holes Inputted: " + holes);
-        
         
         if( currentHole > 18 ) {
             JOptionPane.showMessageDialog(this, "You have inputted all 18 holes.");
             score.setEditable( false );
             score.setEnabled( false );
-            inputScoreText.setText("All scores have been inputted!");
+            inputScoreText.setText("All scores have been entered!");
             addToScorecard.setEnabled(false);
         }
         

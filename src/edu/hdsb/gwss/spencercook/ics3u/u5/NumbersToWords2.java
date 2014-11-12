@@ -57,9 +57,7 @@ public class NumbersToWords2 {
 
     public static void tens(int remainingValue) {
         //Get tens value by dividing int by 10
-//        System.out.println("I find a way");
         int tensValue = remainingValue / 10;
-//        System.out.println(tensValue);
         switch (tensValue) {
             case 1:
                 teens();
@@ -165,6 +163,7 @@ public class NumbersToWords2 {
     }
     
     public static void hundreds() {
+        //Get hundreds value and print it out
         int hundredsValue = number / 100;
         switch (hundredsValue) {
             case 1:
@@ -196,8 +195,6 @@ public class NumbersToWords2 {
                 break;
         }
         int remainingValue = number - hundredsValue * 100;
-//        System.out.println("remaingValue = " + remainingValue);
-//        System.out.println("testing testing 123");
         tens(remainingValue);
     }    
 }
