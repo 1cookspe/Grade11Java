@@ -12,16 +12,16 @@ package edu.hdsb.gwss.spencercook.ics3u.u6;
  */
 public class ArrayUtil {
 
-    public static int getLowestValueAbove(int[] values, int aboveValue ) {
+    public static int getLowestValueAbove(int[] values, int aboveValue) {
         int lowestValue = values[0];
         for (int i = 1; i < values.length; i++) {
-            if (values[i] < lowestValue && values[i] > aboveValue ) {
+            if (values[i] < lowestValue && values[i] > aboveValue) {
                 lowestValue = values[i];
             }
         }
         return lowestValue;
     }
-    
+
     public static int getLowestValue(int[] values) {
         int lowestValue = values[0];
         for (int i = 1; i < values.length; i++) {
@@ -41,7 +41,7 @@ public class ArrayUtil {
         }
         return highestValue;
     }
-    
+
     public static double calculateAverage(int[] values) {
         double sum = 0;
         for (int i = 0; i < values.length; i++) {
@@ -49,17 +49,29 @@ public class ArrayUtil {
         }
         return sum / values.length;
     }
-    
+
     public static double calculateNonZeroAverage(int[] values) {
         double sum = 0;
         int numberOfValues = 0;
         for (int i = 0; i < values.length; i++) {
-            if( values[i] > 0 ) {
+            if (values[i] > 0) {
                 sum += values[i];
                 numberOfValues++;
             }
         }
         return sum / numberOfValues;
     }
-    
+
+    public static int[] bubbleSort(int[] values) {
+        for (int i = 0; i < values.length - 1; i++) {
+            if (values[i] > values[i + 1]) {
+                int tempValue = values[i];
+                values[i] = values[i + 1];
+                values[i + 1] = tempValue;
+            }
+        }
+
+        return values;
+    }
+
 }

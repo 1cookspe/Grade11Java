@@ -43,6 +43,7 @@ public class Temperatures extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         displayOfTemperature = new javax.swing.JTextArea();
         daysInputted = new javax.swing.JLabel();
+        averageTemperature = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,26 +64,34 @@ public class Temperatures extends javax.swing.JFrame {
 
         daysInputted.setText("Days Inputted:");
 
+        averageTemperature.setForeground(new java.awt.Color(255, 51, 0));
+        averageTemperature.setText("Average Temperature:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
+                        .addGap(118, 118, 118)
                         .addComponent(dailyTemperatures))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(submitTemperature)
-                            .addComponent(inputTemperature))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(inputTemperature))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(daysInputted)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(submitTemperature)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(temperatureText, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(63, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(daysInputted)
+                .addContainerGap(38, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(averageTemperature)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
@@ -97,15 +106,17 @@ public class Temperatures extends javax.swing.JFrame {
                     .addComponent(inputTemperature)
                     .addComponent(temperatureText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(submitTemperature)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submitTemperature)
+                    .addComponent(daysInputted))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(daysInputted)
+                        .addGap(27, 27, 27)
+                        .addComponent(averageTemperature)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -121,7 +132,7 @@ public class Temperatures extends javax.swing.JFrame {
             daysInputted.setText("Days Inputted: " + dayTemperature);
 
             temperatureText.setText("");
-            inputTemperature.setText("Input the Temperature for " + dayNames[dayTemperature - 1] + " (in C).");
+            inputTemperature.setText("Input the Temperature for " + dayNames[dayTemperature - 1] + " (in Cº).");
 
             dayTemperature++;
             if (dayTemperature == 8) {
@@ -131,6 +142,8 @@ public class Temperatures extends javax.swing.JFrame {
                 inputTemperature.setText("All days have been input!");
                 submitTemperature.setEnabled(false);
             }
+            
+            averageTemperature.setText("Average Temperature: " + ArrayUtil.calculateNonZeroAverage(temperatures) + " Cº");
         } else {
             JOptionPane.showMessageDialog(this, "Please input a valid temperature!");
         }
@@ -172,6 +185,7 @@ public class Temperatures extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel averageTemperature;
     private javax.swing.JLabel dailyTemperatures;
     private javax.swing.JLabel daysInputted;
     private javax.swing.JTextArea displayOfTemperature;
