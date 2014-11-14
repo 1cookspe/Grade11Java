@@ -62,16 +62,35 @@ public class ArrayUtil {
         return sum / numberOfValues;
     }
 
-    public static int[] bubbleSort(int[] values) {
-        for (int i = 0; i < values.length - 1; i++) {
-            if (values[i] > values[i + 1]) {
-                int tempValue = values[i];
-                values[i] = values[i + 1];
-                values[i + 1] = tempValue;
+    public static void bubbleSort(int[] values) {
+
+        for (int pass = 0; pass < values.length-1; pass++) {
+            for (int i = 0; i < values.length - 1 - pass; i++) {
+           
+                if (values[i] > values[i + 1]) {
+                    int tempValue = values[i];
+                    values[i] = values[i + 1];
+                    values[i + 1] = tempValue;
+                    //ArrayUtil.swapValues(values[i], values[i]);
+                    //System.out.print(values[i] + " ");
+                }
+                
             }
         }
 
-        return values;
+        //return values[i] + " ";
     }
 
+    public static void printArray(int[] values) {
+        //Create for loop to generate 1000 random numbers
+        for (int i = 0; i < values.length; i++) {
+            System.out.print(values[i] + " ");
+        }
+    }
+    
+//    public static void swapValues(int firstValue, int secondValue) {
+//        int tempValue = firstValue;
+//        firstValue = secondValue;
+//        secondValue = tempValue;
+//    }
 }

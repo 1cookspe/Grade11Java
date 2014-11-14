@@ -18,31 +18,19 @@ public class BubbleSort {
     public static void main(String[] args) {
         //Variables
         int[] values = new int[10];
-        //Variables
         int randomNumber = 0;
 
         //Create for loop to generate 1000 random numbers
-        for (int i = 0; i < values.length - 3; i++) {
-            randomNumber = (int) (Math.random() * 9) + 1;
-            System.out.println(randomNumber);
+        for (int i = 0; i < values.length; i++) {
+            randomNumber = (int) (Math.random() * 1000) + 1;
             values[i] = randomNumber;
         }
-        System.out.println(values);
-    }
+        System.out.print("The unsorted array is ");
+        ArrayUtil.printArray(values);
 
-    public static int[] generateRandomArray(int[] values) {
-        //Variables
-        int randomNumber = 0;
-
-        //Create for loop to generate 1000 random numbers
-        for (int i = 0; i < values.length - 2; i++) {
-            randomNumber = (int) (Math.random() * 10) + 1;
-            System.out.println(randomNumber);
-            values[i] = randomNumber;
-        }
-        //System.out.println(values);
-
-        return ArrayUtil.bubbleSort(values);
+        ArrayUtil.bubbleSort(values);
+        System.out.print("\nThe Bubble Sorted array is ");
+        ArrayUtil.printArray(values);
     }
 
 }
