@@ -18,15 +18,26 @@ public class BubbleSort {
     public static void main(String[] args) {
         //Variables
         int[] values = new int[10];
-        
-        //Print results to user
-        System.out.print(generateRandomArray(values));
+        //Variables
+        int randomNumber = 0;
+
+        //Create for loop to generate 1000 random numbers
+        for (int i = 0; i < values.length - 3; i++) {
+            randomNumber = (int) (Math.random() * 9) + 1;
+            System.out.println(randomNumber);
+            values[i] = randomNumber;
+        }
+        System.out.println(values);
     }
 
     public static int[] generateRandomArray(int[] values) {
+        //Variables
+        int randomNumber = 0;
+
         //Create for loop to generate 1000 random numbers
-        for (int i = 0; i < values.length - 1; i++) {
-            int randomNumber = (int) (Math.random() * 10) + 1;
+        for (int i = 0; i < values.length - 2; i++) {
+            randomNumber = (int) (Math.random() * 10) + 1;
+            System.out.println(randomNumber);
             values[i] = randomNumber;
         }
         //System.out.println(values);
