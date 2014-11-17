@@ -64,9 +64,9 @@ public class ArrayUtil {
 
     public static void bubbleSort(int[] values) {
 
-        for (int pass = 0; pass < values.length-1; pass++) {
+        for (int pass = 0; pass < values.length - 1; pass++) {
             for (int i = 0; i < values.length - 1 - pass; i++) {
-           
+
                 if (values[i] > values[i + 1]) {
                     int tempValue = values[i];
                     values[i] = values[i + 1];
@@ -74,7 +74,7 @@ public class ArrayUtil {
                     //ArrayUtil.swapValues(values[i], values[i]);
                     //System.out.print(values[i] + " ");
                 }
-                
+
             }
         }
 
@@ -87,10 +87,29 @@ public class ArrayUtil {
             System.out.print(values[i] + " ");
         }
     }
-    
-//    public static void swapValues(int firstValue, int secondValue) {
-//        int tempValue = firstValue;
-//        firstValue = secondValue;
-//        secondValue = tempValue;
-//    }
+
+    public static void swapValues(int[] data, int i, int j) {
+        int tempValue = data[i];
+        data[i] = data[j];
+        data[j] = tempValue;
+    }
+
+    public static void selectionSort(int[] values) {
+        //Variables
+        int indexHighestValue;
+
+        //Use for loop to iterate through array
+        for (int pass = 0; pass < values.length; pass++) {
+            indexHighestValue = 0;
+            for (int i = 1; i < values.length - 1 - pass; i++) {
+                if (values[indexHighestValue] < values[i]) {
+                    indexHighestValue = i;
+                }
+                //System.out.println(values[i]  ");
+            }
+            swapValues(values, indexHighestValue, values.length - pass - 1);
+            //System.out.println(values[i]);
+        }
+    }
+
 }

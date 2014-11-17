@@ -2,7 +2,7 @@
  * Date: November 11, 2014
  * Version: v0
  * Description:
- This program uses Bubble Sort to sort an array of 10 random integers with values between 1 and 1000
+ This program uses Selection Sort to sort an array of 10 random integers with values between 1 and 1000
  */
 package edu.hdsb.gwss.spencercook.ics3u.u6;
 
@@ -10,7 +10,7 @@ package edu.hdsb.gwss.spencercook.ics3u.u6;
  *
  * @author 1cookspe
  */
-public class BubbleSort {
+public class SelectionSort {
 
     /**
      * @param args the command line arguments
@@ -25,12 +25,15 @@ public class BubbleSort {
             randomNumber = (int) (Math.random() * 1000) + 1;
             values[i] = randomNumber;
         }
-        System.out.print("The unsorted array is ");
+        
+        //Print out original array
+        System.out.print("The original array is ");
         ArrayUtil.printArray(values);
-
-        ArrayUtil.bubbleSort(values);
-        System.out.print("\nThe Bubble Sorted array is ");
+        
+        //Print out sorted array
+        ArrayUtil.selectionSort(values);
+        System.out.print("\nThe array sorted with Selection Sort is ");
         ArrayUtil.printArray(values);
     }
-
+    
 }
