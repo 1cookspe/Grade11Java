@@ -71,6 +71,7 @@ public class ArrayUtil {
                     int tempValue = values[i];
                     values[i] = values[i + 1];
                     values[i + 1] = tempValue;
+                    //ArrayUtil.swapValues(values[i], values[i + 1]);
                     //ArrayUtil.swapValues(values[i], values[i]);
                     //System.out.print(values[i] + " ");
                 }
@@ -111,5 +112,30 @@ public class ArrayUtil {
             //System.out.println(values[i]);
         }
     }
+    
+    public static int binarySearch(int[] data, int searchValue) {
+        //Variables
+        int location = -1;
+        int leftPost = 0;
+        int rightPost = data.length - 1;
+        
+        //Use do while loop to move posts and midpoints, and search for searchValue
+        do {
+            int midpoint = (leftPost + rightPost) / 2;
+            if (searchValue == data[midpoint]) {
+                location = midpoint;
+                rightPost = 1;
+                leftPost = 0;
+            } else if (searchValue < data[midpoint]) {
+                rightPost = midpoint - 1;
+            } else {
+                leftPost = midpoint + 1;
+            } 
+        } while (leftPost <= rightPost);
+      
+        return location;
+        
+    }
+   
 
 }
