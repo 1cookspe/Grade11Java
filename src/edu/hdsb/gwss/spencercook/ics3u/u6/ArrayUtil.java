@@ -64,18 +64,28 @@ public class ArrayUtil {
         return sum / numberOfValues;
     }
 
-    public static void bubbleSort(int[] values) {
+    public static void bubbleSortAscending(int[] values) {
 
         for (int pass = 0; pass < values.length - 1; pass++) {
             for (int i = 0; i < values.length - 1 - pass; i++) {
 
                 if (values[i] > values[i + 1]) {
-                    int tempValue = values[i];
-                    values[i] = values[i + 1];
-                    values[i + 1] = tempValue;
-                    //ArrayUtil.swapValues(values[i], values[i + 1]);
-                    //ArrayUtil.swapValues(values[i], values[i]);
-                    //System.out.print(values[i] + " ");
+                    swapValues(values, i, i + 1);
+                }
+
+            }
+        }
+
+        //return values[i] + " ";
+    }
+    
+        public static void bubbleSortDescending(int[] values) {
+
+        for (int pass = 0; pass < values.length - 1; pass++) {
+            for (int i = 0; i < values.length - 1 - pass; i++) {
+
+                if (values[i] < values[i + 1]) {
+                    swapValues(values, i, i + 1);
                 }
 
             }
@@ -97,14 +107,14 @@ public class ArrayUtil {
         data[j] = tempValue;
     }
 
-    public static void selectionSort(int[] values) {
+    public static int selectionSortAscending(int[] values) {
         //Variables
-        int indexHighestValue;
+        int indexHighestValue = - 1;
 
         //Use for loop to iterate through array
         for (int pass = 0; pass < values.length; pass++) {
             indexHighestValue = 0;
-            for (int i = 1; i < values.length - 1 - pass; i++) {
+            for (int i = 1; i < values.length - pass; i++) {
                 if (values[indexHighestValue] < values[i]) {
                     indexHighestValue = i;
                 }
@@ -113,6 +123,26 @@ public class ArrayUtil {
             swapValues(values, indexHighestValue, values.length - pass - 1);
             //System.out.println(values[i]);
         }
+        return indexHighestValue;
+    }
+    
+        public static int selectionSortDescending(int[] values) {
+        //Variables
+        int indexHighestValue = - 1;
+
+        //Use for loop to iterate through array
+        for (int pass = 0; pass < values.length; pass++) {
+            indexHighestValue = 0;
+            for (int i = 1; i < values.length - pass; i++) {
+                if (values[indexHighestValue] > values[i]) {
+                    indexHighestValue = i;
+                }
+                //System.out.println(values[i]  ");
+            }
+            swapValues(values, indexHighestValue, values.length - pass - 1);
+            //System.out.println(values[i]);
+        }
+        return indexHighestValue;
     }
     
     public static int binarySearch(int[] data, int searchValue) {

@@ -37,7 +37,7 @@ public class BinarySearch {
         ArrayUtil.printArray(values);
 
         //Print out sorted array
-        ArrayUtil.selectionSort(values);
+        ArrayUtil.selectionSortAscending(values);
         System.out.print("\nThe array sorted with Selection Sort is ");
         ArrayUtil.printArray(values);
         

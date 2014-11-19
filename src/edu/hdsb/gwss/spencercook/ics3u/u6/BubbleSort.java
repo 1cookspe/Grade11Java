@@ -33,11 +33,16 @@ public class BubbleSort {
         
         ArrayUtil.performLinearSearch(values);
 
-        ArrayUtil.bubbleSort(values);
-        System.out.print("\nThe Bubble Sorted array is ");
+        ArrayUtil.bubbleSortAscending(values);
+        System.out.print("\nThe array from lowest to highest is: ");
         ArrayUtil.printArray(values);
-        
         ArrayUtil.performLinearSearch(values);
+        
+        ArrayUtil.bubbleSortDescending(values);
+        System.out.print("\nThe array from highest to lowest is: ");
+        ArrayUtil.printArray(values);
+        ArrayUtil.performLinearSearch(values);
+        
     }
 
 }

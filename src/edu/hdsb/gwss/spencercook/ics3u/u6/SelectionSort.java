@@ -32,11 +32,16 @@ public class SelectionSort {
         
         ArrayUtil.performLinearSearch(values);
         
-        //Print out sorted array
-        ArrayUtil.selectionSort(values);
-        System.out.print("\nThe array sorted with Selection Sort is ");
+        //Print out array from lowest to highest
+        ArrayUtil.selectionSortAscending(values);
+        System.out.print("\nThe array sorted from lowest to highest is: ");
         ArrayUtil.printArray(values);
+        ArrayUtil.performLinearSearch(values);
         
+        //Array from highest to lowest
+        ArrayUtil.selectionSortDescending(values);
+        System.out.print("\nThe array sorted from highest to lowest is: ");
+        ArrayUtil.printArray(values);
         ArrayUtil.performLinearSearch(values);
     }
     
