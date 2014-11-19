@@ -6,6 +6,8 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.u6;
 
+import java.util.Scanner;
+
 /**
  *
  * @author 1cookspe
@@ -19,6 +21,10 @@ public class BinarySearch {
         // Variables
         int[] values = new int[10];
         int randomNumber = 0;
+        int randomValue = -1;
+        
+        //Objects
+        Scanner input = new Scanner(System.in);
 
         //Create for loop to generate 10 random numbers
         for (int i = 0; i < values.length; i++) {
@@ -34,15 +40,9 @@ public class BinarySearch {
         ArrayUtil.selectionSort(values);
         System.out.print("\nThe array sorted with Selection Sort is ");
         ArrayUtil.printArray(values);
-
-        //Use binary search to search for a specific value
-//        int randomValue;
-//        randomValue = (int) (Math.random() * 1000) + 1);
-        if (ArrayUtil.binarySearch(values, 100) > 0) {
-            System.out.println("\n" + "The data is found at the index " + ArrayUtil.binarySearch(values, 66) + " in the array.");
-        } else {
-            System.out.println("\nData not found in the array.");
-        }
+        
+        ArrayUtil.performBinarySearch(values);
+        
     }
 
 }

@@ -6,6 +6,8 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.u6;
 
+import java.util.Scanner;
+
 /**
  *
  * @author 1cookspe
@@ -118,6 +120,7 @@ public class ArrayUtil {
         int location = -1;
         int leftPost = 0;
         int rightPost = data.length - 1;
+        boolean variableFound = false;
         
         //Use do while loop to move posts and midpoints, and search for searchValue
         do {
@@ -126,15 +129,70 @@ public class ArrayUtil {
                 location = midpoint;
                 rightPost = 1;
                 leftPost = 0;
+                variableFound = true;
             } else if (searchValue < data[midpoint]) {
                 rightPost = midpoint - 1;
             } else {
                 leftPost = midpoint + 1;
             } 
-        } while (leftPost <= rightPost);
+        } while (leftPost < rightPost);
+        
+        if (variableFound) {
+            System.out.println(searchValue + " is found at index " + location + " in the array.");
+        } else {
+            System.out.println("Data not found.");
+        }
       
         return location;
         
+    }
+    
+    public static int sequentialSearch(int[] data, int searchValue) {
+        //Variables
+        int position = -1;
+        boolean variableFound = false;
+
+        //Create for loop to iterate through objects in array
+        for (int i = 0; i < data.length; i++) {
+            if (searchValue == data[i]) {
+                position = i;
+                i = data.length + 1;
+                variableFound = true;
+            } 
+        }
+        if (variableFound) {
+            System.out.println(searchValue + " is found at index " + position + " in the data.");
+        } else {
+            System.out.println("Data not found.");
+        }
+        return position;
+    }
+    
+        
+    public static void performLinearSearch(int[] values) { 
+        //Variables
+        int searchValue = -1;
+
+        //Objects
+        Scanner input = new Scanner(System.in);
+
+        //Ask user to search for value and use linear search to search for it
+        System.out.print("\nSearch for value in array: ");
+        searchValue = input.nextInt();
+        ArrayUtil.sequentialSearch(values, searchValue);
+    }
+    
+    public static void performBinarySearch(int[] values) {
+        //Variables
+        int searchValue = -1;
+
+        //Objects
+        Scanner input = new Scanner(System.in);
+
+        //Ask user to search for value and use linear search to search for it
+        System.out.print("\nSearch for value in array: ");
+        searchValue = input.nextInt();
+        ArrayUtil.binarySearch(values, searchValue);
     }
    
 

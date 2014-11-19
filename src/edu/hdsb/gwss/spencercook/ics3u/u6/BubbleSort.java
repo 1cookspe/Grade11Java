@@ -6,6 +6,8 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.u6;
 
+import java.util.Scanner;
+
 /**
  *
  * @author 1cookspe
@@ -19,6 +21,7 @@ public class BubbleSort {
         //Variables
         int[] values = new int[10];
         int randomNumber = 0;
+        int searchValue = -1;
 
         //Create for loop to generate 1000 random numbers
         for (int i = 0; i < values.length; i++) {
@@ -27,10 +30,14 @@ public class BubbleSort {
         }
         System.out.print("The unsorted array is ");
         ArrayUtil.printArray(values);
+        
+        ArrayUtil.performLinearSearch(values);
 
         ArrayUtil.bubbleSort(values);
         System.out.print("\nThe Bubble Sorted array is ");
         ArrayUtil.printArray(values);
+        
+        ArrayUtil.performLinearSearch(values);
     }
 
 }

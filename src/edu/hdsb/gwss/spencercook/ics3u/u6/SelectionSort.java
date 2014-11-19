@@ -30,10 +30,14 @@ public class SelectionSort {
         System.out.print("The original array is ");
         ArrayUtil.printArray(values);
         
+        ArrayUtil.performLinearSearch(values);
+        
         //Print out sorted array
         ArrayUtil.selectionSort(values);
         System.out.print("\nThe array sorted with Selection Sort is ");
         ArrayUtil.printArray(values);
+        
+        ArrayUtil.performLinearSearch(values);
     }
     
 }
