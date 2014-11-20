@@ -99,6 +99,7 @@ public class ArrayUtil {
         for (int i = 0; i < values.length; i++) {
             System.out.print(values[i] + " ");
         }
+        
     }
 
     public static void swapValues(int[] data, int i, int j) {
@@ -223,6 +224,17 @@ public class ArrayUtil {
         System.out.print("\nSearch for value in array: ");
         searchValue = input.nextInt();
         ArrayUtil.binarySearch(values, searchValue);
+    }
+    
+    public static int calculateSum(int[] values) {
+        //Variables
+        int sum = 0;
+        
+        //For loop to calculate sum
+        for (int i = 0; i < values.length; i++) {
+            sum += values[i];
+        }
+        return sum;
     }
    
 
