@@ -18,7 +18,7 @@ public class TableSort {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Variables
+        //Variables      
         String[] playersNames = {"Jakub Voracek", "Tyler Seguin", "Sidney Crosby", "Steven Stamkos", "Claude Giroux", "Vladimir Tarasenko", "Phil Kessel", "Patric Hornqvist", "Evgeni Malkin", "Ryan Johansen"};
         String[] playersTeams = {"Flyers", "Stars", "Penguins", "Lightning", "Flyers", "Blues", "Maple Leafs", "Penguins", "Penguins", "Blue Jackets"};
         int[] goals = {7, 15, 8, 14, 6, 12, 11, 10, 8, 7};
