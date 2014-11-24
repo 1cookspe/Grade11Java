@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author 1cookspe
  */
-public class TableSort {
+public class TableSort {  
 
     /**
      * @param args the command line arguments
