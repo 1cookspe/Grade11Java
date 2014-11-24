@@ -98,6 +98,7 @@ public class ArrayUtil {
         //Create for loop to generate 1000 random numbers
         for (int i = 0; i < values.length; i++) {
             System.out.print(values[i] + " ");
+           
         }
         
     }

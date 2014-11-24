@@ -17,7 +17,9 @@ public class TableSort {
      */
     public static void main(String[] args) {
         //Variables
-        String[] playersNames = { "Sidney Crosby", "Jakub Voracek", "Tyler Seguin", "Steven Stamkos", "Phil Kessel", "Filip Forsberg", "Vladimir Tarasenko", "Mark Giordano", "Tyler Johnson", "Claude Giroux",  "Rick Nash", "Patric Hornqvist", "Evgeni Malkin" };
+        String[] playersNames = { "Sidney", "Jakub Voracek", "Tyler Seguin", "Steven Stamkos", "Phil Kessel", "Filip Forsberg", "Vladimir Tarasenko", "Mark Giordano", "Tyler Johnson", "Claude Giroux" };
+        String[] teamsNames = { "Penguins", "Flyers", "Stars", "Lightning", "Maple Leafs", "Predators", "Blues", "Flames", "Lightning", "Flyers" };
+        //int[] goals = { 8, 
         //int[] indicies = new int[10];
     }
     
