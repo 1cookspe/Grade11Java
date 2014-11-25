@@ -108,6 +108,12 @@ public class ArrayUtil {
         data[i] = data[j];
         data[j] = tempValue;
     }
+    
+    public static void swapValuesDouble(double[] data, int i, int j) {
+        double tempValue = data[i];
+        data[i] = data[j];
+        data[j] = tempValue;
+    }
 
     public static int selectionSortAscending(int[] values) {
         //Variables
@@ -236,6 +242,115 @@ public class ArrayUtil {
             sum += values[i];
         }
         return sum;
+    }
+    
+    public static int selectionSortAscendingDouble(double[] data) {
+        //Variables
+        int indexHighestValue = - 1;
+
+        //Use for loop to iterate through array
+        for (int pass = 0; pass < data.length; pass++) {
+            indexHighestValue = 0;
+            for (int i = 1; i < data.length - pass; i++) {
+                if (data[indexHighestValue] > data[i]) {
+                    indexHighestValue = i;
+                }
+                //System.out.println(values[i]  ");
+            }
+            swapValuesDouble(data, indexHighestValue, data.length - pass - 1);
+            //System.out.println(values[i]);
+        }
+        return indexHighestValue;
+    } 
+    
+    public static int selectionSortDescendingDouble(double[] data) {
+        //Variables
+        int indexLowestValue = - 1;
+
+        //Use for loop to iterate through array
+        for (int pass = 0; pass < data.length; pass++) {
+            indexLowestValue = 0;
+            for (int i = 1; i < data.length - pass; i++) {
+                if (data[indexLowestValue] < data[i]) {
+                    indexLowestValue = i;
+                }
+                //System.out.println(values[i]  ");
+            }
+            swapValuesDouble(data, indexLowestValue, data.length - pass - 1);
+            //System.out.println(values[i]);
+        }
+        return indexLowestValue;
+    } 
+    
+     public static int selectionSortDescendingTable(int[] data) {
+        //Variables
+        int indexLowestValue = - 1;
+
+        //Use for loop to iterate through array
+        for (int pass = 0; pass < data.length; pass++) {
+            indexLowestValue = 0;
+            for (int i = 1; i < data.length - pass; i++) {
+                if (data[indexLowestValue] < data[i]) {
+                    indexLowestValue = i;
+                }
+                //System.out.println(values[i]  ");
+            }
+            swapIndicies(indexLowestValue, data.length - pass - 1);
+            //swapValuesDouble(data, indexLowestValue, data.length - pass - 1);
+            //System.out.println(values[i]);
+        }
+        return indexLowestValue;
+    }
+     
+          public static int selectionSortAscendingTable(int[] data) {
+        //Variables
+        int indexHighestValue = - 1;
+
+        //Use for loop to iterate through array
+        for (int pass = 0; pass < data.length; pass++) {
+            indexHighestValue = 0;
+            for (int i = 1; i < data.length - pass; i++) {
+                if (data[indexHighestValue] < data[i]) {
+                    indexHighestValue = i;
+                }
+                //System.out.println(values[i]  ");
+            }
+            swapIndicies(indexHighestValue, data.length - pass - 1);
+            //swapValuesDouble(data, indexLowestValue, data.length - pass - 1);
+            //System.out.println(values[i]);
+        }
+        return indexHighestValue;
+    }
+          
+    public static int selectionSortAscendingTableDouble(double[] data) {
+        //Variables
+        int indexHighestValue = - 1;
+
+        //Use for loop to iterate through array
+        for (int pass = 0; pass < data.length; pass++) {
+            indexHighestValue = 0;
+            for (int i = 1; i < data.length - pass; i++) {
+                if (data[indexHighestValue] < data[i]) {
+                    indexHighestValue = i;
+                }
+                //System.out.println(values[i]  ");
+            }
+            swapIndicies(indexHighestValue, data.length - pass - 1);
+            //swapValuesDouble(data, indexLowestValue, data.length - pass - 1);
+            //System.out.println(values[i]);
+        }
+        return indexHighestValue;
+    }
+    
+    public static void swapIndicies(int i, int j) {
+        int[] indicies = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }; 
+        int tempIndicie = indicies[i];
+        indicies[i] = indicies[j];
+        indicies[j] = tempIndicie;
+    }
+    
+    public static void swapIndiciesDouble(int i, int j) {
+        
     }
    
 
