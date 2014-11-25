@@ -330,7 +330,7 @@ public class ArrayUtil {
         for (int pass = 0; pass < data.length; pass++) {
             indexHighestValue = 0;
             for (int i = 1; i < data.length - pass; i++) {
-                if (data[indexHighestValue] < data[i]) {
+                if (data[indexHighestValue] > data[i]) {
                     indexHighestValue = i;
                 }
                 //System.out.println(values[i]  ");
@@ -342,15 +342,31 @@ public class ArrayUtil {
         return indexHighestValue;
     }
     
+    public static int selectionSortDescendingTableDouble(double[] data) {
+        //Variables
+        int indexLowestValue = - 1;
+
+        //Use for loop to iterate through array
+        for (int pass = 0; pass < data.length; pass++) {
+            indexLowestValue = 0;
+            for (int i = 1; i < data.length - pass; i++) {
+                if (data[indexLowestValue] > data[i]) {
+                    indexLowestValue = i;
+                }
+                //System.out.println(values[i]  ");
+            }
+            swapIndicies(indexLowestValue, data.length - pass - 1);
+            //swapValuesDouble(data, indexLowestValue, data.length - pass - 1);
+            //System.out.println(values[i]);
+        }
+        return indexLowestValue;
+    }
+    
     public static void swapIndicies(int i, int j) {
         int[] indicies = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }; 
         int tempIndicie = indicies[i];
         indicies[i] = indicies[j];
         indicies[j] = tempIndicie;
-    }
-    
-    public static void swapIndiciesDouble(int i, int j) {
-        
     }
    
 
