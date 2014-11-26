@@ -25,7 +25,7 @@ public class TableSort {
         int[] assists = {22, 11, 18, 10, 18, 11, 12, 13, 15, 16};
         int[] points = {29, 26, 26, 24, 24, 23, 23, 23, 23, 23};
         double[] shootingPercentage = {10.6, 18.8, 13.6, 18.2, 6.7, 15.0, 15.1, 14.1, 15.7, 13.7};
-        int[] indicies = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] indicies = ArrayUtil.generateIndicesArray( goals.length );
         int choice = 0;
         String characterChoice = "z";
         String sortBy = "";
@@ -33,11 +33,7 @@ public class TableSort {
         //Objects
         Scanner sortInput = new Scanner(System.in);
 
-        //PRINT ARRAY
-        System.out.format("%20s  | %15s  | %5s  | %7s  | %7s  | %15s", "Player Name", "Team", "Goals", "Assists", "Points", "Shooting Percentage (%)");
-        for (int i = 0; i < playersNames.length; i++) {
-            System.out.format("\n%20s  | %15s  | %5s  | %7s  | %7s  | %15s", playersNames[i], playersTeams[i], goals[i], assists[i], points[i], shootingPercentage[i]);
-        }
+
 
         //USER INPUT; GET, SET
         while (choice <= 0 || choice > 6) {
@@ -67,52 +63,68 @@ public class TableSort {
             System.out.print("\nYour Choice: ");
             choice = sortInput.nextInt();
         }
-        
-        while (characterChoice != "A" || characterChoice != "B") {
+
+        do {
             System.out.println("Press A to sort from Lowest to Highest.");
             System.out.println("Press B to sort from Highest to Lowest.");
-            characterChoice = sortInput.nextLine();
+            System.out.print("Your Choice: ");
+            characterChoice = sortInput.next();
             characterChoice = characterChoice.toUpperCase();
-        }
+        } while (!characterChoice.equals("A") && !characterChoice.equals("B"));
 
         switch (choice) {
             case 1:
-                if (characterChoice == "A") {
-                    ArrayUtil.selectionSortAscendingTable(goals);
+                if (characterChoice.equalsIgnoreCase( "A") ) {
+                    indicies = ArrayUtil.selectionSortAscendingTable(goals);
                 } else {
-                    ArrayUtil.selectionSortDescendingTable(goals);
+                    indicies = ArrayUtil.selectionSortDescendingTable(goals);
                 }
             case 2:
-                if (characterChoice == "A") {
-                    ArrayUtil.selectionSortAscendingTable(assists);
+                if (characterChoice.equalsIgnoreCase("A")) {
+                    indicies = ArrayUtil.selectionSortAscendingTable(assists);
                 } else {
-                    ArrayUtil.selectionSortDescendingTable(assists);
+                    indicies = ArrayUtil.selectionSortDescendingTable(assists);
                 }
             case 3:
-                if (characterChoice == "A") {
-                    ArrayUtil.selectionSortAscendingTable(points);
+                if (characterChoice.equalsIgnoreCase("A")) {
+                    indicies = ArrayUtil.selectionSortAscendingTable(points);
                 } else {
-                    ArrayUtil.selectionSortDescendingTable(points);
+                    indicies = ArrayUtil.selectionSortDescendingTable(points);
                 }
             case 4:
-//                if (characterChoice == "A") {
-//                    ArrayUtil.selectionSortAscending(shootingPercentage);
-//                } else {
-//                    ArrayUtil.selectionSortDescending(shootingPercentage);
-//                }
-            case 5:
-                if (characterChoice == "A") {
-                    ArrayUtil.selectionSortAscendingDouble(shootingPercentage);
+                if (characterChoice.equalsIgnoreCase("A")) {
+                    indicies = ArrayUtil.selectionSortAscendingDoubleTable(shootingPercentage);
                 } else {
-                    ArrayUtil.selectionSortDescendingDouble(shootingPercentage);
+                    indicies = ArrayUtil.selectionSortDescendingDouble(shootingPercentage);
+                }
+            case 5:
+                if (characterChoice.equalsIgnoreCase("A")) {
+                    indicies = ArrayUtil.selectionSortStringsAscending(playersNames);
+                } else {
+                    indicies = ArrayUtil.selectionSortStringsDescending(playersNames);
                 }
             case 6:
+                if (characterChoice.equalsIgnoreCase("A")) {
+                    indicies = ArrayUtil.selectionSortStringsAscending(playersTeams);
+                } else {
+                    indicies = ArrayUtil.selectionSortStringsDescending(playersTeams);
+                }
             default:
+        }
+        
+        //PRINT ARRAY
+        System.out.format("%20s  | %15s  | %5s  | %7s  | %7s  | %15s", "Player Name", "Team", "Goals", "Assists", "Points", "Shooting Percentage (%)");
+        for (int i = 0; i < playersNames.length; i++) {
+            System.out.format("\n%20s  | %15s  | %5s  | %7s  | %7s  | %15s", playersNames[indicies[i]], playersTeams[indicies[i]], goals[indicies[i]], assists[indicies[i]], points[indicies[i]], shootingPercentage[indicies[i]]);
         }
 
     }
-
-    public static void sortArray(int choice) {
+    
+    public static void sortArray(int[] array, int[] secondArray) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(secondArray[array[i]] + " ");
+        }
     }
+
 
 }
