@@ -170,15 +170,13 @@ public class ArrayUtil {
             int midpoint = (leftPost + rightPost) / 2;
             if (searchValue == data[midpoint]) {
                 location = midpoint;
-                rightPost = 1;
-                leftPost = 0;
                 variableFound = true;
             } else if (searchValue < data[midpoint]) {
                 rightPost = midpoint - 1;
             } else {
                 leftPost = midpoint + 1;
             }
-        } while (leftPost < rightPost);
+        } while (leftPost <= rightPost && !variableFound);
 
         if (variableFound) {
             System.out.println(searchValue + " is found at index " + location + " in the array.");
