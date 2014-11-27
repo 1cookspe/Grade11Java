@@ -258,12 +258,11 @@ public class ArrayUtil {
                 }
             }
         }
-        printArray(indecies);
         return indecies;
 
     }
 
-    public static int[] selectionSortDescendingDouble(double[] data) {
+    public static int[] selectionSortDescendingDoubleTable(double[] data) {
        int[] indecies = generateIndicesArray( data.length );
 
         for (int pass = 0; pass < data.length - 1; pass++) {
@@ -273,7 +272,6 @@ public class ArrayUtil {
                 }
             }
         }
-        printArray(indecies);
         return indecies;
     }
 
@@ -287,7 +285,6 @@ public class ArrayUtil {
                 }
             }
         }
-        printArray(indecies);
         return indecies;
     }
 
@@ -301,7 +298,6 @@ public class ArrayUtil {
                 }
             }
         }
-        printArray(indecies);
         return indecies;
     }
     
@@ -370,7 +366,6 @@ public class ArrayUtil {
                 }
             }
         }
-        printArray(indecies);
         return indecies;
     }
 
@@ -384,7 +379,6 @@ public class ArrayUtil {
                 }
             }
         }
-        printArray(indecies);
         return indecies;
     }
 }

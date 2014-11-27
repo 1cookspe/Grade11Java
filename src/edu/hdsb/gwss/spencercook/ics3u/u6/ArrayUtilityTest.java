@@ -89,6 +89,8 @@ public class ArrayUtilityTest {
 
         System.out.print( "\nTEST CASE #1A RESULTS - passed = " + passedTest );
         
+ 
+        testSelectionSortDescending();
         
     }
 
@@ -113,12 +115,53 @@ public class ArrayUtilityTest {
 
     }
 
-    public static void testSelectionSort(int[] data) {
+    public static void testSelectionSortDescending() {
+        int data[] = {1, 3, 4, 88, -99, 3, -2};
+        
+        System.out.println("\n------------------------------------");
+        System.out.println("TEST CASE #5: Selection Sort Descending ");
+        System.out.println("PRE  CONDITION : an array at 1 3 4 88 -99 3 -2 ");
+        System.out.println("POST CONDITION : returns an array at 88 4 3 3 1 -2 -99");
 
+        // DISPLAY ARRAY
+        System.out.print("DATA BEFORE: ");
+        ArrayUtil.printArray(data);
+
+        // SORT DATA
+        System.out.print("\nDATA AFTER: ");
+        ArrayUtil.selectionSortDescending(data);
+        ArrayUtil.printArray(data);
+
+        // CONFIRM; the value at index i must be lest than the value at index i+1
+        boolean passedTest = false;
+//        for (int i = 0; i < data.length; ) {
+//            System.out.println(i);
+//            if (data[i] > data[i + 1]) {
+//                passedTest = true;
+//            } else {
+//                passedTest = false;
+//                i = data.length + 1;
+//            }
+//            i++;
+//        }
+        
+        int i = 0;
+        while (i < data.length) {
+            System.out.println("Hello " + i);
+            if (data[i] > data[i + 1]) {
+                passedTest = true;
+            } else {
+                passedTest = false;
+                i = data.length + 1;
+            }
+            i++;
+        }
+
+        System.out.print( "\nTEST CASE #1A RESULTS - passed = " + passedTest);
     }
 
     public static void testLinearSearch(int[] data) {
-
+        
     }
 
 }
