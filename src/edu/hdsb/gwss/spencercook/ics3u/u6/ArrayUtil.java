@@ -64,7 +64,7 @@ public class ArrayUtil {
         return sum / numberOfValues;
     }
 
-    public static void bubbleSortAscending(int[] values) {
+    public static int[] bubbleSortAscending(int[] values) {
 
         for (int pass = 0; pass < values.length - 1; pass++) {
             for (int i = 0; i < values.length - 1 - pass; i++) {
@@ -76,7 +76,7 @@ public class ArrayUtil {
             }
         }
 
-        //return values[i] + " ";
+        return values;
     }
 
     public static void bubbleSortDescending(int[] values) {

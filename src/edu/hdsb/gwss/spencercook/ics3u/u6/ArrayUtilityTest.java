@@ -20,21 +20,7 @@ public class ArrayUtilityTest {
         int[] values = new int[10];
         int randomNumber;
 
-        //Create for loop to generate 1000 random numbers
-        for (int i = 0; i < values.length; i++) {
-            randomNumber = (int) (Math.random() * 1000) + 1;
-            values[i] = randomNumber;
-        }
-
-        ArrayUtil.bubbleSortAscending(values);
-
-        for (int i = 0; i < values.length - 1; i++) {
-            if (values[i] < values[i + 1]) {
-                System.out.println(values[i] + " < " + values[i + 1] + " PASSED");
-            } else {
-                System.out.println(values[i] + " < " + values[i + 1] + " FAILED");
-            }
-        }
+       
 
         int data[] = {1, 3, 4, 88, -99, 3, -2};
         System.out.println("------------------------------------");
@@ -61,37 +47,11 @@ public class ArrayUtilityTest {
         System.out.println("POST CONDITION : returns an average of -2");
         System.out.println("TEST RESULTS   : " + ArrayUtil.calculateSum(data));
 
-        System.out.println("------------------------------------");
-        System.out.println("TEST CASE #5: Selection Sort Ascending ");
-        System.out.println("PRE  CONDITION : an array at 1 3 4 88 -99 3 -2 ");
-        System.out.println("POST CONDITION : returns an array at -99, -2, 1, 3, 3, 4, 88");
-
-        // DISPLAY ARRAY
-        System.out.print("DATA BEFORE: ");
-        ArrayUtil.printArray(data);
-
-        // SORT DATA
-        System.out.print("\nDATA AFTER: ");
-        ArrayUtil.selectionSortAscending(data);
-        ArrayUtil.printArray(data);
-
-        // CONFIRM; the value at index i must be lest than the value at index i+1
-        boolean passedTest = false;
-        for (int i = 0; i < data.length; i++) {
-            if (data[i] < data[i + 1]) {
-                passedTest = true;
-            } else {
-                passedTest = false;
-                i = data.length + 1;
-            }
-
-        }
-
-        System.out.print( "\nTEST CASE #1A RESULTS - passed = " + passedTest );
         
- 
+        testBubbleSortAscending();
+        testBubbleSortDescending();
         testSelectionSortDescending();
-        
+        testSelectionSortAscending();
     }
 
     public static void testBinarySearch(int[] data) {
@@ -111,53 +71,88 @@ public class ArrayUtilityTest {
 
     }
 
-    public static void testBubbleSort(int[] data) {
+    public static void testBubbleSortAscending() {
+        //Variables
+        int randomNumber;
+        int data[] = {1, 3, 4, 88, -99, 3, -2};
+        
+        System.out.println("\n------------------------------------");
+        System.out.println("TEST CASE #5: Bubble Sort Ascending");
+        System.out.println("PRE  CONDITION : an array with a sum of -2");
+        System.out.println("POST CONDITION : returns an ordered array");
+        System.out.println("TEST RESULTS   : ");
+        
+        ArrayUtil.bubbleSortAscending(data);
 
+        for (int i = 0; i < data.length - 1; i++) {
+            if (data[i] <= data[i + 1]) {
+                System.out.println(data[i] + " < " + data[i + 1] + " PASSED");
+            } else {
+                System.out.println(data[i] + " < " + data[i + 1] + " FAILED");
+            }
+        }
+    }
+    
+    public static void testBubbleSortDescending() {
+        //Variables
+        int randomNumber;
+        int data[] = {1, 3, 4, 88, -99, 3, -2};
+        
+        System.out.println("\n------------------------------------");
+        System.out.println("TEST CASE #6: Bubble Sort Descending");
+        System.out.println("PRE  CONDITION : an array of 1, 3, 4, 88, -99, 3, -2");
+        System.out.println("POST CONDITION : returns an ordered array");
+        System.out.println("TEST RESULTS   : ");
+        
+        ArrayUtil.bubbleSortDescending(data);
+
+        for (int i = 0; i < data.length - 1; i++) {
+            if (data[i] >= data[i + 1]) {
+                System.out.println(data[i] + " < " + data[i + 1] + " PASSED");
+            } else {
+                System.out.println(data[i] + " < " + data[i + 1] + " FAILED");
+            }
+        }
     }
 
     public static void testSelectionSortDescending() {
         int data[] = {1, 3, 4, 88, -99, 3, -2};
         
         System.out.println("\n------------------------------------");
-        System.out.println("TEST CASE #5: Selection Sort Descending ");
-        System.out.println("PRE  CONDITION : an array at 1 3 4 88 -99 3 -2 ");
-        System.out.println("POST CONDITION : returns an array at 88 4 3 3 1 -2 -99");
-
-        // DISPLAY ARRAY
-        System.out.print("DATA BEFORE: ");
-        ArrayUtil.printArray(data);
-
-        // SORT DATA
-        System.out.print("\nDATA AFTER: ");
-        ArrayUtil.selectionSortDescending(data);
-        ArrayUtil.printArray(data);
-
-        // CONFIRM; the value at index i must be lest than the value at index i+1
-        boolean passedTest = false;
-//        for (int i = 0; i < data.length; ) {
-//            System.out.println(i);
-//            if (data[i] > data[i + 1]) {
-//                passedTest = true;
-//            } else {
-//                passedTest = false;
-//                i = data.length + 1;
-//            }
-//            i++;
-//        }
+        System.out.println("TEST CASE #7: Selection Sort Descending");
+        System.out.println("PRE  CONDITION : an array of 1, 3, 4, 88, -99, 3, -2");
+        System.out.println("POST CONDITION : returns an ordered array");
+        System.out.println("TEST RESULTS   : ");
         
-        int i = 0;
-        while (i < data.length) {
-            System.out.println("Hello " + i);
-            if (data[i] > data[i + 1]) {
-                passedTest = true;
-            } else {
-                passedTest = false;
-                i = data.length + 1;
-            }
-            i++;
-        }
+        ArrayUtil.selectionSortDescending(data);
 
-        System.out.print( "\nTEST CASE #1A RESULTS - passed = " + passedTest);
+        for (int i = 0; i < data.length - 1; i++) {
+            if (data[i] >= data[i + 1]) {
+                System.out.println(data[i] + " > " + data[i + 1] + " PASSED");
+            } else {
+                System.out.println(data[i] + " > " + data[i + 1] + " FAILED");
+            }
+        }
+    }
+    
+    public static void testSelectionSortAscending() {
+        int data[] = {1, 3, 4, 88, -99, 3, -2};
+        
+        System.out.println("\n------------------------------------");
+        System.out.println("TEST CASE #8: Selection Sort Ascending");
+        System.out.println("PRE  CONDITION : an array of 1, 3, 4, 88, -99, 3, -2");
+        System.out.println("POST CONDITION : returns an ordered array");
+        System.out.println("TEST RESULTS   : ");
+        
+        ArrayUtil.selectionSortAscending(data);
+
+        for (int i = 0; i < data.length - 1; i++) {
+            if (data[i] <= data[i + 1]) {
+                System.out.println(data[i] + " < " + data[i + 1] + " PASSED");
+            } else {
+                System.out.println(data[i] + " < " + data[i + 1] + " FAILED");
+            }
+        }
     }
 
     public static void testLinearSearch(int[] data) {
