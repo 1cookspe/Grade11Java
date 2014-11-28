@@ -134,9 +134,9 @@ public class ArrayUtilityTest {
 
         for (int i = 0; i < data.length - 1; i++) {
             if (data[i] >= data[i + 1]) {
-                System.out.println(data[i] + " < " + data[i + 1] + " PASSED");
+                System.out.println(data[i] + " > " + data[i + 1] + " PASSED");
             } else {
-                System.out.println(data[i] + " < " + data[i + 1] + " FAILED");
+                System.out.println(data[i] + " > " + data[i + 1] + " FAILED");
             }
         }
     }
