@@ -29,13 +29,17 @@ public class ArrayUtilityTest {
     }
 
     public static void testBinarySearch() {
+        //Variables
         int data[] = {1, 3, 4, 88, 99, 333, 2079};
+        
+        //Print out results
         System.out.println("\n------------------------------------");
         System.out.println("TEST CASE #10: Binary Search");
         System.out.println("PRE  CONDITION : an array of 1, 3, 4, 88, 99, 333, 2079");
         System.out.println("POST CONDITION : returns index of i in the for loop");
         System.out.println("TEST RESULTS   : ");
 
+        //Iterate through array to check that values are found
         for (int i = 0; i < data.length; i++) {
             if (ArrayUtil.binarySearch(data, data[i]) == i) {
                 System.out.println("Passed");
@@ -55,7 +59,10 @@ public class ArrayUtilityTest {
     }
 
     public static void testMaximum() {
+        //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
+        
+        //Print out results
         System.out.println("------------------------------------");
         System.out.println("TEST CASE #2: maximum");
         System.out.println("PRE  CONDITION : an array with a maximum of 88");
@@ -65,7 +72,10 @@ public class ArrayUtilityTest {
     }
 
     public static void testMinimum() {
+        //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
+        
+        //Print out results
         System.out.println("------------------------------------");
         System.out.println("TEST CASE #1: minimum");
         System.out.println("PRE  CONDITION : an array with a mimimum of -99");
@@ -74,7 +84,10 @@ public class ArrayUtilityTest {
     }
 
     public static void testAverage() {
+        //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
+        
+        //Print out results
         System.out.println("------------------------------------");
         System.out.println("TEST CASE #3: average");
         System.out.println("PRE  CONDITION : an array with an average of -0.2");
@@ -83,14 +96,17 @@ public class ArrayUtilityTest {
     }
 
     public static void testBubbleSortAscending() {
+        //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
 
+        //Print out results
         System.out.println("\n------------------------------------");
         System.out.println("TEST CASE #5: Bubble Sort Ascending");
         System.out.println("PRE  CONDITION : an array with a sum of -2");
         System.out.println("POST CONDITION : returns an ordered array");
         System.out.println("TEST RESULTS   : ");
 
+        //Call method and check that values are correct
         ArrayUtil.bubbleSortAscending(data);
 
         for (int i = 0; i < data.length - 1; i++) {
@@ -103,14 +119,17 @@ public class ArrayUtilityTest {
     }
 
     public static void testBubbleSortDescending() {
+        //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
-
+        
+        //Print out results
         System.out.println("\n------------------------------------");
         System.out.println("TEST CASE #6: Bubble Sort Descending");
         System.out.println("PRE  CONDITION : an array of 1, 3, 4, 88, -99, 3, -2");
         System.out.println("POST CONDITION : returns an ordered array");
         System.out.println("TEST RESULTS   : ");
-
+        
+        //Call method and check that values are correct
         ArrayUtil.bubbleSortDescending(data);
 
         for (int i = 0; i < data.length - 1; i++) {
@@ -123,14 +142,17 @@ public class ArrayUtilityTest {
     }
 
     public static void testSelectionSortDescending() {
+        //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
-
+        
+        //Print out results
         System.out.println("\n------------------------------------");
         System.out.println("TEST CASE #7: Selection Sort Descending");
         System.out.println("PRE  CONDITION : an array of 1, 3, 4, 88, -99, 3, -2");
         System.out.println("POST CONDITION : returns an ordered array");
         System.out.println("TEST RESULTS   : ");
 
+        //Call methods and check that values are correct
         ArrayUtil.selectionSortDescending(data);
 
         for (int i = 0; i < data.length - 1; i++) {
@@ -143,14 +165,17 @@ public class ArrayUtilityTest {
     }
 
     public static void testSelectionSortAscending() {
+        //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
 
+        //Print out results
         System.out.println("\n------------------------------------");
         System.out.println("TEST CASE #8: Selection Sort Ascending");
         System.out.println("PRE  CONDITION : an array of 1, 3, 4, 88, -99, 3, -2");
         System.out.println("POST CONDITION : returns an ordered array");
         System.out.println("TEST RESULTS   : ");
 
+        //Call method and check that values are correct
         ArrayUtil.selectionSortAscending(data);
 
         for (int i = 0; i < data.length - 1; i++) {
@@ -163,13 +188,17 @@ public class ArrayUtilityTest {
     }
 
     public static void testLinearSearch() {
+        //Variables
         int data[] = {1, 3, 4, 88, -99, 31, -2};
+        
+        //Print results
         System.out.println("\n------------------------------------");
         System.out.println("TEST CASE #9: Linear Search");
         System.out.println("PRE  CONDITION : an array of 1, 3, 4, 88, -99, 3, -2");
         System.out.println("POST CONDITION : returns an ordered array");
         System.out.println("TEST RESULTS   : ");
         
+        //Iterate through array to see if the values are found properly
         for (int i = 0; i < data.length; i++) {
           
             if (ArrayUtil.sequentialSearch(data, data[i]) == i) {
@@ -192,7 +221,10 @@ public class ArrayUtilityTest {
     }
 
     public static void testSum() {
+        //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
+        
+        //Print out results
         System.out.println("------------------------------------");
         System.out.println("TEST CASE #4: sum");
         System.out.println("PRE  CONDITION : an array with a sum of -2");

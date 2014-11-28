@@ -37,8 +37,15 @@ public class TableSort {
         //Create do while loop so that user can constantly sort new data
         do {
         choice = 0;
-        //USER INPUT; GET, SET
+        
         System.out.println("Welcome to the NHL Stats Sorter! Results as of November 24, 2014!");
+        
+        //Print original stats to user
+        printChart(playersNames, playersTeams, goals, assists, points, shootingPercentage, indicies);        
+        
+        //USER INPUT; GET, SET
+        //  - Ask user what they want to sort by
+        // - Use while loop to ensure that user inputs valid information
         while (choice <= 0 || choice > 6) {
             System.out.println("Hello!");
             for (int i = 1; i < 7; i++) {
@@ -125,11 +132,8 @@ public class TableSort {
                 break;
         }
         
-        //PRINT ARRAY
-        System.out.format("\n%20s  | %15s  | %5s  | %7s  | %7s  | %15s", "Player Name", "Team", "Goals", "Assists", "Points", "Shooting Percentage (%)");
-        for (int i = 0; i < playersNames.length; i++) {
-            System.out.format("\n%20s  | %15s  | %5s  | %7s  | %7s  | %15s", playersNames[indicies[i]], playersTeams[indicies[i]], goals[indicies[i]], assists[indicies[i]], points[indicies[i]], shootingPercentage[indicies[i]]);
-        }
+        //Print chart to user
+        printChart(playersNames, playersTeams, goals, assists, points, shootingPercentage, indicies);
         
         //Create do loop to ask if user wants to sort more data
         do {
@@ -142,7 +146,13 @@ public class TableSort {
 
     }
     
-//    public static void pr
+    public static void printChart(String[] playersNames, String[] playersTeams, int[] goals, int[] assists, int[] points, double[] shootingPercentage, int[] indicies) {
+                //PRINT ARRAY
+        System.out.format("\n%20s  | %15s  | %5s  | %7s  | %7s  | %15s", "Player Name", "Team", "Goals", "Assists", "Points", "Shooting Percentage (%)");
+        for (int i = 0; i < playersNames.length; i++) {
+            System.out.format("\n%20s  | %15s  | %5s  | %7s  | %7s  | %15s", playersNames[indicies[i]], playersTeams[indicies[i]], goals[indicies[i]], assists[indicies[i]], points[indicies[i]], shootingPercentage[indicies[i]]);
+        }
+    }
     
 
 
