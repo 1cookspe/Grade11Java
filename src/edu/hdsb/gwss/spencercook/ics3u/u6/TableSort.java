@@ -147,7 +147,7 @@ public class TableSort {
     }
     
     public static void printChart(String[] playersNames, String[] playersTeams, int[] goals, int[] assists, int[] points, double[] shootingPercentage, int[] indicies) {
-                //PRINT ARRAY
+        //PRINT ARRAY
         System.out.format("\n%20s  | %15s  | %5s  | %7s  | %7s  | %15s", "Player Name", "Team", "Goals", "Assists", "Points", "Shooting Percentage (%)");
         for (int i = 0; i < playersNames.length; i++) {
             System.out.format("\n%20s  | %15s  | %5s  | %7s  | %7s  | %15s", playersNames[indicies[i]], playersTeams[indicies[i]], goals[indicies[i]], assists[indicies[i]], points[indicies[i]], shootingPercentage[indicies[i]]);
