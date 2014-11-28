@@ -24,7 +24,7 @@ public class TestReview {
         results = bubbleSortUp(data);
         for (int i = 0; i < data.length; i++) {
             System.out.println(results[i] + " ");
-            System.out.println(newArray[i] + " ");
+            //System.out.println(newArray[i] + " ");
         }
     }
 
