@@ -158,8 +158,38 @@ public class ArrayUtil {
         return indexHighestValue;
     }
 
-    public static int binarySearch(int[] data, int searchValue) {
+    public static int binarySearchDescending(int[] data, int searchValue) {
         //Variables
+        int location = -1;
+        int leftPost = 0;
+        int rightPost = data.length - 1;
+        boolean variableFound = false;
+
+        //Use do while loop to move posts and midpoints, and search for searchValue
+        do {
+            int midpoint = (leftPost + rightPost) / 2;
+            if (searchValue == data[midpoint]) {
+                location = midpoint;
+                variableFound = true;
+            } else if (searchValue > data[midpoint]) {
+                rightPost = midpoint - 1;
+            } else {
+                leftPost = midpoint + 1;
+            }
+        } while (leftPost <= rightPost && !variableFound);
+
+        if (variableFound) {
+            System.out.println(searchValue + " is found at index " + location + " in the array.");
+        } else {
+            System.out.println("Data not found.");
+        }
+
+        return location;
+
+    }
+    
+    public static int binarySearchAscending(int[] data, int searchValue) {
+                //Variables
         int location = -1;
         int leftPost = 0;
         int rightPost = data.length - 1;
@@ -185,7 +215,6 @@ public class ArrayUtil {
         }
 
         return location;
-
     }
 
     public static int sequentialSearch(int[] data, int searchValue) {
@@ -232,7 +261,7 @@ public class ArrayUtil {
         //Ask user to search for value and use linear search to search for it
         System.out.print("\nSearch for value in array: ");
         searchValue = input.nextInt();
-        ArrayUtil.binarySearch(values, searchValue);
+        ArrayUtil.binarySearchAscending(values, searchValue);
     }
 
     public static int calculateSum(int[] values) {

@@ -25,43 +25,73 @@ public class ArrayUtilityTest {
         testSelectionSortDescending();
         testSelectionSortAscending();
         testLinearSearch();
-        testBinarySearch();
+        testBinarySearchDescending();
+        testBinaryAscending();
     }
 
-    public static void testBinarySearch() {
+    public static void testBinarySearchDescending() {
         //Variables
-        int data[] = {1, 3, 4, 88, 99, 333, 2079};
-        
+        int data[] = {2000, 1000, 500, 200, 100, 50, 12};
+
         //Print out results
         System.out.println("\n------------------------------------");
-        System.out.println("TEST CASE #10: Binary Search");
+        System.out.println("TEST CASE #10: Binary Search Descending");
+        System.out.println("PRE  CONDITION : an array of 2000, 1000, 500, 200, 100, 50, 12");
+        System.out.println("POST CONDITION : returns index of i in the for loop");
+        System.out.println("TEST RESULTS   : ");
+
+        //Iterate through array to check that values are found
+        for (int i = 0; i < data.length; i++) {
+            if (ArrayUtil.binarySearchDescending(data, data[i]) == i) {
+                System.out.println("Passed");
+            } else {
+                System.out.println("Failed");
+            }
+        }
+
+        //Looks for value that does not exist
+        System.out.println("\n-------------Look for non existent value---------------");
+        if (ArrayUtil.binarySearchDescending(data, 54) == -1) {
+            System.out.println("PASSED!");
+        } else {
+            System.out.println("FAILED!");
+        }
+
+    }
+
+    public static void testBinaryAscending() {
+        //Variables
+        int data[] = {1, 3, 4, 88, 99, 333, 2079};
+
+        //Print out results
+        System.out.println("\n------------------------------------");
+        System.out.println("TEST CASE #11: Binary Search Ascending");
         System.out.println("PRE  CONDITION : an array of 1, 3, 4, 88, 99, 333, 2079");
         System.out.println("POST CONDITION : returns index of i in the for loop");
         System.out.println("TEST RESULTS   : ");
 
         //Iterate through array to check that values are found
         for (int i = 0; i < data.length; i++) {
-            if (ArrayUtil.binarySearch(data, data[i]) == i) {
+            if (ArrayUtil.binarySearchAscending(data, data[i]) == i) {
                 System.out.println("Passed");
             } else {
                 System.out.println("Failed");
             }
         }
-        
-       //Looks for value that does not exist
+
+        //Looks for value that does not exist
         System.out.println("\n-------------Look for non existent value---------------");
-        if (ArrayUtil.binarySearch(data, 54) == -1) {
+        if (ArrayUtil.binarySearchAscending(data, 54) == -1) {
             System.out.println("PASSED!");
         } else {
             System.out.println("FAILED!");
         }
-        
     }
 
     public static void testMaximum() {
         //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
-        
+
         //Print out results
         System.out.println("------------------------------------");
         System.out.println("TEST CASE #2: maximum");
@@ -74,7 +104,7 @@ public class ArrayUtilityTest {
     public static void testMinimum() {
         //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
-        
+
         //Print out results
         System.out.println("------------------------------------");
         System.out.println("TEST CASE #1: minimum");
@@ -86,7 +116,7 @@ public class ArrayUtilityTest {
     public static void testAverage() {
         //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
-        
+
         //Print out results
         System.out.println("------------------------------------");
         System.out.println("TEST CASE #3: average");
@@ -121,14 +151,14 @@ public class ArrayUtilityTest {
     public static void testBubbleSortDescending() {
         //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
-        
+
         //Print out results
         System.out.println("\n------------------------------------");
         System.out.println("TEST CASE #6: Bubble Sort Descending");
         System.out.println("PRE  CONDITION : an array of 1, 3, 4, 88, -99, 3, -2");
         System.out.println("POST CONDITION : returns an ordered array");
         System.out.println("TEST RESULTS   : ");
-        
+
         //Call method and check that values are correct
         ArrayUtil.bubbleSortDescending(data);
 
@@ -144,7 +174,7 @@ public class ArrayUtilityTest {
     public static void testSelectionSortDescending() {
         //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
-        
+
         //Print out results
         System.out.println("\n------------------------------------");
         System.out.println("TEST CASE #7: Selection Sort Descending");
@@ -190,24 +220,24 @@ public class ArrayUtilityTest {
     public static void testLinearSearch() {
         //Variables
         int data[] = {1, 3, 4, 88, -99, 31, -2};
-        
+
         //Print results
         System.out.println("\n------------------------------------");
         System.out.println("TEST CASE #9: Linear Search");
         System.out.println("PRE  CONDITION : an array of 1, 3, 4, 88, -99, 3, -2");
         System.out.println("POST CONDITION : returns an ordered array");
         System.out.println("TEST RESULTS   : ");
-        
+
         //Iterate through array to see if the values are found properly
         for (int i = 0; i < data.length; i++) {
-          
+
             if (ArrayUtil.sequentialSearch(data, data[i]) == i) {
                 System.out.println("Passed");
             } else {
                 System.out.println("Failed");
             }
         }
-        
+
         //Looks for value that does not exist
         System.out.println("\n-------------Look for non existent value---------------");
         if (ArrayUtil.sequentialSearch(data, 54) == -1) {
@@ -215,15 +245,13 @@ public class ArrayUtilityTest {
         } else {
             System.out.println("FAILED!");
         }
-            
-        
-        
+
     }
 
     public static void testSum() {
         //Variables
         int data[] = {1, 3, 4, 88, -99, 3, -2};
-        
+
         //Print out results
         System.out.println("------------------------------------");
         System.out.println("TEST CASE #4: sum");
