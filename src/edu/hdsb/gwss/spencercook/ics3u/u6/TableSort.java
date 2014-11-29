@@ -26,9 +26,6 @@ public class TableSort {
         int[] points = {29, 26, 26, 24, 24, 23, 23, 23, 23, 23};
         double[] shootingPercentage = {10.6, 18.8, 13.6, 18.2, 6.7, 15.0, 15.1, 14.1, 15.7, 13.7};
         int[] indicies = ArrayUtil.generateIndicesArray( goals.length );
-        for (int i = 0; i < points.length; i++) {
-            System.out.println(indicies[i] + " ");
-        }
         int choice = 0;
         String characterChoice = "z";
         String sortBy = "";
