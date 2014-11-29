@@ -26,6 +26,9 @@ public class TableSort {
         int[] points = {29, 26, 26, 24, 24, 23, 23, 23, 23, 23};
         double[] shootingPercentage = {10.6, 18.8, 13.6, 18.2, 6.7, 15.0, 15.1, 14.1, 15.7, 13.7};
         int[] indicies = ArrayUtil.generateIndicesArray( goals.length );
+        for (int i = 0; i < points.length; i++) {
+            System.out.println(indicies[i] + " ");
+        }
         int choice = 0;
         String characterChoice = "z";
         String sortBy = "";
@@ -86,6 +89,7 @@ public class TableSort {
 
         //Switch on choice to see if user wants an ascending or descending list
         switch (choice) {
+            //Use if statement inside of switch statement to see if user wants descending or ascending
             case 1:
                 if (characterChoice.equalsIgnoreCase( "A") ) {
                     indicies = ArrayUtil.selectionSortAscendingTable(goals);
