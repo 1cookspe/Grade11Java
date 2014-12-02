@@ -86,6 +86,7 @@ public class TableSort {
 
         //Switch on choice to see if user wants an ascending or descending list
         switch (choice) {
+            //Use if statement inside of switch statement to see if user wants descending or ascending
             case 1:
                 if (characterChoice.equalsIgnoreCase( "A") ) {
                     indicies = ArrayUtil.selectionSortAscendingTable(goals);
