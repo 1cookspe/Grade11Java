@@ -23,7 +23,7 @@ public class TableSortFile {
         //Variables
         String inputString = "";
         
-        //Objects
+        //Objects 
         File file = new File("input.txt");
         Scanner input = new Scanner(file);
         StringTokenizer stringTokenizer = new StringTokenizer(inputString, ",");
