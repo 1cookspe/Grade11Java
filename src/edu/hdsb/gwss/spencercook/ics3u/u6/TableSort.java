@@ -47,7 +47,6 @@ public class TableSort {
         //  - Ask user what they want to sort by
         // - Use while loop to ensure that user inputs valid information
         while (choice <= 0 || choice > 6) {
-            System.out.println("Hello!");
             for (int i = 1; i < 7; i++) {
                 switch (i) {
                     case 1:
