@@ -28,21 +28,21 @@ public class TableSortFile {
         String characterChoice = "z";
         String sortBy = "";
         String yOrN = "";
-        String previousData = "";
-        String newData = "";
         
         //Objects 
         File file = new File("input.txt");
         Scanner input = new Scanner(file);
         StringTokenizer stringTokenizer;
         Scanner sortInput = new Scanner(System.in);
-        PrintWriter output = new PrintWriter(file);
+        //PrintWriter output = new PrintWriter(file);
         
         //Use while loop to get number of values from file
         while (input.hasNextLine()) {
             numberOfValues++;
             input.nextLine();
         }
+        
+        System.out.println(numberOfValues);
         
         //Create and initialize arrays
         String[] teamsNames = new String[numberOfValues];
@@ -171,11 +171,13 @@ public class TableSortFile {
         printChart(playersNames, teamsNames, goals, assists, points, shootingPercentage, indicies);
         
         for (int i = 0; i < goals.length; i++) {
-            newData = "\n" + playersNames[indicies[i]] + "," + teamsNames[indicies[i]] + "," + goals[indicies[i]] + "," + assists[indicies[i]] + "," + points[indicies[i]] + "," + shootingPercentage[indicies[i]];
-            output.write(previousData + newData);
-            previousData = newData;
+//            String previousData = "";
+//            String newData = "";
+//            newData = "\n" + playersNames[indicies[i]] + "," + teamsNames[indicies[i]] + "," + goals[indicies[i]] + "," + assists[indicies[i]] + "," + points[indicies[i]] + "," + shootingPercentage[indicies[i]];
+//            output.write(previousData + newData);
+//            previousData = newData;
         }
-        output.close();
+        //output.close();
         
         //Create do loop to ask if user wants to sort more data
         do {
