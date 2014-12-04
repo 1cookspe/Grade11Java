@@ -7,6 +7,7 @@
 package edu.hdsb.gwss.spencercook.ics3u.u6;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -30,7 +31,7 @@ public class TableSortFile {
         String yOrN = "";
 
         //Objects 
-        File file = new File("NHL_Stats.txt");
+        File file = new File("NHL_Stats.csv");
         Scanner input = new Scanner(file);
         StringTokenizer stringTokenizer;
         Scanner sortInput = new Scanner(System.in);
@@ -125,6 +126,7 @@ public class TableSortFile {
                     } else {
                         indicies = ArrayUtil.selectionSortDescendingTable(goals);
                     }
+                    writeToFile(playersNames, teamsNames, goals, assists, points, shootingPercentage, indicies, file);
                     break;
                 case 2:
                     if (characterChoice.equalsIgnoreCase("A")) {
@@ -132,6 +134,7 @@ public class TableSortFile {
                     } else {
                         indicies = ArrayUtil.selectionSortDescendingTable(assists);
                     }
+                    writeToFile(playersNames, teamsNames, goals, assists, points, shootingPercentage, indicies, file);
                     break;
                 case 3:
                     if (characterChoice.equalsIgnoreCase("A")) {
@@ -139,6 +142,7 @@ public class TableSortFile {
                     } else {
                         indicies = ArrayUtil.selectionSortDescendingTable(points);
                     }
+                    writeToFile(playersNames, teamsNames, goals, assists, points, shootingPercentage, indicies, file);
                     break;
                 case 4:
                     if (characterChoice.equalsIgnoreCase("A")) {
@@ -146,6 +150,7 @@ public class TableSortFile {
                     } else {
                         indicies = ArrayUtil.selectionSortDescendingDoubleTable(shootingPercentage);
                     }
+                    writeToFile(playersNames, teamsNames, goals, assists, points, shootingPercentage, indicies, file);
                     break;
                 case 5:
                     if (characterChoice.equalsIgnoreCase("A")) {
@@ -153,6 +158,7 @@ public class TableSortFile {
                     } else {
                         indicies = ArrayUtil.selectionSortStringsDescending(playersNames);
                     }
+                    writeToFile(playersNames, teamsNames, goals, assists, points, shootingPercentage, indicies, file);
                     break;
                 case 6:
                     if (characterChoice.equalsIgnoreCase("A")) {
@@ -160,22 +166,16 @@ public class TableSortFile {
                     } else {
                         indicies = ArrayUtil.selectionSortStringsDescending(teamsNames);
                     }
+                    writeToFile(playersNames, teamsNames, goals, assists, points, shootingPercentage, indicies, file);
                     break;
                 default:
-                    break;
+                   
+                    
             }
 
             //Print chart to user
             printChart(playersNames, teamsNames, goals, assists, points, shootingPercentage, indicies);
-
-//        for (int i = 0; i < goals.length; i++) {
-////            String previousData = "";
-////            String newData = "";
-////            newData = "\n" + playersNames[indicies[i]] + "," + teamsNames[indicies[i]] + "," + goals[indicies[i]] + "," + assists[indicies[i]] + "," + points[indicies[i]] + "," + shootingPercentage[indicies[i]];
-////            output.write(previousData + newData);
-////            previousData = newData;
-//        }
-            //output.close();
+            
             //Create do loop to ask if user wants to sort more data
             do {
                 System.out.println("\nWould you like to sort new data? (Y/N)");
@@ -193,5 +193,13 @@ public class TableSortFile {
         for (int i = 0; i < playersNames.length; i++) {
             System.out.format("\n%20s  | %15s  | %5s  | %7s  | %7s  | %15s", playersNames[indicies[i]], playersTeams[indicies[i]], goals[indicies[i]], assists[indicies[i]], points[indicies[i]], shootingPercentage[indicies[i]]);
         }
+    }
+    
+    public static void writeToFile(String[] playersNames, String[] teamsNames, int[] goals, int[] assists, int[] points, double[] shootingPercentage, int[] indicies, File file) throws FileNotFoundException {
+        PrintWriter output = new PrintWriter(file);
+        for (int i = 0; i < playersNames.length; i++) {
+            output.println(playersNames[indicies[i]] + "," + teamsNames[indicies[i]] + "," + goals[indicies[i]] + "," + assists[indicies[i]] + "," + points[indicies[i]] + "," + shootingPercentage[indicies[i]]);
+        }
+        output.close();
     }
 }
