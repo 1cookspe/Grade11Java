@@ -10,9 +10,10 @@ package edu.hdsb.gwss.spencercook.ics3u.u6;
  * @author 1cookspe
  */
 public class Calculator extends javax.swing.JFrame {
-    
+
     //Global variables
     String number = "";
+    boolean newNumber = false;
 
     /**
      * Creates new form Calculator
@@ -59,30 +60,95 @@ public class Calculator extends javax.swing.JFrame {
         });
 
         twoButton.setText("2");
+        twoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twoButtonActionPerformed(evt);
+            }
+        });
 
         threeButton.setText("3");
+        threeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                threeButtonActionPerformed(evt);
+            }
+        });
 
         fourButton.setText("4");
+        fourButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fourButtonActionPerformed(evt);
+            }
+        });
 
         fiveButton.setText("5");
+        fiveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiveButtonActionPerformed(evt);
+            }
+        });
 
         sixButton.setText("6");
+        sixButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sixButtonActionPerformed(evt);
+            }
+        });
 
         sevenButton.setText("7");
+        sevenButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sevenButtonActionPerformed(evt);
+            }
+        });
 
         eightButton.setText("8");
+        eightButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eightButtonActionPerformed(evt);
+            }
+        });
 
         nineButton.setText("9");
+        nineButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nineButtonActionPerformed(evt);
+            }
+        });
 
         plusButton.setText("+");
+        plusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plusButtonActionPerformed(evt);
+            }
+        });
 
         subtractButton.setText("-");
+        subtractButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subtractButtonActionPerformed(evt);
+            }
+        });
 
         multiplyButton.setText("X");
+        multiplyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                multiplyButtonActionPerformed(evt);
+            }
+        });
 
         divideButton.setText("/");
+        divideButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                divideButtonActionPerformed(evt);
+            }
+        });
 
         equalsButton.setText("=");
+        equalsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                equalsButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,8 +228,101 @@ public class Calculator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void oneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneButtonActionPerformed
+        if (newNumber) {
+            number = "";
+        }
         number += "1";
+        newNumber = false;
     }//GEN-LAST:event_oneButtonActionPerformed
+
+    private void plusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusButtonActionPerformed
+        resultsTextField.setText(number);
+        newNumber = true;
+    }//GEN-LAST:event_plusButtonActionPerformed
+
+    private void subtractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtractButtonActionPerformed
+        resultsTextField.setText(number);
+        newNumber = true;
+    }//GEN-LAST:event_subtractButtonActionPerformed
+
+    private void multiplyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplyButtonActionPerformed
+        resultsTextField.setText(number);
+        newNumber = true;
+    }//GEN-LAST:event_multiplyButtonActionPerformed
+
+    private void divideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideButtonActionPerformed
+        String oldText = resultsTextField.getText();
+        resultsTextField.setText(oldText + " + " + number);
+        newNumber = true;
+    }//GEN-LAST:event_divideButtonActionPerformed
+
+    private void equalsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equalsButtonActionPerformed
+        String lastNumbers = resultsTextField.getText();
+    }//GEN-LAST:event_equalsButtonActionPerformed
+
+    private void twoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoButtonActionPerformed
+        if (newNumber) {
+            number = "";
+        }
+        number += "2";
+        newNumber = false;
+    }//GEN-LAST:event_twoButtonActionPerformed
+
+    private void threeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_threeButtonActionPerformed
+        if (newNumber) {
+            number = "";
+        }
+        number += "3";
+        newNumber = false;
+    }//GEN-LAST:event_threeButtonActionPerformed
+
+    private void fourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fourButtonActionPerformed
+        if (newNumber) {
+            number = "";
+        }
+        number += "4";
+        newNumber = false;
+    }//GEN-LAST:event_fourButtonActionPerformed
+
+    private void fiveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveButtonActionPerformed
+        if (newNumber) {
+            number = "";
+        }
+        number += "5";
+        newNumber = false;
+    }//GEN-LAST:event_fiveButtonActionPerformed
+
+    private void sixButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sixButtonActionPerformed
+        if (newNumber) {
+            number = "";
+        }
+        number += "6";
+        newNumber = false;
+    }//GEN-LAST:event_sixButtonActionPerformed
+
+    private void sevenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sevenButtonActionPerformed
+        if (newNumber) {
+            number = "";
+        }
+        number += "7";
+        newNumber = false;
+    }//GEN-LAST:event_sevenButtonActionPerformed
+
+    private void eightButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eightButtonActionPerformed
+        if (newNumber) {
+            number = "";
+        }
+        number += "8";
+        newNumber = false;
+    }//GEN-LAST:event_eightButtonActionPerformed
+
+    private void nineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nineButtonActionPerformed
+        if (newNumber) {
+            number = "";
+        }
+        number += "9";
+        newNumber = false;
+    }//GEN-LAST:event_nineButtonActionPerformed
 
     /**
      * @param args the command line arguments
