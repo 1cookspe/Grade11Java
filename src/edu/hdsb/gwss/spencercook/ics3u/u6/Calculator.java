@@ -5,6 +5,8 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.u6;
 
+import java.util.StringTokenizer;
+
 /**
  *
  * @author 1cookspe
@@ -13,7 +15,11 @@ public class Calculator extends javax.swing.JFrame {
 
     //Global variables
     String number = "";
-    boolean newNumber = false;
+    StringTokenizer st1 = new StringTokenizer(number, "+X-/");
+    StringTokenizer st2 = new StringTokenizer(number, " ");
+    String[] totals;
+    String[] signs;
+    int total = 0;
 
     /**
      * Creates new form Calculator
@@ -228,100 +234,93 @@ public class Calculator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void oneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneButtonActionPerformed
-        if (newNumber) {
-            number = "";
-        }
+
         number += "1";
-        newNumber = false;
     }//GEN-LAST:event_oneButtonActionPerformed
 
     private void plusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusButtonActionPerformed
+        number += " + ";
         resultsTextField.setText(number);
-        newNumber = true;
     }//GEN-LAST:event_plusButtonActionPerformed
 
     private void subtractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtractButtonActionPerformed
+        number += " - ";
         resultsTextField.setText(number);
-        newNumber = true;
     }//GEN-LAST:event_subtractButtonActionPerformed
 
     private void multiplyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplyButtonActionPerformed
+        number += " X ";
         resultsTextField.setText(number);
-        newNumber = true;
     }//GEN-LAST:event_multiplyButtonActionPerformed
 
     private void divideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideButtonActionPerformed
-        String oldText = resultsTextField.getText();
-        resultsTextField.setText(oldText + " + " + number);
-        newNumber = true;
+        number += " / ";
+        resultsTextField.setText(number);
     }//GEN-LAST:event_divideButtonActionPerformed
 
     private void equalsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equalsButtonActionPerformed
-        String lastNumbers = resultsTextField.getText();
+        int x = 0;
+        while (st1.hasMoreTokens()) {
+            totals[x] = st1.nextToken();
+        }
+
+        int j = 0;
+        while (st2.hasMoreTokens()) {
+            signs[j] = st2.nextToken();
+        }
+
+        for (int i = 0; i < totals.length; i++) {
+            if (signs[i].equals("+")) {
+                total += Integer.parseInt(totals[x] + totals[x + 1]);
+            } else if (signs[i].equals("-")) {
+                total += Integer.parseInt(totals[x]) - Integer.parseInt(totals[x + 2]);
+            } else if (signs[i].equals("X")) {
+                total += Integer.parseInt(totals[x]) * Integer.parseInt(totals[x + 2]);
+            } else if (signs[i].equals("/")) {
+                total += Integer.parseInt(totals[x]) / Integer.parseInt(totals[x + 2]);
+            } 
+        }
+        resultsTextField.setText("" + total);
     }//GEN-LAST:event_equalsButtonActionPerformed
 
     private void twoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoButtonActionPerformed
-        if (newNumber) {
-            number = "";
-        }
+
         number += "2";
-        newNumber = false;
     }//GEN-LAST:event_twoButtonActionPerformed
 
     private void threeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_threeButtonActionPerformed
-        if (newNumber) {
-            number = "";
-        }
+
         number += "3";
-        newNumber = false;
     }//GEN-LAST:event_threeButtonActionPerformed
 
     private void fourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fourButtonActionPerformed
-        if (newNumber) {
-            number = "";
-        }
+
         number += "4";
-        newNumber = false;
     }//GEN-LAST:event_fourButtonActionPerformed
 
     private void fiveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveButtonActionPerformed
-        if (newNumber) {
-            number = "";
-        }
+
         number += "5";
-        newNumber = false;
     }//GEN-LAST:event_fiveButtonActionPerformed
 
     private void sixButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sixButtonActionPerformed
-        if (newNumber) {
-            number = "";
-        }
+
         number += "6";
-        newNumber = false;
     }//GEN-LAST:event_sixButtonActionPerformed
 
     private void sevenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sevenButtonActionPerformed
-        if (newNumber) {
-            number = "";
-        }
+
         number += "7";
-        newNumber = false;
     }//GEN-LAST:event_sevenButtonActionPerformed
 
     private void eightButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eightButtonActionPerformed
-        if (newNumber) {
-            number = "";
-        }
+
         number += "8";
-        newNumber = false;
     }//GEN-LAST:event_eightButtonActionPerformed
 
     private void nineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nineButtonActionPerformed
-        if (newNumber) {
-            number = "";
-        }
+
         number += "9";
-        newNumber = false;
     }//GEN-LAST:event_nineButtonActionPerformed
 
     /**
