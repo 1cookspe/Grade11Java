@@ -5,6 +5,8 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.u7;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import nu.xom.*;
 
@@ -140,7 +142,7 @@ public class CourseData extends javax.swing.JFrame {
         Element code = new Element("code");
         Element description = new Element("description");
         Element teacher = new Element("teacher");
-        Element schoolBoard = new Element("school board");
+        Element schoolBoard = new Element("schoolboard");
 
         //Add children
         course.appendChild(code);
@@ -148,12 +150,23 @@ public class CourseData extends javax.swing.JFrame {
         course.appendChild(teacher);
         course.appendChild(schoolBoard);
 
+        //add children to children of course
+        code.appendChild(codeTextField.getText());
+        description.appendChild(descriptionTextArea.getText());
+        teacher.appendChild(teacherTextField.getText());
+        schoolBoard.appendChild(schoolBoardTextField.getText());
+
         //Format data
         try {
             Serializer serializer = new Serializer(System.out);
             serializer.setIndent(4);
             serializer.setMaxLength(64);
             serializer.write(documentName);
+
+            FileWriter file = new FileWriter("firstWords.xml");
+            BufferedWriter writer = new BufferedWriter(file);
+            writer.write(documentName.toXML());
+            writer.close();
         } catch (IOException ex) {
             System.err.println(ex);
         }

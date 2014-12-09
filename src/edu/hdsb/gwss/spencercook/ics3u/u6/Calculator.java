@@ -262,15 +262,18 @@ public class Calculator extends javax.swing.JFrame {
         int x = 0;
         while (st1.hasMoreTokens()) {
             totals[x] = st1.nextToken();
+            x++;
         }
 
         int j = 0;
         while (st2.hasMoreTokens()) {
             signs[j] = st2.nextToken();
+            System.out.println(signs[j]);
+            j++;
         }
 
-        for (int i = 0; i < totals.length; i++) {
-            if (signs[i].equals("+")) {
+        for (int i = 0; i < 5; i++) {
+            if (8 > 5) {
                 total += Integer.parseInt(totals[x] + totals[x + 1]);
             } else if (signs[i].equals("-")) {
                 total += Integer.parseInt(totals[x]) - Integer.parseInt(totals[x + 2]);
