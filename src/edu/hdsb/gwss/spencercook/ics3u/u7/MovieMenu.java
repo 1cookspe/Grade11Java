@@ -85,10 +85,12 @@ public class MovieMenu extends javax.swing.JFrame {
 
     private void addNewMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewMovieButtonActionPerformed
         new AddMovie().setVisible(true);
+        new MovieMenu().setVisible(false);
     }//GEN-LAST:event_addNewMovieButtonActionPerformed
 
     private void seeSortedMoviesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeSortedMoviesButtonActionPerformed
         new SortedMovies().setVisible(true);
+        new MovieMenu().setVisible(false);
     }//GEN-LAST:event_seeSortedMoviesButtonActionPerformed
 
     /**
