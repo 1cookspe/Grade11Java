@@ -5,7 +5,11 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.u7;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import nu.xom.Document;
 import nu.xom.Element;
 
@@ -18,7 +22,7 @@ public class TestReview {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         File file = new File("fileName.xml");
         Element root = new Element("root");
         Document document = new Document(root);
@@ -36,7 +40,11 @@ public class TestReview {
         secondElement.appendChild("Hey");
         
         System.out.println(document.toXML());
+        
+        PrintWriter pw = new PrintWriter(file);
+        BufferedWriter writer = new BufferedWriter(pw);
 
+        writer.write(document.toXML());
     }
 
 }

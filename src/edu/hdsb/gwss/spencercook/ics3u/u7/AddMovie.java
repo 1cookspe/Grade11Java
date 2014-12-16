@@ -261,6 +261,8 @@ public class AddMovie extends javax.swing.JFrame {
         new SortedMovies().setVisible(true);
         this.setVisible(false);
         exportData();
+        
+        //new SortedMovies().importData();
     }//GEN-LAST:event_sortedMoviesButtonActionPerformed
 
     private void twoStarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoStarsActionPerformed
