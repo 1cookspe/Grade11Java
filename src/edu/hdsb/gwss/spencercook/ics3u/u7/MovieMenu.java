@@ -84,6 +84,8 @@ public class MovieMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addNewMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewMovieButtonActionPerformed
+
+        System.out.println("Add Movie");
         new AddMovie().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addNewMovieButtonActionPerformed
