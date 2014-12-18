@@ -24,7 +24,7 @@ public class SortedMovies extends javax.swing.JFrame {
     public SortedMovies() {
         initComponents();
         importData();
-
+ 
     }
 
     /**
