@@ -1,7 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Name: Spencer Cook
+ * Date: December 17, 2014
+ * Version: v0
+ * Description:
+ This program sorts the movies from an XML file
  */
 package edu.hdsb.gwss.spencercook.ics3u.u7;
 
@@ -75,10 +76,10 @@ public class SortedMovies extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
         actionRatingList = new javax.swing.JList();
-        jLabel3 = new javax.swing.JLabel();
+        actionRatingLabel = new javax.swing.JLabel();
         jScrollPane12 = new javax.swing.JScrollPane();
         horrorRatingList = new javax.swing.JList();
-        jLabel2 = new javax.swing.JLabel();
+        horrorRatingLabel = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
         mysteryRatingList = new javax.swing.JList();
         jScrollPane14 = new javax.swing.JScrollPane();
@@ -87,22 +88,25 @@ public class SortedMovies extends javax.swing.JFrame {
         dramaRatingList = new javax.swing.JList();
         jScrollPane16 = new javax.swing.JScrollPane();
         animatedRatingList = new javax.swing.JList();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        dramaRatingLabel = new javax.swing.JLabel();
+        mysteryRatingLabel = new javax.swing.JLabel();
+        comedyRatingLabel = new javax.swing.JLabel();
+        animatedRatingLabel = new javax.swing.JLabel();
         jScrollPane17 = new javax.swing.JScrollPane();
         romanticRatingList = new javax.swing.JList();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        romanticRatingLabel = new javax.swing.JLabel();
+        classicRatingLabel = new javax.swing.JLabel();
         jScrollPane18 = new javax.swing.JScrollPane();
         classicRatingList = new javax.swing.JList();
         jScrollPane19 = new javax.swing.JScrollPane();
         thrillerRatingList = new javax.swing.JList();
         jScrollPane21 = new javax.swing.JScrollPane();
         sciFiRatingList = new javax.swing.JList();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        thrillerRatingLabel = new javax.swing.JLabel();
+        sciFiRatingLabel = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         jList10.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -112,6 +116,7 @@ public class SortedMovies extends javax.swing.JFrame {
         jScrollPane20.setViewportView(jList10);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1000, 650));
 
         sortedMoviesLabel.setFont(new java.awt.Font("Bodoni MT Black", 0, 24)); // NOI18N
         sortedMoviesLabel.setText("Sorted Movies");
@@ -174,7 +179,7 @@ public class SortedMovies extends javax.swing.JFrame {
 
         jScrollPane10.setViewportView(thrillerList);
 
-        mainMenuButton.setFont(new java.awt.Font("FreesiaUPC", 1, 14)); // NOI18N
+        mainMenuButton.setFont(new java.awt.Font("FreesiaUPC", 1, 24)); // NOI18N
         mainMenuButton.setText("Main Menu");
         mainMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,7 +187,7 @@ public class SortedMovies extends javax.swing.JFrame {
             }
         });
 
-        addNewMovieButton.setFont(new java.awt.Font("FreesiaUPC", 1, 14)); // NOI18N
+        addNewMovieButton.setFont(new java.awt.Font("FreesiaUPC", 1, 24)); // NOI18N
         addNewMovieButton.setText("Add New Movie");
         addNewMovieButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,13 +197,13 @@ public class SortedMovies extends javax.swing.JFrame {
 
         jScrollPane11.setViewportView(actionRatingList);
 
-        jLabel3.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel3.setText("Rating");
+        actionRatingLabel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        actionRatingLabel.setText("Rating");
 
         jScrollPane12.setViewportView(horrorRatingList);
 
-        jLabel2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel2.setText("Rating");
+        horrorRatingLabel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        horrorRatingLabel.setText("Rating");
 
         jScrollPane13.setViewportView(mysteryRatingList);
 
@@ -208,25 +213,25 @@ public class SortedMovies extends javax.swing.JFrame {
 
         jScrollPane16.setViewportView(animatedRatingList);
 
-        jLabel4.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel4.setText("Rating");
+        dramaRatingLabel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        dramaRatingLabel.setText("Rating");
 
-        jLabel5.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel5.setText("Rating");
+        mysteryRatingLabel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        mysteryRatingLabel.setText("Rating");
 
-        jLabel6.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel6.setText("Rating");
+        comedyRatingLabel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        comedyRatingLabel.setText("Rating");
 
-        jLabel7.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel7.setText("Rating");
+        animatedRatingLabel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        animatedRatingLabel.setText("Rating");
 
         jScrollPane17.setViewportView(romanticRatingList);
 
-        jLabel8.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel8.setText("Rating");
+        romanticRatingLabel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        romanticRatingLabel.setText("Rating");
 
-        jLabel9.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel9.setText("Rating");
+        classicRatingLabel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        classicRatingLabel.setText("Rating");
 
         jScrollPane18.setViewportView(classicRatingList);
 
@@ -234,19 +239,26 @@ public class SortedMovies extends javax.swing.JFrame {
 
         jScrollPane21.setViewportView(sciFiRatingList);
 
-        jLabel10.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel10.setText("Rating");
+        thrillerRatingLabel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        thrillerRatingLabel.setText("Rating");
 
-        jLabel11.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel11.setText("Rating");
+        sciFiRatingLabel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        sciFiRatingLabel.setText("Rating");
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addNewMovieButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -260,139 +272,143 @@ public class SortedMovies extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
                                 .addComponent(horrorLabel)))
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(124, 124, 124)
-                                .addComponent(jLabel1))
+                                .addGap(14, 14, 14)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(actionRatingLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(horrorRatingLabel, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(mainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(mysteryLabel)
+                                        .addGap(21, 21, 21)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(mysteryRatingLabel)
+                                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(58, 58, 58)
+                                .addComponent(comedyLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(comedyRatingLabel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(mysteryLabel)
-                                                .addGap(21, 21, 21)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(58, 58, 58)
-                                        .addComponent(comedyLabel)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel6))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(33, 33, 33)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(romanticLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel8)
-                                .addGap(74, 74, 74)
-                                .addComponent(classicLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel9)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(dramaLabel)
-                                                .addGap(37, 37, 37)
-                                                .addComponent(jLabel4))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(66, 66, 66)
-                                                .addComponent(thrillerLabel)
-                                                .addGap(16, 16, 16))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(135, 135, 135))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(animatedLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel7)
-                                .addGap(75, 75, 75)
-                                .addComponent(sciFiLabel)
-                                .addGap(34, 34, 34)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                                .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                            .addComponent(jLabel10)))
+                                        .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(importListButton)
+                        .addGap(51, 51, 51)
+                        .addComponent(romanticLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(romanticRatingLabel)
+                        .addGap(74, 74, 74)
+                        .addComponent(classicLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(classicRatingLabel)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(dramaLabel)
+                                    .addGap(37, 37, 37)
+                                    .addComponent(dramaRatingLabel))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(mainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(189, 189, 189)
-                                .addComponent(sortedMoviesLabel)))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                                .addGap(66, 66, 66)
+                                .addComponent(thrillerLabel))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(animatedLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(animatedRatingLabel)
+                        .addGap(75, 75, 75)
+                        .addComponent(sciFiLabel)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(sciFiRatingLabel)
+                    .addComponent(thrillerRatingLabel)
+                    .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                    .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(341, 341, 341)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(importListButton)
+                    .addComponent(sortedMoviesLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addNewMovieButton)
+                .addGap(51, 51, 51))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(19, 19, 19))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(mainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sortedMoviesLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(addNewMovieButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(sortedMoviesLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(importListButton)
-                        .addGap(52, 52, 52)))
+                        .addGap(52, 52, 52))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(addNewMovieButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(mainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(19, 19, 19)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
+                            .addComponent(actionRatingLabel)
                             .addComponent(actionLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -404,19 +420,19 @@ public class SortedMovies extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(thrillerLabel)
-                                    .addComponent(jLabel10))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(thrillerRatingLabel))
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane10)
+                                    .addComponent(jScrollPane19)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(mysteryLabel)
                                     .addComponent(comedyLabel)
                                     .addComponent(dramaLabel)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
+                                    .addComponent(dramaRatingLabel)
+                                    .addComponent(mysteryRatingLabel)
+                                    .addComponent(comedyRatingLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jScrollPane13)
@@ -428,15 +444,15 @@ public class SortedMovies extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(horrorLabel)
-                    .addComponent(jLabel2)
+                    .addComponent(horrorRatingLabel)
                     .addComponent(romanticLabel)
-                    .addComponent(jLabel8)
+                    .addComponent(romanticRatingLabel)
                     .addComponent(classicLabel)
-                    .addComponent(jLabel9)
+                    .addComponent(classicRatingLabel)
                     .addComponent(animatedLabel)
-                    .addComponent(jLabel7)
+                    .addComponent(animatedRatingLabel)
                     .addComponent(sciFiLabel)
-                    .addComponent(jLabel11))
+                    .addComponent(sciFiRatingLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane12)
@@ -463,6 +479,7 @@ public class SortedMovies extends javax.swing.JFrame {
     public void importData() {
         File file = new File("movieMadness.xml");
         Builder builder = new Builder();
+        String genre = "";
 
         try {
             Document movieDocument = builder.build(file);
@@ -492,6 +509,14 @@ public class SortedMovies extends javax.swing.JFrame {
 
             //GET VALUES FROM XML FILE
             for (int i = 0; i < movies.size(); i++) {
+                for (int j = 0; j < 10; j++ ) {
+                    if (j == 0) {
+                        genre = "Action";
+                    } 
+                    if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals(genre)) {
+                        
+                    }
+                }
                 if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals("Action")) {
                     actionModel.addElement(movies.get(i).getFirstChildElement("movieName").getValue());
                     actionRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue());
@@ -503,10 +528,10 @@ public class SortedMovies extends javax.swing.JFrame {
                     comedyRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue());
                 } else if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals("Drama")) {
                     dramaModel.addElement(movies.get(i).getFirstChildElement("movieName").getValue());
-                    dramaRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue());
+                    dramaRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue() + " STARS");
                 } else if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals("Thriller")) {
                     thrillerModel.addElement(movies.get(i).getFirstChildElement("movieName").getValue());
-                    thrillerRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue());
+                    thrillerRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue() + " STARS" );
                 } else if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals("Horror")) {
                     horrorModel.addElement(movies.get(i).getFirstChildElement("movieName").getValue());
                     horrorRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue());
@@ -538,9 +563,13 @@ public class SortedMovies extends javax.swing.JFrame {
             sciFiList.setModel(sciFiModel);
             sciFiRatingList.setModel(sciFiRatingModel);
             classicList.setModel(classicModel);
+            classicRatingList.setModel(classicRatingModel);
             horrorList.setModel(horrorModel);
+            horrorRatingList.setModel(horrorRatingModel);
             romanticList.setModel(romanticModel);
+            romanticRatingList.setModel(romanticRatingModel);
             thrillerList.setModel(thrillerModel);
+            thrillerRatingList.setModel(thrillerRatingModel);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -595,36 +624,35 @@ public class SortedMovies extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel actionLabel;
     private javax.swing.JList actionList;
+    private javax.swing.JLabel actionRatingLabel;
     private javax.swing.JList actionRatingList;
     private javax.swing.JButton addNewMovieButton;
     private javax.swing.JLabel animatedLabel;
     private javax.swing.JList animatedList;
+    private javax.swing.JLabel animatedRatingLabel;
     private javax.swing.JList animatedRatingList;
     private javax.swing.JLabel classicLabel;
     private javax.swing.JList classicList;
+    private javax.swing.JLabel classicRatingLabel;
     private javax.swing.JList classicRatingList;
     private javax.swing.JLabel comedyLabel;
     private javax.swing.JList comedyList;
+    private javax.swing.JLabel comedyRatingLabel;
     private javax.swing.JList comedyRatingList;
     private javax.swing.JLabel dramaLabel;
     private javax.swing.JList dramaList;
+    private javax.swing.JLabel dramaRatingLabel;
     private javax.swing.JList dramaRatingList;
     private javax.swing.JLabel horrorLabel;
     private javax.swing.JList horrorList;
+    private javax.swing.JLabel horrorRatingLabel;
     private javax.swing.JList horrorRatingList;
     private javax.swing.JButton importListButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JList jList10;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -649,16 +677,20 @@ public class SortedMovies extends javax.swing.JFrame {
     private javax.swing.JButton mainMenuButton;
     private javax.swing.JLabel mysteryLabel;
     private javax.swing.JList mysteryList;
+    private javax.swing.JLabel mysteryRatingLabel;
     private javax.swing.JList mysteryRatingList;
     private javax.swing.JLabel romanticLabel;
     private javax.swing.JList romanticList;
+    private javax.swing.JLabel romanticRatingLabel;
     private javax.swing.JList romanticRatingList;
     private javax.swing.JLabel sciFiLabel;
     private javax.swing.JList sciFiList;
+    private javax.swing.JLabel sciFiRatingLabel;
     private javax.swing.JList sciFiRatingList;
     private javax.swing.JLabel sortedMoviesLabel;
     private javax.swing.JLabel thrillerLabel;
     private javax.swing.JList thrillerList;
+    private javax.swing.JLabel thrillerRatingLabel;
     private javax.swing.JList thrillerRatingList;
     // End of variables declaration//GEN-END:variables
 }
