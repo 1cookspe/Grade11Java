@@ -1,2 +1,2 @@
 <?xml version="1.0"?>
-<movies><movie><movieName>Star</movieName><movieRating>2</movieRating><movieGenre>Mystery</movieGenre></movie></movies>
+<movies><movie><movieName>Star</movieName><movieRating>2</movieRating><movieGenre>Mystery</movieGenre></movie><movie><movieName>Hey</movieName><movieRating>3</movieRating><movieGenre>Thriller</movieGenre></movie><movie><movieName>STAR WARS</movieName><movieRating>2</movieRating><movieGenre>Action</movieGenre></movie><movie><movieName>MPROE</movieName><movieRating>3</movieRating><movieGenre>Drama</movieGenre></movie><movie><movieName>NEW</movieName><movieRating>0</movieRating><movieGenre>Mystery</movieGenre></movie></movies>

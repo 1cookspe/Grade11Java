@@ -6,12 +6,11 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.u7;
 
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
@@ -109,6 +108,11 @@ public class SortedMovies extends javax.swing.JFrame {
         sciFiRatingList = new javax.swing.JList();
         thrillerRatingLabel = new javax.swing.JLabel();
         sciFiRatingLabel = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        seeSavedMovies = new javax.swing.JMenuItem();
+        printSavedRatings = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         jList10.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -247,6 +251,31 @@ public class SortedMovies extends javax.swing.JFrame {
         sciFiRatingLabel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         sciFiRatingLabel.setText("Rating");
 
+        jMenu1.setText("File");
+
+        seeSavedMovies.setText("Print Saved Movies");
+        seeSavedMovies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seeSavedMoviesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(seeSavedMovies);
+
+        printSavedRatings.setText("Print Saved Ratings");
+        printSavedRatings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printSavedRatingsActionPerformed(evt);
+            }
+        });
+        jMenu1.add(printSavedRatings);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -327,7 +356,14 @@ public class SortedMovies extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(importListButton))
+                            .addComponent(sortedMoviesLabel))
+                        .addGap(79, 79, 79)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
@@ -369,15 +405,8 @@ public class SortedMovies extends javax.swing.JFrame {
                     .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(341, 341, 341)
-                        .addComponent(sortedMoviesLabel))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(mainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(importListButton)))
+                .addGap(28, 28, 28)
+                .addComponent(mainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(addNewMovieButton)
                 .addGap(51, 51, 51))
@@ -388,7 +417,7 @@ public class SortedMovies extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(sortedMoviesLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                        .addComponent(sortedMoviesLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(importListButton)
                         .addGap(41, 41, 41))
@@ -398,7 +427,7 @@ public class SortedMovies extends javax.swing.JFrame {
                                 .addGap(22, 22, 22)
                                 .addComponent(addNewMovieButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
+                                .addGap(16, 16, 16)
                                 .addComponent(mainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
@@ -432,7 +461,7 @@ public class SortedMovies extends javax.swing.JFrame {
                             .addComponent(jScrollPane15)
                             .addComponent(jScrollPane11)
                             .addComponent(jScrollPane4))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(horrorLabel)
                     .addComponent(horrorRatingLabel)
@@ -501,13 +530,13 @@ public class SortedMovies extends javax.swing.JFrame {
 
                 if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals("Action")) {
                     actionModel.addElement(movies.get(i).getFirstChildElement("movieName").getValue());
-                    actionRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue());
+                    actionRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue() + " STARS");
                 } else if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals("Mystery")) {
                     mysteryModel.addElement(movies.get(i).getFirstChildElement("movieName").getValue());
-                    mysteryRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue());
+                    mysteryRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue() + " STARS");
                 } else if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals("Comedy")) {
                     comedyModel.addElement(movies.get(i).getFirstChildElement("movieName").getValue());
-                    comedyRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue());
+                    comedyRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue() + " STARS");
                 } else if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals("Drama")) {
                     dramaModel.addElement(movies.get(i).getFirstChildElement("movieName").getValue());
                     dramaRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue() + " STARS");
@@ -516,19 +545,19 @@ public class SortedMovies extends javax.swing.JFrame {
                     thrillerRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue() + " STARS");
                 } else if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals("Horror")) {
                     horrorModel.addElement(movies.get(i).getFirstChildElement("movieName").getValue());
-                    horrorRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue());
+                    horrorRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue() + " STARS");
                 } else if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals("Romantic")) {
                     romanticModel.addElement(movies.get(i).getFirstChildElement("movieName").getValue());
-                    romanticRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue());
+                    romanticRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue() + " STARS");
                 } else if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals("Classic")) {
                     classicModel.addElement(movies.get(i).getFirstChildElement("movieName").getValue());
-                    classicRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue());
+                    classicRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue() + " STARS");
                 } else if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals("Animated")) {
                     animatedModel.addElement(movies.get(i).getFirstChildElement("movieName").getValue());
-                    animatedRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue());
+                    animatedRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue() + " STARS");
                 } else if (movies.get(i).getFirstChildElement("movieGenre").getValue().equals("Sci-Fi")) {
                     sciFiModel.addElement(movies.get(i).getFirstChildElement("movieName").getValue());
-                    sciFiRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue());
+                    sciFiRatingModel.addElement(movies.get(i).getFirstChildElement("movieRating").getValue() + " STARS");
                 }
             }
 
@@ -568,6 +597,38 @@ public class SortedMovies extends javax.swing.JFrame {
         new AddMovie().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addNewMovieButtonActionPerformed
+
+    private void seeSavedMoviesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeSavedMoviesActionPerformed
+        File file = new File("movieMadness.xml");
+        Builder b = new Builder();
+        try {
+            Document doc = b.build(file);
+            Element root = doc.getRootElement();
+            Elements children = root.getChildElements();
+            
+            for (int i = 0; i < children.size(); i++) {
+                System.out.print(children.get(i).getFirstChildElement("movieName").getValue() + ", ");
+            }
+        } catch (Exception e) {
+            
+        }
+    }//GEN-LAST:event_seeSavedMoviesActionPerformed
+
+    private void printSavedRatingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printSavedRatingsActionPerformed
+        File file = new File("movieMadness.xml");
+        Builder b = new Builder();
+        try {
+            Document doc = b.build(file);
+            Element root = doc.getRootElement();
+            Elements children = root.getChildElements();
+            
+            for (int i = 0; i < children.size(); i++) {
+                System.out.print(children.get(i).getFirstChildElement("movieName").getValue() + ": " + children.get(i).getFirstChildElement("movieRating").getValue() + " STARS, ");
+            }
+        } catch (Exception e) {
+            
+        }
+    }//GEN-LAST:event_printSavedRatingsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -635,6 +696,9 @@ public class SortedMovies extends javax.swing.JFrame {
     private javax.swing.JButton importListButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList jList10;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -661,6 +725,7 @@ public class SortedMovies extends javax.swing.JFrame {
     private javax.swing.JList mysteryList;
     private javax.swing.JLabel mysteryRatingLabel;
     private javax.swing.JList mysteryRatingList;
+    private javax.swing.JMenuItem printSavedRatings;
     private javax.swing.JLabel romanticLabel;
     private javax.swing.JList romanticList;
     private javax.swing.JLabel romanticRatingLabel;
@@ -669,6 +734,7 @@ public class SortedMovies extends javax.swing.JFrame {
     private javax.swing.JList sciFiList;
     private javax.swing.JLabel sciFiRatingLabel;
     private javax.swing.JList sciFiRatingList;
+    private javax.swing.JMenuItem seeSavedMovies;
     private javax.swing.JLabel sortedMoviesLabel;
     private javax.swing.JLabel thrillerLabel;
     private javax.swing.JList thrillerList;
