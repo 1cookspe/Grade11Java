@@ -13,11 +13,22 @@ public class JavaClass {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        boolean amI10 = false;
+        boolean amINot10 = true;
         
-        // Comment code
-        System.out.println("Hello world!");
-        System.out.println("Second print!");
-        System.out.println("Sample text");
+        boolean followingDrZaius = false;
+        
+        if(followingDrZaius) {
+            System.out.println("Not foloowing");
+        } else {
+            System.out.println("foloow");
+        }
+        
+        if(5 > 4) {
+            System.out.println("correct");
+        } else {
+            
+        }
     }
     
 }
