@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Questions>
+    <Question>
+        <QuestionName>If Johnny has 632 apples and gives 627 to Greg, what is the output of the following statement?</QuestionName>
+        <code>int johnnysRemainingApples = johnnysApples - gregsApples;
+            for (int i = 0; i < johnnysRemainingApples; i++) {
+                    System.out.println("Apples" + ", ");
+                }</code>
+        <optionA>Apples, Apples, Apples</optionA>
+        <optionB>Bananas</optionB>
+        <optionC>Apples, Apples, Apples, Apples, Apples</optionC>
+        <optionD>Apples, Apples, Apples, Apples, Apples</optionD>
+        <answer>Apples, Apples, Apples, Apples, Apples</answer>
+    </Question>
+    <Question>
+        <QuestionName></QuestionName>
+        <code></code>
+        <optionA></optionA>
+        <optionB></optionB>
+        <optionC></optionC>
+        <optionD></optionD>
+        <answer></answer>
+    </Question>
+    <Question>
+        <QuestionName></QuestionName>
+        <optionA></optionA>
+        <optionB></optionB>
+        <optionC></optionC>
+        <optionD></optionD>
+        <answer></answer>
+    </Question>
+    <Question>
+        <QuestionName></QuestionName>
+        <optionA></optionA>
+        <optionB></optionB>
+        <optionC></optionC>
+        <optionD></optionD>
+        <answer></answer>
+    </Question>
+    <Question>
+        <QuestionName></QuestionName>
+        <optionA></optionA>
+        <optionB></optionB>
+        <optionC></optionC>
+        <optionD></optionD>
+        <answer></answer>
+    </Question>
+    <Question>
+        <QuestionName></QuestionName>
+        <optionA></optionA>
+        <optionB></optionB>
+        <optionC></optionC>
+        <optionD></optionD>
+        <answer></answer>
+    </Question>
+    <Question>
+        <QuestionName></QuestionName>
+        <optionA></optionA>
+        <optionB></optionB>
+        <optionC></optionC>
+        <optionD></optionD>
+        <answer></answer>
+    </Question>
+    <Question>
+        <QuestionName></QuestionName>
+        <optionA></optionA>
+        <optionB></optionB>
+        <optionC></optionC>
+        <optionD></optionD>
+        <answer></answer>
+    </Question>
+    <Question>
+        <QuestionName>What are the most popular programming languages, from 10 to 1?</QuestionName>
+        <optionA>Java, Java, Java, Java, Java, Java, Java, Java, Java, Java</optionA>
+        <optionB> </optionB>
+        <optionC></optionC>
+        <optionD></optionD>
+        <answer></answer>
+    </Question>
+    <Question>
+        <QuestionName>If the Sun is 149,600,000km away from earth, who created Java?</QuestionName>
+        <optionA>Steve Jobs</optionA>
+        <optionB>James Gosling</optionB>
+        <optionC>Ryan Gosling</optionC>
+        <optionD>Alan Turing</optionD>
+        <answer>James Gosling</answer>
+    </Question>
+</Questions>
