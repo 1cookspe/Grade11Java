@@ -1,84 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Questions>
     <Question>
-        <QuestionName>If Johnny has 632 apples and gives 627 to Greg, what is the output of the following statement?</QuestionName>
-        <code>int johnnysRemainingApples = johnnysApples - gregsApples;
-            for (int i = 0; i < johnnysRemainingApples; i++) {
-                    System.out.println("Apples" + ", ");
-                }</code>
-        <optionA>Apples, Apples, Apples</optionA>
-        <optionB>Bananas</optionB>
-        <optionC>Apples, Apples, Apples, Apples, Apples</optionC>
-        <optionD>Apples, Apples, Apples, Apples, Apples</optionD>
-        <answer>Apples, Apples, Apples, Apples, Apples</answer>
+        <QuestionName>What is the value of int answer?</QuestionName>
+        <code>int answer = Math.sqrt(2, 3);</code>
+        <optionA>6</optionA>
+        <optionB>4</optionB>
+        <optionC>5</optionC>
+        <optionD>8</optionD>
+        <answer>8</answer>
     </Question>
     <Question>
-        <QuestionName></QuestionName>
+        <QuestionName>Which of the following variables is pass by value?</QuestionName>
         <code></code>
-        <optionA></optionA>
-        <optionB></optionB>
-        <optionC></optionC>
-        <optionD></optionD>
-        <answer></answer>
+        <optionA>int i;</optionA>
+        <optionB>int[] j;</optionB>
+        <optionC>String name;</optionC>
+        <optionD>PrintWriter pw;</optionD>
+        <answer>int i;</answer>
     </Question>
     <Question>
-        <QuestionName></QuestionName>
-        <optionA></optionA>
-        <optionB></optionB>
-        <optionC></optionC>
-        <optionD></optionD>
-        <answer></answer>
+        <QuestionName>Which of these methods have correct syntax?</QuestionName>
+        <optionA>private String void helloWorld()</optionA>
+        <optionB>static void getSomething(int i)</optionB>
+        <optionC>public int add(int j, String h)</optionC>
+        <optionD>public static void methodName(i int)</optionD>
+        <answer>public int add(int j, String h)</answer>
     </Question>
     <Question>
-        <QuestionName></QuestionName>
-        <optionA></optionA>
-        <optionB></optionB>
-        <optionC></optionC>
-        <optionD></optionD>
-        <answer></answer>
+        <QuestionName>What is the correct function of the CPU?</QuestionName>
+        <optionA>To allow the user to input information</optionA>
+        <optionB>To process requests and be the "brains" of the computer</optionB>
+        <optionC>To read DVD's and other media</optionC>
+        <optionD>None of the above</optionD>
+        <answer>To process requests and be the "brains" of the computer</answer>
     </Question>
     <Question>
-        <QuestionName></QuestionName>
-        <optionA></optionA>
-        <optionB></optionB>
-        <optionC></optionC>
-        <optionD></optionD>
-        <answer></answer>
+        <QuestionName>Which of the following operating systems in open source and/or free?</QuestionName>
+        <optionA>Linux</optionA>
+        <optionB>Windows</optionB>
+        <optionC>Chrome OS</optionC>
+        <optionD>Both a and c</optionD>
+        <answer>Both a and c</answer>
     </Question>
     <Question>
-        <QuestionName></QuestionName>
-        <optionA></optionA>
-        <optionB></optionB>
-        <optionC></optionC>
-        <optionD></optionD>
-        <answer></answer>
+        <QuestionName>Which of the following is true about Math.random()?</QuestionName>
+        <optionA>It generates a number between 0 and 1, including 1, but excluding 0</optionA>
+        <optionB>It generates a number between 1 and 10</optionB>
+        <optionC>It generates a number between 0 and 1, excluding both 0 and 1</optionC>
+        <optionD>None of the above</optionD>
+        <answer>None of the above</answer>
     </Question>
     <Question>
-        <QuestionName></QuestionName>
-        <optionA></optionA>
-        <optionB></optionB>
-        <optionC></optionC>
-        <optionD></optionD>
-        <answer></answer>
+        <QuestionName>Which of the following can be found at the end of a do-while loop, after the closing curly brace?</QuestionName>
+        <optionA>(while i < 10)</optionA>
+        <optionB>while (i < 10)</optionB>
+        <optionC>while (i > 5);</optionC>
+        <optionD>None of the above</optionD>
+        <answer>while (i > 5);</answer>
     </Question>
     <Question>
-        <QuestionName></QuestionName>
-        <optionA></optionA>
-        <optionB></optionB>
-        <optionC></optionC>
-        <optionD></optionD>
-        <answer></answer>
+        <QuestionName>What language is the following statement from? <b>-(void) methodName:(NSString *)parameter;</b></QuestionName>
+        <optionA>Java</optionA>
+        <optionB>Objective-C</optionB>
+        <optionC>Python</optionC>
+        <optionD>PHP</optionD>
+        <answer>Objective-C</answer>
     </Question>
     <Question>
-        <QuestionName>What are the most popular programming languages, from 10 to 1?</QuestionName>
+        <QuestionName>What are the 10 most popular programming languages, from #10 to #1?</QuestionName>
         <optionA>Java, Java, Java, Java, Java, Java, Java, Java, Java, Java</optionA>
-        <optionB> </optionB>
-        <optionC></optionC>
-        <optionD></optionD>
-        <answer></answer>
+        <optionB>Ruby, Perl, Javascript, C#, Python, Visual Basic, PHP, C++, C, Java</optionB>
+        <optionC>HTML, CSS, Java, Python, Ruby, Perl, Go, Objective-C, Swift, SQL, Javascript</optionC>
+        <optionD>C#, Objective-C, Python, Go, Java, Javascript, Swift, SQL, HTML, CSS</optionD>
+        <answer>Ruby, Perl, Javascript, C#, Python, Visual Basic, PHP, C++, C, Java</answer>
     </Question>
     <Question>
-        <QuestionName>If the Sun is 149,600,000km away from earth, who created Java?</QuestionName>
+        <QuestionName>If the Sun is 149,600,000km away from Earth, who created Java?</QuestionName>
         <optionA>Steve Jobs</optionA>
         <optionB>James Gosling</optionB>
         <optionC>Ryan Gosling</optionC>
