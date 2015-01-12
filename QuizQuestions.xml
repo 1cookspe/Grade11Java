@@ -52,11 +52,11 @@
     </Question>
     <Question>
         <QuestionName>Which of the following can be found at the end of a do-while loop, after the closing curly brace?</QuestionName>
-        <optionA>(while i < 10)</optionA>
-        <optionB>while (i < 10)</optionB>
-        <optionC>while (i > 5);</optionC>
+        <optionA>(while i  10)</optionA>
+        <optionB>while (i  10)</optionB>
+        <optionC>while (i  5);</optionC>
         <optionD>None of the above</optionD>
-        <answer>while (i > 5);</answer>
+        <answer>while (i  5);</answer>
     </Question>
     <Question>
         <QuestionName>What language is the following statement from? <b>-(void) methodName:(NSString *)parameter;</b></QuestionName>
@@ -73,6 +73,14 @@
         <optionC>HTML, CSS, Java, Python, Ruby, Perl, Go, Objective-C, Swift, SQL, Javascript</optionC>
         <optionD>C#, Objective-C, Python, Go, Java, Javascript, Swift, SQL, HTML, CSS</optionD>
         <answer>Ruby, Perl, Javascript, C#, Python, Visual Basic, PHP, C++, C, Java</answer>
+    </Question>
+    <Question>
+        <QuestionName>When would this return a runtime error: int answer = int a / int b;</QuestionName>
+        <optionA>If a == 0</optionA>
+        <optionB>If b == 0</optionB>
+        <optionC>If both a == 0 && b == 0</optionC>
+        <optionD>It would never return a runtime error because it is int division</optionD>
+        <answer>If b == 0</answer>
     </Question>
     <Question>
         <QuestionName>If the Sun is 149,600,000km away from Earth, who created Java?</QuestionName>

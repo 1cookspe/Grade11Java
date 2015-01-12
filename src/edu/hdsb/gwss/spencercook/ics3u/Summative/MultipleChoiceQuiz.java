@@ -27,10 +27,6 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
     public MultipleChoiceQuiz() {
 //        this.options = new JRadioButton[]{optionA, optionB, optionC, optionD};
         initComponents();
-        optionA.setVisible(false);
-        optionB.setVisible(false);
-        optionC.setVisible(false);
-        optionD.setVisible(false);
 
         //READ FROM FILE
         File file = new File("QuizQuestions.xml");
@@ -168,17 +164,10 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
     }//GEN-LAST:event_optionCActionPerformed
 
     private void playOrSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playOrSubmitActionPerformed
-        if (playOrSubmit.getText().equals("Submit")) {
+
             incrementNumber(questionNumber);
             System.out.println("RUNNING submit" + questionNumber);
-        } else {
-            playOrSubmit.setText("Submit");
-            optionA.setVisible(true);
-            optionB.setVisible(true);
-            optionC.setVisible(true);
-            optionD.setVisible(true);
-            incrementNumber(questionNumber);
-        }
+
     }//GEN-LAST:event_playOrSubmitActionPerformed
 
     public void incrementNumber(int questionNumber) {
