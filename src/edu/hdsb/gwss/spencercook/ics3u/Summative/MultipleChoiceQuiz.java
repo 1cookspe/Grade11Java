@@ -197,6 +197,7 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
                 }
             }
             System.out.println(childQuestions.get(random).getFirstChildElement("QuestionName").getValue());
+            System.out.println(Math.floor(-6.4));
         }
     }
     

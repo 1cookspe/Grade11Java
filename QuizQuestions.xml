@@ -90,4 +90,12 @@
         <optionD>Alan Turing</optionD>
         <answer>James Gosling</answer>
     </Question>
+    <Question>
+        <QuestionName>What is the output of the following statement: <b>int number = Math.floor(-6.4);</b></QuestionName>
+        <optionA>-7.0</optionA>
+        <optionB>-7</optionB>
+        <optionC>-6.0</optionC>
+        <optionD>-6</optionD>
+        <answer>-7</answer>
+    </Question>
 </Questions>
