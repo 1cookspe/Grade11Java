@@ -6,6 +6,7 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.Summative;
 
+import edu.hdsb.gwss.spencercook.ics3u.u6.ArrayUtil;
 import java.io.File;
 import nu.xom.Builder;
 import nu.xom.Document;
@@ -19,7 +20,14 @@ import nu.xom.Elements;
 public class MultipleChoiceQuiz extends javax.swing.JFrame {
 //    JRadioButton[] options;
 
+    //GLOBAL VARIABLES
+    Document document;
+    Element questionRoot;
+    Elements childQuestions;
     int questionNumber = 0;
+    int score = 0;
+    int[] questions;
+    int random;
 
     /**
      * Creates new form MultipleChoiceQuiz
@@ -32,22 +40,22 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         File file = new File("QuizQuestions.xml");
         Builder builder = new Builder();
         try {
-            Document document = builder.build(file);
-            Element questionRoot = document.getRootElement();
-            Elements childQuestions = questionRoot.getChildElements();
-            
-            int randomQuestion = (int) (Math.random() * 10) + 1;
-            String[] questionArray = new String[10];
-            for (int i = 0; i < questionArray.length; i++) {
-                questionArray[i] = childQuestions.get(randomQuestion).getFirstChildElement("QuestionName").getValue();
-                System.out.println(questionArray[i]);
-            }
+            document = builder.build(file);
+            questionRoot = document.getRootElement();
+            childQuestions = questionRoot.getChildElements();
+
         } catch (Exception e) {
             System.err.println(e);
         }
-        
+
+        //INITIALIZE VALUES OF QUESTIONS WITH -1
+        questions = new int[childQuestions.size()];
+        for (int i = 0; i < questions.length; i++) {
+            questions[i] = -1;
+        }
+
+        getQuestions();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -165,8 +173,9 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
 
     private void playOrSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playOrSubmitActionPerformed
 
-            incrementNumber(questionNumber);
-            System.out.println("RUNNING submit" + questionNumber);
+        incrementNumber(questionNumber);
+        System.out.println("RUNNING submit" + questionNumber);
+
 
     }//GEN-LAST:event_playOrSubmitActionPerformed
 
@@ -175,7 +184,29 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         titleLabel.setText("Question " + questionNumber);
     }
 
-    public void getDataFromFile(Element rootQuestions, Elements childQuestions) {
+    public void getQuestions() {
+        for (int i = 0; i < 10; i++) {
+            boolean filledIn = false;
+            while (filledIn == false) {
+                random = generateRandomNumber();
+                if (ArrayUtil.sequentialSearch(questions, random) == -1) {
+                    questions[i] = random;
+                    filledIn = true;
+                } else {
+                    filledIn = false;
+                }
+            }
+            System.out.println(childQuestions.get(random).getFirstChildElement("QuestionName").getValue());
+        }
+    }
+    
+    public void printQuestions() {
+        
+    }
+
+    public int generateRandomNumber() {
+        int randomQuestion = (int) (Math.random() * 10) + 1;
+        return randomQuestion;
     }
 
     /**

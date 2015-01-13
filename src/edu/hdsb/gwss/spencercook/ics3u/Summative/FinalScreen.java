@@ -1,15 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Name: Spencer Cook
+ * Date: January 12, 2014
+ * Version: v0
+ * Description:
+ This program displays the final screen to the quiz
  */
 package edu.hdsb.gwss.spencercook.ics3u.Summative;
+
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author 1cookspe
  */
 public class FinalScreen extends javax.swing.JFrame {
+    MultipleChoiceQuiz quiz = new MultipleChoiceQuiz();
 
     /**
      * Creates new form FinalScreen
@@ -112,11 +117,12 @@ public class FinalScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void playAgainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playAgainButtonActionPerformed
-        // TODO add your handling code here:
+        quiz.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_playAgainButtonActionPerformed
 
     private void endGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endGameButtonActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Thank you for playing!");
     }//GEN-LAST:event_endGameButtonActionPerformed
 
     /**
