@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Questions>
     <Question>
-        <QuestionName>What is the value of: <b>int answer?</b></QuestionName>
-        <code>int answer = Math.sqrt(2, 3);</code>
+        <QuestionName>What is the value of: <b>int answer = Math.sqrt(2, 3);</b></QuestionName>
         <optionA>6</optionA>
         <optionB>4</optionB>
         <optionC>5</optionC>
@@ -11,7 +10,6 @@
     </Question>
     <Question>
         <QuestionName>Which of the following variables is pass by value?</QuestionName>
-        <code></code>
         <optionA>int i;</optionA>
         <optionB>int[] j;</optionB>
         <optionC>String name;</optionC>

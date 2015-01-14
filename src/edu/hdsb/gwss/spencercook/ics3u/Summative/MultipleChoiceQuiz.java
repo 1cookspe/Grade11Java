@@ -24,10 +24,11 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
     Document document;
     Element questionRoot;
     Elements childQuestions;
-    int questionNumber = 0;
+    int questionNumber = 1;
     int score = 0;
     int[] questions;
     int random;
+    FinalScreen finalScreen = new FinalScreen();
 
     /**
      * Creates new form MultipleChoiceQuiz
@@ -43,7 +44,7 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
             document = builder.build(file);
             questionRoot = document.getRootElement();
             childQuestions = questionRoot.getChildElements();
-
+            
         } catch (Exception e) {
             System.err.println(e);
         }
@@ -53,8 +54,11 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         for (int i = 0; i < questions.length; i++) {
             questions[i] = -1;
         }
-
+        
         getQuestions();
+        displayQuestionAndOptions();
+        
+        nextButton.setEnabled(false);
     }
 
     /**
@@ -71,14 +75,15 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         optionB = new javax.swing.JRadioButton();
         optionC = new javax.swing.JRadioButton();
         optionD = new javax.swing.JRadioButton();
-        playOrSubmit = new javax.swing.JButton();
+        submitButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        questionArea = new javax.swing.JTextArea();
+        nextButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         titleLabel.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
-        titleLabel.setText("Multiple Choice Quiz");
+        titleLabel.setText("Question 1");
 
         optionA.setFont(new java.awt.Font("Rod", 0, 14)); // NOI18N
         optionA.setText("Option A");
@@ -102,43 +107,56 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         optionD.setFont(new java.awt.Font("Rod", 0, 14)); // NOI18N
         optionD.setText("Option D");
 
-        playOrSubmit.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
-        playOrSubmit.setText("Play");
-        playOrSubmit.addActionListener(new java.awt.event.ActionListener() {
+        submitButton.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
+        submitButton.setText("SUBMIT");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playOrSubmitActionPerformed(evt);
+                submitButtonActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("You will be asked 10 multiple choice questions about computers.\nPlease select the option you feel best answers the question.\nClick Submit once you have made your selection. \nGood Luck!");
-        jScrollPane1.setViewportView(jTextArea1);
+        questionArea.setColumns(20);
+        questionArea.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        questionArea.setRows(5);
+        questionArea.setText("You will be asked 10 multiple choice questions about computers.\nPlease select the option you feel best answers the question.\nClick Submit once you have made your selection. \nGood Luck!");
+        jScrollPane1.setViewportView(questionArea);
+
+        nextButton.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
+        nextButton.setText("NEXT");
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 186, Short.MAX_VALUE)
+                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(155, 155, 155))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(optionA)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(submitButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(nextButton)
+                        .addGap(32, 32, 32))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(155, 155, 155)
-                                .addComponent(titleLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(177, 177, 177)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(playOrSubmit)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(optionB)
-                                        .addComponent(optionA)
-                                        .addComponent(optionC))
-                                    .addComponent(optionD))))
-                        .addGap(0, 145, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(optionD)
+                            .addComponent(optionC)
+                            .addComponent(optionB))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,7 +165,7 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
                 .addComponent(titleLabel)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(optionA)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(optionB)
@@ -156,8 +174,10 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addComponent(optionD)
                 .addGap(18, 18, 18)
-                .addComponent(playOrSubmit)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(submitButton)
+                    .addComponent(nextButton))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -171,19 +191,27 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_optionCActionPerformed
 
-    private void playOrSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playOrSubmitActionPerformed
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        nextButton.setEnabled(true);
+    }//GEN-LAST:event_submitButtonActionPerformed
 
-        incrementNumber(questionNumber);
-        System.out.println("RUNNING submit" + questionNumber);
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        if (questionNumber == 10) {
+            new FinalScreen().setVisible(true);
+            this.setVisible(false);
+        } else {
+            incrementNumber();
+            displayQuestionAndOptions();
+            nextButton.setEnabled(false);
+        }
 
-
-    }//GEN-LAST:event_playOrSubmitActionPerformed
-
-    public void incrementNumber(int questionNumber) {
+    }//GEN-LAST:event_nextButtonActionPerformed
+    
+    public void incrementNumber() {
         questionNumber++;
         titleLabel.setText("Question " + questionNumber);
     }
-
+    
     public void getQuestions() {
         for (int i = 0; i < 10; i++) {
             boolean filledIn = false;
@@ -197,17 +225,21 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
                 }
             }
             System.out.println(childQuestions.get(random).getFirstChildElement("QuestionName").getValue());
-            System.out.println(Math.floor(-6.4));
         }
     }
     
-    public void printQuestions() {
-        
-    }
-
     public int generateRandomNumber() {
-        int randomQuestion = (int) (Math.random() * 10) + 1;
+        int randomQuestion = (int) (Math.random() * 12);
+        System.out.println(randomQuestion);
         return randomQuestion;
+    }
+    
+    public void displayQuestionAndOptions() {
+        questionArea.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("QuestionName").getValue());
+        optionA.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("optionA").getValue());
+        optionB.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("optionB").getValue());
+        optionC.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("optionC").getValue());
+        optionD.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("optionD").getValue());
     }
 
     /**
@@ -241,19 +273,20 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MultipleChoiceQuiz().setVisible(true);
-
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton nextButton;
     private javax.swing.JRadioButton optionA;
     private javax.swing.JRadioButton optionB;
     private javax.swing.JRadioButton optionC;
     private javax.swing.JRadioButton optionD;
-    private javax.swing.JButton playOrSubmit;
+    private javax.swing.JTextArea questionArea;
+    private javax.swing.JButton submitButton;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

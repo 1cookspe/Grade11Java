@@ -14,7 +14,6 @@ import javax.swing.JOptionPane;
  * @author 1cookspe
  */
 public class FinalScreen extends javax.swing.JFrame {
-    MultipleChoiceQuiz quiz = new MultipleChoiceQuiz();
 
     /**
      * Creates new form FinalScreen
@@ -117,7 +116,7 @@ public class FinalScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void playAgainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playAgainButtonActionPerformed
-        quiz.setVisible(true);
+        new MultipleChoiceQuiz().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_playAgainButtonActionPerformed
 
