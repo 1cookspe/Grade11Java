@@ -7,7 +7,12 @@
 package edu.hdsb.gwss.spencercook.ics3u.Summative;
 
 import edu.hdsb.gwss.spencercook.ics3u.u6.ArrayUtil;
+import java.awt.Color;
+import java.awt.Font;
 import java.io.File;
+import javafx.scene.control.RadioButton;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
@@ -28,7 +33,7 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
     int score = 0;
     int[] questions;
     int random;
-    FinalScreen finalScreen = new FinalScreen();
+    Font wrongFont = new java.awt.Font("Rod", 0, 14);
 
     /**
      * Creates new form MultipleChoiceQuiz
@@ -36,6 +41,8 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
     public MultipleChoiceQuiz() {
 //        this.options = new JRadioButton[]{optionA, optionB, optionC, optionD};
         initComponents();
+        
+        questionArea.setEditable(false);
 
         //READ FROM FILE
         File file = new File("QuizQuestions.xml");
@@ -44,7 +51,7 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
             document = builder.build(file);
             questionRoot = document.getRootElement();
             childQuestions = questionRoot.getChildElements();
-            
+
         } catch (Exception e) {
             System.err.println(e);
         }
@@ -54,11 +61,12 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         for (int i = 0; i < questions.length; i++) {
             questions[i] = -1;
         }
-        
+
         getQuestions();
         displayQuestionAndOptions();
-        
+
         nextButton.setEnabled(false);
+
     }
 
     /**
@@ -95,6 +103,11 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
 
         optionB.setFont(new java.awt.Font("Rod", 0, 14)); // NOI18N
         optionB.setText("Option B");
+        optionB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optionBActionPerformed(evt);
+            }
+        });
 
         optionC.setFont(new java.awt.Font("Rod", 0, 14)); // NOI18N
         optionC.setText("Option C");
@@ -106,6 +119,11 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
 
         optionD.setFont(new java.awt.Font("Rod", 0, 14)); // NOI18N
         optionD.setText("Option D");
+        optionD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optionDActionPerformed(evt);
+            }
+        });
 
         submitButton.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         submitButton.setText("SUBMIT");
@@ -136,10 +154,6 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 186, Short.MAX_VALUE)
-                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(155, 155, 155))
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,16 +161,20 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
                         .addComponent(optionA)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(submitButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(nextButton)
-                        .addGap(32, 32, 32))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(optionD)
                             .addComponent(optionC)
                             .addComponent(optionB))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(submitButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                        .addComponent(nextButton)
+                        .addGap(31, 31, 31))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,31 +191,47 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
                 .addComponent(optionC)
                 .addGap(8, 8, 8)
                 .addComponent(optionD)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(nextButton))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void optionAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionAActionPerformed
-        // TODO add your handling code here:
+        if (optionA.isSelected()) {
+            optionB.setSelected(false);
+            optionC.setSelected(false);
+            optionD.setSelected(false);
+        }
     }//GEN-LAST:event_optionAActionPerformed
 
     private void optionCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionCActionPerformed
-        // TODO add your handling code here:
+        if (optionC.isSelected()) {
+            optionB.setSelected(false);
+            optionA.setSelected(false);
+            optionD.setSelected(false);
+        }
     }//GEN-LAST:event_optionCActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        nextButton.setEnabled(true);
+
+        if (!optionA.isSelected() && !optionB.isSelected() && !optionC.isSelected() && !optionD.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Oops! Please select an option before proceeding!");
+        } else {
+            nextButton.setEnabled(true);
+            String answer = childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("answer").getValue();
+            setCorrectAnswer(answer);
+        }
+
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         if (questionNumber == 10) {
-            new FinalScreen().setVisible(true);
+            new FinalScreen(score).setVisible(true);
             this.setVisible(false);
         } else {
             incrementNumber();
@@ -205,13 +239,38 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
             nextButton.setEnabled(false);
         }
 
+        optionA.setForeground(Color.black);
+        optionA.setSelected(false);
+        optionB.setForeground(Color.black);
+        optionB.setSelected(false);
+        optionC.setForeground(Color.black);
+        optionC.setSelected(false);
+        optionD.setForeground(Color.black);
+        optionD.setSelected(false);
+
     }//GEN-LAST:event_nextButtonActionPerformed
-    
+
+    private void optionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionBActionPerformed
+        if (optionB.isSelected()) {
+            optionA.setSelected(false);
+            optionC.setSelected(false);
+            optionD.setSelected(false);
+        }
+    }//GEN-LAST:event_optionBActionPerformed
+
+    private void optionDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionDActionPerformed
+        if (optionD.isSelected()) {
+            optionB.setSelected(false);
+            optionC.setSelected(false);
+            optionA.setSelected(false);
+        }
+    }//GEN-LAST:event_optionDActionPerformed
+
     public void incrementNumber() {
         questionNumber++;
         titleLabel.setText("Question " + questionNumber);
     }
-    
+
     public void getQuestions() {
         for (int i = 0; i < 10; i++) {
             boolean filledIn = false;
@@ -227,19 +286,56 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
             System.out.println(childQuestions.get(random).getFirstChildElement("QuestionName").getValue());
         }
     }
-    
+
     public int generateRandomNumber() {
         int randomQuestion = (int) (Math.random() * 12);
         System.out.println(randomQuestion);
         return randomQuestion;
     }
-    
+
     public void displayQuestionAndOptions() {
         questionArea.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("QuestionName").getValue());
         optionA.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("optionA").getValue());
         optionB.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("optionB").getValue());
         optionC.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("optionC").getValue());
         optionD.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("optionD").getValue());
+    }
+
+    public void setCorrectAnswer(String answer) {
+        if (optionA.getText().equals(answer)) {
+            optionA.setForeground(Color.green);
+            if (optionA.isSelected()) {
+                score++;
+            }
+            setIncorrectAnswers(optionB, optionC, optionD);
+        } else if (optionB.getText().equals(answer)) {
+            optionB.setForeground(Color.green);
+            if (optionB.isSelected()) {
+                score++;
+            }
+            setIncorrectAnswers(optionA, optionC, optionD);
+        } else if (optionC.getText().equals(answer)) {
+            optionC.setForeground(Color.green);
+            if (optionC.isSelected()) {
+                score++;
+            }
+            setIncorrectAnswers(optionA, optionB, optionD);
+        } else {
+            optionD.setForeground(Color.green);
+            if (optionD.isSelected()) {
+                score++;
+            }
+            setIncorrectAnswers(optionA, optionC, optionB);
+        }
+
+    }
+
+    public void setIncorrectAnswers(JRadioButton firstOption, JRadioButton secondOption, JRadioButton thirdOption) {
+        firstOption.setForeground(Color.red);
+        secondOption.setForeground(Color.red);
+        thirdOption.setForeground(Color.red);
+
+        System.out.println("Score = " + score);
     }
 
     /**
@@ -273,7 +369,7 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MultipleChoiceQuiz().setVisible(true);
-                
+
             }
         });
     }

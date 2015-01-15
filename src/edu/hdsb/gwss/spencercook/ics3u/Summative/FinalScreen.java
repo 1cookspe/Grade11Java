@@ -14,12 +14,34 @@ import javax.swing.JOptionPane;
  * @author 1cookspe
  */
 public class FinalScreen extends javax.swing.JFrame {
-
+int score;
     /**
      * Creates new form FinalScreen
      */
-    public FinalScreen() {
+    public FinalScreen( int s ) {
         initComponents();
+        score = s;
+        finalScoreLabel.setText(score + " / 10");
+        
+        if (score < 5) {
+            gradeLabel.setText("F");
+            resultsLabel.setText("You need to study more! Better luck next time!");
+        } else if (score < 6) {
+            gradeLabel.setText("D");
+            resultsLabel.setText("There's always room for improvement!");
+        } else if (score < 7) {
+            gradeLabel.setText("C");
+            resultsLabel.setText("Good effort! You're getting there!");
+        } else if (score < 8) {
+            gradeLabel.setText("B");
+            resultsLabel.setText("Nice work! With a little more work, you'll be a computer expert in no time!");
+        } else if (score < 9) {
+            gradeLabel.setText("A");
+            resultsLabel.setText("Great job! You're great with computers!");
+        } else {
+            gradeLabel.setText("A+");
+            resultsLabel.setText("Perfect! You're a computer genius!");
+        }
     }
 
     /**
@@ -154,7 +176,7 @@ public class FinalScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FinalScreen().setVisible(true);
+                new FinalScreen(5).setVisible(true);
             }
         });
     }
