@@ -10,7 +10,6 @@ import edu.hdsb.gwss.spencercook.ics3u.u6.ArrayUtil;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
-import javafx.scene.control.RadioButton;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import nu.xom.Builder;
@@ -19,12 +18,15 @@ import nu.xom.Element;
 import nu.xom.Elements;
 
 /**
- *
+ * This program displays multiple choice questions and answers to the user, as read from an xml file
  * @author spencercook
  */
 public class MultipleChoiceQuiz extends javax.swing.JFrame {
 //    JRadioButton[] options;
 
+    /**
+     * The global variables that will be used throughout the program
+     */
     //GLOBAL VARIABLES
     Document document;
     Element questionRoot;
@@ -37,11 +39,13 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
 
     /**
      * Creates new form MultipleChoiceQuiz
+     * and initializes display and user interface
      */
     public MultipleChoiceQuiz() {
 //        this.options = new JRadioButton[]{optionA, optionB, optionC, optionD};
         initComponents();
         
+        //Set question area to not be editable
         questionArea.setEditable(false);
 
         //READ FROM FILE
@@ -62,11 +66,13 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
             questions[i] = -1;
         }
 
+        //Call methods to randomly generate question numbers, and display them to user
         getQuestions();
         displayQuestionAndOptions();
 
+        //Disable next and enable submit button so user must input an answer before moving to next question
         nextButton.setEnabled(false);
-
+        submitButton.setEnabled(true);
     }
 
     /**
@@ -89,8 +95,10 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         nextButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(575, 400));
+        setResizable(false);
 
-        titleLabel.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         titleLabel.setText("Question 1");
 
         optionA.setFont(new java.awt.Font("Rod", 0, 14)); // NOI18N
@@ -134,7 +142,8 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         });
 
         questionArea.setColumns(20);
-        questionArea.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        questionArea.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        questionArea.setLineWrap(true);
         questionArea.setRows(5);
         questionArea.setText("You will be asked 10 multiple choice questions about computers.\nPlease select the option you feel best answers the question.\nClick Submit once you have made your selection. \nGood Luck!");
         jScrollPane1.setViewportView(questionArea);
@@ -172,8 +181,8 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
                         .addComponent(nextButton)
                         .addGap(31, 31, 31))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(173, 173, 173)
+                .addComponent(titleLabel)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -182,8 +191,8 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(titleLabel)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addComponent(optionA)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(optionB)
@@ -191,7 +200,7 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
                 .addComponent(optionC)
                 .addGap(8, 8, 8)
                 .addComponent(optionD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(nextButton))
@@ -201,7 +210,11 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*
+    The following methods eliminates the user from selecting multiple options at once, if optionA is selected
+    */
     private void optionAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionAActionPerformed
+        //Set other options as not selected if they already are
         if (optionA.isSelected()) {
             optionB.setSelected(false);
             optionC.setSelected(false);
@@ -209,7 +222,11 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_optionAActionPerformed
 
+    /*
+    The following methods eliminates the user from selecting multiple options at once, if option C is selected
+    */
     private void optionCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionCActionPerformed
+        //Set other options as not selected if they already are
         if (optionC.isSelected()) {
             optionB.setSelected(false);
             optionA.setSelected(false);
@@ -217,6 +234,10 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_optionCActionPerformed
 
+    /**
+     * Called when the SUBMIT button is pressed, and calls setCorrectAnswer() to display correct and incorrect options
+     * @param evt: The event (SUBMIT button pressed)
+     */
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
 
         if (!optionA.isSelected() && !optionB.isSelected() && !optionC.isSelected() && !optionD.isSelected()) {
@@ -225,10 +246,16 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
             nextButton.setEnabled(true);
             String answer = childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("answer").getValue();
             setCorrectAnswer(answer);
+            
+            submitButton.setEnabled(false);
         }
 
     }//GEN-LAST:event_submitButtonActionPerformed
 
+    /**
+     * Called when the NEXT button is pressed, and displays the next question 
+     * @param evt: The event (NEXT button pressed)
+     */
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         if (questionNumber == 10) {
             new FinalScreen(score).setVisible(true);
@@ -237,6 +264,7 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
             incrementNumber();
             displayQuestionAndOptions();
             nextButton.setEnabled(false);
+            submitButton.setEnabled(true);
         }
 
         optionA.setForeground(Color.black);
@@ -250,7 +278,11 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
 
     }//GEN-LAST:event_nextButtonActionPerformed
 
+    /**
+    The following methods eliminates the user from selecting multiple options at once, if option B is selected
+    */
     private void optionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionBActionPerformed
+        //Set other options as not selected if they already are
         if (optionB.isSelected()) {
             optionA.setSelected(false);
             optionC.setSelected(false);
@@ -258,7 +290,11 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_optionBActionPerformed
 
+    /**
+    The following methods eliminates the user from selecting multiple options at once, if optionA is selected
+    */
     private void optionDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionDActionPerformed
+        //Set other options as not selected if they already are
         if (optionD.isSelected()) {
             optionB.setSelected(false);
             optionC.setSelected(false);
@@ -266,12 +302,20 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_optionDActionPerformed
 
+    /**
+     * This method increments the question number
+     */
     public void incrementNumber() {
+        //Increment question number, and set title as the current question number
         questionNumber++;
         titleLabel.setText("Question " + questionNumber);
     }
 
+    /**
+     * This method randomly generates an array that corresponds to the questions stored in the xml file
+     */
     public void getQuestions() {
+        //Use for loop to randomize random numbers, which are checked by linearSearch that they do not already exist in the array
         for (int i = 0; i < 10; i++) {
             boolean filledIn = false;
             while (filledIn == false) {
@@ -279,29 +323,41 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
                 if (ArrayUtil.sequentialSearch(questions, random) == -1) {
                     questions[i] = random;
                     filledIn = true;
-                } else {
-                    filledIn = false;
                 }
             }
             System.out.println(childQuestions.get(random).getFirstChildElement("QuestionName").getValue());
         }
     }
 
+    /**
+     * Generates a random number
+     * @return A randomly generated number
+     */
     public int generateRandomNumber() {
+        //Generates random number
         int randomQuestion = (int) (Math.random() * 12);
         System.out.println(randomQuestion);
         return randomQuestion;
     }
 
+    /**
+     * Displays question and options to user
+     */
     public void displayQuestionAndOptions() {
-        questionArea.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("QuestionName").getValue());
+        //Set text fields to questions and options from xml
+        questionArea.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("QuestionName").getValue().trim());
         optionA.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("optionA").getValue());
         optionB.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("optionB").getValue());
         optionC.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("optionC").getValue());
         optionD.setText(childQuestions.get(questions[questionNumber - 1]).getFirstChildElement("optionD").getValue());
     }
 
+    /**
+     * Makes the correct answer green and checks if user is correct. If so, the score is incremented.
+     * @param answer: The answer of the question according to the xml file
+     */
     public void setCorrectAnswer(String answer) {
+        //Check if user is correct and set correct option to green
         if (optionA.getText().equals(answer)) {
             optionA.setForeground(Color.green);
             if (optionA.isSelected()) {
@@ -330,7 +386,14 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Sets incorrect numbers as red, so the user is aware of the wrong answers
+     * @param firstOption: The first option that is incorrect
+     * @param secondOption: The second option that is incorrect
+     * @param thirdOption: The third option that is incorrect
+     */
     public void setIncorrectAnswers(JRadioButton firstOption, JRadioButton secondOption, JRadioButton thirdOption) {
+        //Set incorrect options to red
         firstOption.setForeground(Color.red);
         secondOption.setForeground(Color.red);
         thirdOption.setForeground(Color.red);
@@ -339,6 +402,7 @@ public class MultipleChoiceQuiz extends javax.swing.JFrame {
     }
 
     /**
+     * Initializes display
      * @param args the command line arguments
      */
     public static void main(String args[]) {

@@ -11,9 +11,9 @@
     <Question>
         <QuestionName>Which of the following variables is pass by value?</QuestionName>
         <optionA>int i;</optionA>
-        <optionB>int[] j;</optionB>
+        <optionB>String[] j;</optionB>
         <optionC>String name;</optionC>
-        <optionD>PrintWriter pw;</optionD>
+        <optionD>Java java;</optionD>
         <answer>int i;</answer>
     </Question>
     <Question>

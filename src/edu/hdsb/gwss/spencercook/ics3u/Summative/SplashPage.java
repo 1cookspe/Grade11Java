@@ -7,7 +7,7 @@
 package edu.hdsb.gwss.spencercook.ics3u.Summative;
 
 /**
- *
+ * This program displays a splash page to welcome users to the program of a computer science multiple choice quiz
  * @author 1cookspe
  */
 public class SplashPage extends javax.swing.JFrame {
@@ -15,9 +15,11 @@ public class SplashPage extends javax.swing.JFrame {
     
     /**
      * Creates new form SplashPage
+     * Initializes the materials to show the user to welcome them to the program
      */
     public SplashPage() {
         initComponents();
+        instructionsTextArea.setEditable(false);
     }
 
     /**
@@ -35,6 +37,8 @@ public class SplashPage extends javax.swing.JFrame {
         playButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 277));
+        setResizable(false);
 
         welcomeLabel.setFont(new java.awt.Font("Swis721 BlkCn BT", 0, 18)); // NOI18N
         welcomeLabel.setText("Welcome to the Computer Science Quiz! ");
@@ -87,13 +91,19 @@ public class SplashPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Moves from Splash Page to Quiz page
+     * @param evt 
+     */
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
+        //Move to quiz
         quiz.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_playButtonActionPerformed
 
     /**
      * @param args the command line arguments
+     * Initializes form
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

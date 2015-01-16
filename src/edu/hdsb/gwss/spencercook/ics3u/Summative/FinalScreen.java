@@ -6,17 +6,17 @@
  */
 package edu.hdsb.gwss.spencercook.ics3u.Summative;
 
-import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * This program displays the final screen of the multiple choice quiz application, and shows the user their score
  * @author 1cookspe
  */
 public class FinalScreen extends javax.swing.JFrame {
 int score;
     /**
      * Creates new form FinalScreen
+     * Displays user's score and their grade, and how they can improve
      */
     public FinalScreen( int s ) {
         initComponents();
@@ -34,7 +34,7 @@ int score;
             resultsLabel.setText("Good effort! You're getting there!");
         } else if (score < 8) {
             gradeLabel.setText("B");
-            resultsLabel.setText("Nice work! With a little more work, you'll be a computer expert in no time!");
+            resultsLabel.setText("You'll be a computer expert in no time!");
         } else if (score < 9) {
             gradeLabel.setText("A");
             resultsLabel.setText("Great job! You're great with computers!");
@@ -61,6 +61,7 @@ int score;
         endGameButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         yourScoreLabel.setFont(new java.awt.Font("RomanD", 1, 18)); // NOI18N
         yourScoreLabel.setText("Your Score:");
@@ -137,13 +138,22 @@ int score;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Moves from Final Screen to Quiz Screen to allow the user to play again
+     * @param evt 
+     */
     private void playAgainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playAgainButtonActionPerformed
         new MultipleChoiceQuiz().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_playAgainButtonActionPerformed
 
+    /**
+     * Ends game by presenting user with JOptionPane that thanks them for playing
+     * @param evt 
+     */
     private void endGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endGameButtonActionPerformed
         JOptionPane.showMessageDialog(this, "Thank you for playing!");
+        System.exit(-1);
     }//GEN-LAST:event_endGameButtonActionPerformed
 
     /**
