@@ -38,8 +38,8 @@ public class TestReview {
 
         root.appendChild(begin);
 
-        firstElement.appendChild("YIYDSF");
-        secondElement.appendChild("SDFJDSJFJD");
+        firstElement.appendChild("testValue1");
+        secondElement.appendChild("testValue2");
 
         System.out.println(document.toXML());
 
@@ -92,8 +92,8 @@ public class TestReview {
 
         root.appendChild(begin);
 
-        firstElement.appendChild("YIYDSF");
-        secondElement.appendChild("SDFJDSJFJD");
+        firstElement.appendChild("testValue1");
+        secondElement.appendChild("testValue2");
 
         System.out.println(document.toXML());
 
